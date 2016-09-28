@@ -170,6 +170,10 @@ def configure_target_server(cluster_name, target)
         json = JSON.parse(File.read("#{cluster_name}.json"), symbolize_names: true)
         server_dns = "http://#{json[:server][:dns]}"
       end
+    when 'nrcan'
+      server_dns = 'http://132.156.197.49:8080'
+    else
+      server_dns = target
   end
 end
 
@@ -351,6 +355,13 @@ desc 'create the analysis files with more output'
 task :setup do
   analysis, _run_options = get_project
   save_analysis(analysis)
+end
+
+desc 'Create a cluster, but do not submit a job'
+task :create_cluster do
+  analysis, run_options = get_project
+  save_analysis(analysis)
+  create_cluster(run_options)
 end
 
 desc "run analysis with customized options"
@@ -538,12 +549,6 @@ task :run_local do
   task(:run_custom).invoke('local')
 end
 
-desc 'run local development (localhost:3000)'
-task :run_local_development do
-  # task(:run_custom).invoke('local_development', nil, nil, 'batch_run' )
-  task(:run_custom).invoke('local_development', nil, nil, 'batch_run_local' )
-end
-
 desc 'run NREL24a'
 task :run_NREL24a do
   task(:run_custom).invoke('nrel24a')
@@ -557,4 +562,9 @@ end
 desc "run NREL24"
 task :run_NREL24 do |t, args|
   task(:run_custom).invoke('nrel24')
+end
+
+desc "run nrcan"
+task :run_nrcan do |t, args|
+  task(:run_custom).invoke('nrcan')
 end

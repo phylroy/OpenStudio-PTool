@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ruleset Schedule Profile</title>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="file:///C:/Program Files/OpenStudio 1.6.0/share/openstudio/web_assets/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.3.9/d3.min.js"></script>
+<script type="text/javascript" src="file:///C:/Program Files/OpenStudio 1.6.0/share/openstudio/web_assets/jquery.min.js"></script>
+<script type="text/javascript" src="file:///C:/Program Files/OpenStudio 1.6.0/share/openstudio/web_assets/d3.min.js"></script>
+</head>
+<body>
+
+<table class="table table-striped">
+
+  
+      <tr>
+
+        <div id="chartContainer">
+        <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+
+        <script type="text/javascript">
+        var svg = dimple.newSvg("body", 450,500);
+        var data = [{"Type":" default profile - Medium Office Activity","Time":"1.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"2.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"3.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"4.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"5.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"6.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"7.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"8.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"9.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"10.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"11.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"12.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"13.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"14.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"15.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"16.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"17.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"18.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"19.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"20.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"21.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"22.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"23.0","Value":"120.0"},{"Type":" default profile - Medium Office Activity","Time":"24.0","Value":"120.0"},{"Type":" summer design day","Time":"1.0","Value":"120.0"},{"Type":" summer design day","Time":"2.0","Value":"120.0"},{"Type":" summer design day","Time":"3.0","Value":"120.0"},{"Type":" summer design day","Time":"4.0","Value":"120.0"},{"Type":" summer design day","Time":"5.0","Value":"120.0"},{"Type":" summer design day","Time":"6.0","Value":"120.0"},{"Type":" summer design day","Time":"7.0","Value":"120.0"},{"Type":" summer design day","Time":"8.0","Value":"120.0"},{"Type":" summer design day","Time":"9.0","Value":"120.0"},{"Type":" summer design day","Time":"10.0","Value":"120.0"},{"Type":" summer design day","Time":"11.0","Value":"120.0"},{"Type":" summer design day","Time":"12.0","Value":"120.0"},{"Type":" summer design day","Time":"13.0","Value":"120.0"},{"Type":" summer design day","Time":"14.0","Value":"120.0"},{"Type":" summer design day","Time":"15.0","Value":"120.0"},{"Type":" summer design day","Time":"16.0","Value":"120.0"},{"Type":" summer design day","Time":"17.0","Value":"120.0"},{"Type":" summer design day","Time":"18.0","Value":"120.0"},{"Type":" summer design day","Time":"19.0","Value":"120.0"},{"Type":" summer design day","Time":"20.0","Value":"120.0"},{"Type":" summer design day","Time":"21.0","Value":"120.0"},{"Type":" summer design day","Time":"22.0","Value":"120.0"},{"Type":" summer design day","Time":"23.0","Value":"120.0"},{"Type":" summer design day","Time":"24.0","Value":"120.0"},{"Type":" winter design day","Time":"1.0","Value":"120.0"},{"Type":" winter design day","Time":"2.0","Value":"120.0"},{"Type":" winter design day","Time":"3.0","Value":"120.0"},{"Type":" winter design day","Time":"4.0","Value":"120.0"},{"Type":" winter design day","Time":"5.0","Value":"120.0"},{"Type":" winter design day","Time":"6.0","Value":"120.0"},{"Type":" winter design day","Time":"7.0","Value":"120.0"},{"Type":" winter design day","Time":"8.0","Value":"120.0"},{"Type":" winter design day","Time":"9.0","Value":"120.0"},{"Type":" winter design day","Time":"10.0","Value":"120.0"},{"Type":" winter design day","Time":"11.0","Value":"120.0"},{"Type":" winter design day","Time":"12.0","Value":"120.0"},{"Type":" winter design day","Time":"13.0","Value":"120.0"},{"Type":" winter design day","Time":"14.0","Value":"120.0"},{"Type":" winter design day","Time":"15.0","Value":"120.0"},{"Type":" winter design day","Time":"16.0","Value":"120.0"},{"Type":" winter design day","Time":"17.0","Value":"120.0"},{"Type":" winter design day","Time":"18.0","Value":"120.0"},{"Type":" winter design day","Time":"19.0","Value":"120.0"},{"Type":" winter design day","Time":"20.0","Value":"120.0"},{"Type":" winter design day","Time":"21.0","Value":"120.0"},{"Type":" winter design day","Time":"22.0","Value":"120.0"},{"Type":" winter design day","Time":"23.0","Value":"120.0"},{"Type":" winter design day","Time":"24.0","Value":"120.0"}];
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 100, 340, 250)
+        var x = myChart.addCategoryAxis("x", "Time");
+        x.addOrderRule("Time");
+        myChart.addMeasureAxis("y", "Value");
+        var s = myChart.addSeries("Type", dimple.plot.line);
+        s.addOrderRule("Type");
+        s.interpolation = "step";
+        var myLegend = myChart.addLegend(60, 10, 300, 100, "left");
+
+        myLegend._getEntries = function () {
+            var entries = [];
+            if (this.series) {
+                this.series.forEach(function (series) {
+                    var data = series._positionData;
+                    data.forEach(function (row) {
+                        var index = -1,
+                            j,
+                            field = ((series.plot.grouped && !series.x._hasCategories() && !series.y._hasCategories() && row.aggField.length < 2 ? "All" : row.aggField.slice(-1)[0]));
+                        for (j = 0; j < entries.length; j += 1) {
+                            if (entries[j].key === field) {
+                                index = j;
+                                break;
+                            }
+                        }
+                        if (index === -1 && series.chart._assignedColors[field]) {
+                            entries.push({
+                                key: field,
+                                fill: series.chart._assignedColors[field].fill,
+                                stroke: series.chart._assignedColors[field].stroke,
+                                opacity: series.chart._assignedColors[field].opacity,
+                                series: series,
+                                aggField: row.aggField
+                            });
+                            index = entries.length - 1;
+                        }
+                    });
+                }, this);
+            }
+
+            // PUT YOUR SORTING LOGIC HERE
+            // For example to sort numeric values ascending
+            entries.sort(function (a, b) { return parseFloat(a.key) - parseFloat(b.key); });
+
+            return entries;
+        };
+
+        myChart.draw();
+        </script>
+        </div>
+
+      </tr>
+  
+      <tr>
+
+        <div id="chartContainer">
+        <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+
+        <script type="text/javascript">
+        var svg = dimple.newSvg("body", 450,500);
+        var data = [{"Type":" default profile - Medium Office Bldg Equip","Time":"1.0","Value":"0.4"},{"Type":" default profile - Medium Office Bldg Equip","Time":"2.0","Value":"0.4"},{"Type":" default profile - Medium Office Bldg Equip","Time":"3.0","Value":"0.4"},{"Type":" default profile - Medium Office Bldg Equip","Time":"4.0","Value":"0.4"},{"Type":" default profile - Medium Office Bldg Equip","Time":"5.0","Value":"0.4"},{"Type":" default profile - Medium Office Bldg Equip","Time":"6.0","Value":"0.4"},{"Type":" default profile - Medium Office Bldg Equip","Time":"7.0","Value":"0.4"},{"Type":" default profile - Medium Office Bldg Equip","Time":"8.0","Value":"0.4"},{"Type":" default profile - Medium Office Bldg Equip","Time":"9.0","Value":"0.9"},{"Type":" default profile - Medium Office Bldg Equip","Time":"10.0","Value":"0.9"},{"Type":" default profile - Medium Office Bldg Equip","Time":"11.0","Value":"0.9"},{"Type":" default profile - Medium Office Bldg Equip","Time":"12.0","Value":"0.9"},{"Type":" default profile - Medium Office Bldg Equip","Time":"13.0","Value":"0.8"},{"Type":" default profile - Medium Office Bldg Equip","Time":"14.0","Value":"0.9"},{"Type":" default profile - Medium Office Bldg Equip","Time":"15.0","Value":"0.9"},{"Type":" default profile - Medium Office Bldg Equip","Time":"16.0","Value":"0.9"},{"Type":" default profile - Medium Office Bldg Equip","Time":"17.0","Value":"0.9"},{"Type":" default profile - Medium Office Bldg Equip","Time":"18.0","Value":"0.8"},{"Type":" default profile - Medium Office Bldg Equip","Time":"19.0","Value":"0.6"},{"Type":" default profile - Medium Office Bldg Equip","Time":"20.0","Value":"0.6"},{"Type":" default profile - Medium Office Bldg Equip","Time":"21.0","Value":"0.5"},{"Type":" default profile - Medium Office Bldg Equip","Time":"22.0","Value":"0.5"},{"Type":" default profile - Medium Office Bldg Equip","Time":"23.0","Value":"0.4"},{"Type":" default profile - Medium Office Bldg Equip","Time":"24.0","Value":"0.4"},{"Type":" summer design day","Time":"1.0","Value":"1.0"},{"Type":" summer design day","Time":"2.0","Value":"1.0"},{"Type":" summer design day","Time":"3.0","Value":"1.0"},{"Type":" summer design day","Time":"4.0","Value":"1.0"},{"Type":" summer design day","Time":"5.0","Value":"1.0"},{"Type":" summer design day","Time":"6.0","Value":"1.0"},{"Type":" summer design day","Time":"7.0","Value":"1.0"},{"Type":" summer design day","Time":"8.0","Value":"1.0"},{"Type":" summer design day","Time":"9.0","Value":"1.0"},{"Type":" summer design day","Time":"10.0","Value":"1.0"},{"Type":" summer design day","Time":"11.0","Value":"1.0"},{"Type":" summer design day","Time":"12.0","Value":"1.0"},{"Type":" summer design day","Time":"13.0","Value":"1.0"},{"Type":" summer design day","Time":"14.0","Value":"1.0"},{"Type":" summer design day","Time":"15.0","Value":"1.0"},{"Type":" summer design day","Time":"16.0","Value":"1.0"},{"Type":" summer design day","Time":"17.0","Value":"1.0"},{"Type":" summer design day","Time":"18.0","Value":"1.0"},{"Type":" summer design day","Time":"19.0","Value":"1.0"},{"Type":" summer design day","Time":"20.0","Value":"1.0"},{"Type":" summer design day","Time":"21.0","Value":"1.0"},{"Type":" summer design day","Time":"22.0","Value":"1.0"},{"Type":" summer design day","Time":"23.0","Value":"1.0"},{"Type":" summer design day","Time":"24.0","Value":"1.0"},{"Type":" winter design day","Time":"1.0","Value":"0.0"},{"Type":" winter design day","Time":"2.0","Value":"0.0"},{"Type":" winter design day","Time":"3.0","Value":"0.0"},{"Type":" winter design day","Time":"4.0","Value":"0.0"},{"Type":" winter design day","Time":"5.0","Value":"0.0"},{"Type":" winter design day","Time":"6.0","Value":"0.0"},{"Type":" winter design day","Time":"7.0","Value":"0.0"},{"Type":" winter design day","Time":"8.0","Value":"0.0"},{"Type":" winter design day","Time":"9.0","Value":"0.0"},{"Type":" winter design day","Time":"10.0","Value":"0.0"},{"Type":" winter design day","Time":"11.0","Value":"0.0"},{"Type":" winter design day","Time":"12.0","Value":"0.0"},{"Type":" winter design day","Time":"13.0","Value":"0.0"},{"Type":" winter design day","Time":"14.0","Value":"0.0"},{"Type":" winter design day","Time":"15.0","Value":"0.0"},{"Type":" winter design day","Time":"16.0","Value":"0.0"},{"Type":" winter design day","Time":"17.0","Value":"0.0"},{"Type":" winter design day","Time":"18.0","Value":"0.0"},{"Type":" winter design day","Time":"19.0","Value":"0.0"},{"Type":" winter design day","Time":"20.0","Value":"0.0"},{"Type":" winter design day","Time":"21.0","Value":"0.0"},{"Type":" winter design day","Time":"22.0","Value":"0.0"},{"Type":" winter design day","Time":"23.0","Value":"0.0"},{"Type":" winter design day","Time":"24.0","Value":"0.0"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"1.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"2.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"3.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"4.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"5.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"6.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"7.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"8.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"9.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"10.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"11.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"12.0","Value":"0.385599821805954"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"13.0","Value":"0.385599821805954"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"14.0","Value":"0.385599821805954"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"15.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"16.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"17.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"18.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"19.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"20.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"21.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"22.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"23.0","Value":"0.300000011920929"},{"Type":"Priority 1 - (MonTue) 2006-Feb-01-2006-Feb-01","Time":"24.0","Value":"0.300000011920929"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"0.3"},{"Type":"Priority 2 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"0.3"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"0.3"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"0.3"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"0.3"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"0.3"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"0.3"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"0.3"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"0.4"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"0.4"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"0.5"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"0.5"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"0.5"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"0.5"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"0.5"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"0.5"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"0.35"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"0.35"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"0.35"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"0.3"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"0.3"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"0.3"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"0.3"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"0.3"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"0.3"},{"Type":"Priority 3 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"0.3"}];
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 100, 340, 250)
+        var x = myChart.addCategoryAxis("x", "Time");
+        x.addOrderRule("Time");
+        myChart.addMeasureAxis("y", "Value");
+        var s = myChart.addSeries("Type", dimple.plot.line);
+        s.addOrderRule("Type");
+        s.interpolation = "step";
+        var myLegend = myChart.addLegend(60, 10, 300, 100, "left");
+
+        myLegend._getEntries = function () {
+            var entries = [];
+            if (this.series) {
+                this.series.forEach(function (series) {
+                    var data = series._positionData;
+                    data.forEach(function (row) {
+                        var index = -1,
+                            j,
+                            field = ((series.plot.grouped && !series.x._hasCategories() && !series.y._hasCategories() && row.aggField.length < 2 ? "All" : row.aggField.slice(-1)[0]));
+                        for (j = 0; j < entries.length; j += 1) {
+                            if (entries[j].key === field) {
+                                index = j;
+                                break;
+                            }
+                        }
+                        if (index === -1 && series.chart._assignedColors[field]) {
+                            entries.push({
+                                key: field,
+                                fill: series.chart._assignedColors[field].fill,
+                                stroke: series.chart._assignedColors[field].stroke,
+                                opacity: series.chart._assignedColors[field].opacity,
+                                series: series,
+                                aggField: row.aggField
+                            });
+                            index = entries.length - 1;
+                        }
+                    });
+                }, this);
+            }
+
+            // PUT YOUR SORTING LOGIC HERE
+            // For example to sort numeric values ascending
+            entries.sort(function (a, b) { return parseFloat(a.key) - parseFloat(b.key); });
+
+            return entries;
+        };
+
+        myChart.draw();
+        </script>
+        </div>
+
+      </tr>
+  
+      <tr>
+
+        <div id="chartContainer">
+        <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+
+        <script type="text/javascript">
+        var svg = dimple.newSvg("body", 450,500);
+        var data = [{"Type":" default profile - Medium Office Bldg Occ","Time":"1.0","Value":"0.0"},{"Type":" default profile - Medium Office Bldg Occ","Time":"2.0","Value":"0.0"},{"Type":" default profile - Medium Office Bldg Occ","Time":"3.0","Value":"0.0"},{"Type":" default profile - Medium Office Bldg Occ","Time":"4.0","Value":"0.0"},{"Type":" default profile - Medium Office Bldg Occ","Time":"5.0","Value":"0.0"},{"Type":" default profile - Medium Office Bldg Occ","Time":"6.0","Value":"0.0"},{"Type":" default profile - Medium Office Bldg Occ","Time":"7.0","Value":"0.1"},{"Type":" default profile - Medium Office Bldg Occ","Time":"8.0","Value":"0.2"},{"Type":" default profile - Medium Office Bldg Occ","Time":"9.0","Value":"0.95"},{"Type":" default profile - Medium Office Bldg Occ","Time":"10.0","Value":"0.95"},{"Type":" default profile - Medium Office Bldg Occ","Time":"11.0","Value":"0.95"},{"Type":" default profile - Medium Office Bldg Occ","Time":"12.0","Value":"0.95"},{"Type":" default profile - Medium Office Bldg Occ","Time":"13.0","Value":"0.5"},{"Type":" default profile - Medium Office Bldg Occ","Time":"14.0","Value":"0.95"},{"Type":" default profile - Medium Office Bldg Occ","Time":"15.0","Value":"0.95"},{"Type":" default profile - Medium Office Bldg Occ","Time":"16.0","Value":"0.95"},{"Type":" default profile - Medium Office Bldg Occ","Time":"17.0","Value":"0.95"},{"Type":" default profile - Medium Office Bldg Occ","Time":"18.0","Value":"0.7"},{"Type":" default profile - Medium Office Bldg Occ","Time":"19.0","Value":"0.4"},{"Type":" default profile - Medium Office Bldg Occ","Time":"20.0","Value":"0.4"},{"Type":" default profile - Medium Office Bldg Occ","Time":"21.0","Value":"0.1"},{"Type":" default profile - Medium Office Bldg Occ","Time":"22.0","Value":"0.1"},{"Type":" default profile - Medium Office Bldg Occ","Time":"23.0","Value":"0.05"},{"Type":" default profile - Medium Office Bldg Occ","Time":"24.0","Value":"0.05"},{"Type":" summer design day","Time":"1.0","Value":"0.0"},{"Type":" summer design day","Time":"2.0","Value":"0.0"},{"Type":" summer design day","Time":"3.0","Value":"0.0"},{"Type":" summer design day","Time":"4.0","Value":"0.0"},{"Type":" summer design day","Time":"5.0","Value":"0.0"},{"Type":" summer design day","Time":"6.0","Value":"0.0"},{"Type":" summer design day","Time":"7.0","Value":"1.0"},{"Type":" summer design day","Time":"8.0","Value":"1.0"},{"Type":" summer design day","Time":"9.0","Value":"1.0"},{"Type":" summer design day","Time":"10.0","Value":"1.0"},{"Type":" summer design day","Time":"11.0","Value":"1.0"},{"Type":" summer design day","Time":"12.0","Value":"1.0"},{"Type":" summer design day","Time":"13.0","Value":"1.0"},{"Type":" summer design day","Time":"14.0","Value":"1.0"},{"Type":" summer design day","Time":"15.0","Value":"1.0"},{"Type":" summer design day","Time":"16.0","Value":"1.0"},{"Type":" summer design day","Time":"17.0","Value":"1.0"},{"Type":" summer design day","Time":"18.0","Value":"1.0"},{"Type":" summer design day","Time":"19.0","Value":"1.0"},{"Type":" summer design day","Time":"20.0","Value":"1.0"},{"Type":" summer design day","Time":"21.0","Value":"1.0"},{"Type":" summer design day","Time":"22.0","Value":"1.0"},{"Type":" summer design day","Time":"23.0","Value":"0.05"},{"Type":" summer design day","Time":"24.0","Value":"0.05"},{"Type":" winter design day","Time":"1.0","Value":"0.0"},{"Type":" winter design day","Time":"2.0","Value":"0.0"},{"Type":" winter design day","Time":"3.0","Value":"0.0"},{"Type":" winter design day","Time":"4.0","Value":"0.0"},{"Type":" winter design day","Time":"5.0","Value":"0.0"},{"Type":" winter design day","Time":"6.0","Value":"0.0"},{"Type":" winter design day","Time":"7.0","Value":"0.0"},{"Type":" winter design day","Time":"8.0","Value":"0.0"},{"Type":" winter design day","Time":"9.0","Value":"0.0"},{"Type":" winter design day","Time":"10.0","Value":"0.0"},{"Type":" winter design day","Time":"11.0","Value":"0.0"},{"Type":" winter design day","Time":"12.0","Value":"0.0"},{"Type":" winter design day","Time":"13.0","Value":"0.0"},{"Type":" winter design day","Time":"14.0","Value":"0.0"},{"Type":" winter design day","Time":"15.0","Value":"0.0"},{"Type":" winter design day","Time":"16.0","Value":"0.0"},{"Type":" winter design day","Time":"17.0","Value":"0.0"},{"Type":" winter design day","Time":"18.0","Value":"0.0"},{"Type":" winter design day","Time":"19.0","Value":"0.0"},{"Type":" winter design day","Time":"20.0","Value":"0.0"},{"Type":" winter design day","Time":"21.0","Value":"0.0"},{"Type":" winter design day","Time":"22.0","Value":"0.0"},{"Type":" winter design day","Time":"23.0","Value":"0.0"},{"Type":" winter design day","Time":"24.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"0.1"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"0.1"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"0.1"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"0.1"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"0.1"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"0.0"}];
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 100, 340, 250)
+        var x = myChart.addCategoryAxis("x", "Time");
+        x.addOrderRule("Time");
+        myChart.addMeasureAxis("y", "Value");
+        var s = myChart.addSeries("Type", dimple.plot.line);
+        s.addOrderRule("Type");
+        s.interpolation = "step";
+        var myLegend = myChart.addLegend(60, 10, 300, 100, "left");
+
+        myLegend._getEntries = function () {
+            var entries = [];
+            if (this.series) {
+                this.series.forEach(function (series) {
+                    var data = series._positionData;
+                    data.forEach(function (row) {
+                        var index = -1,
+                            j,
+                            field = ((series.plot.grouped && !series.x._hasCategories() && !series.y._hasCategories() && row.aggField.length < 2 ? "All" : row.aggField.slice(-1)[0]));
+                        for (j = 0; j < entries.length; j += 1) {
+                            if (entries[j].key === field) {
+                                index = j;
+                                break;
+                            }
+                        }
+                        if (index === -1 && series.chart._assignedColors[field]) {
+                            entries.push({
+                                key: field,
+                                fill: series.chart._assignedColors[field].fill,
+                                stroke: series.chart._assignedColors[field].stroke,
+                                opacity: series.chart._assignedColors[field].opacity,
+                                series: series,
+                                aggField: row.aggField
+                            });
+                            index = entries.length - 1;
+                        }
+                    });
+                }, this);
+            }
+
+            // PUT YOUR SORTING LOGIC HERE
+            // For example to sort numeric values ascending
+            entries.sort(function (a, b) { return parseFloat(a.key) - parseFloat(b.key); });
+
+            return entries;
+        };
+
+        myChart.draw();
+        </script>
+        </div>
+
+      </tr>
+  
+      <tr>
+
+        <div id="chartContainer">
+        <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+
+        <script type="text/javascript">
+        var svg = dimple.newSvg("body", 450,500);
+        var data = [{"Type":" default profile - Medium Office ClgSetp","Time":"1.0","Value":"26.7"},{"Type":" default profile - Medium Office ClgSetp","Time":"2.0","Value":"26.7"},{"Type":" default profile - Medium Office ClgSetp","Time":"3.0","Value":"26.7"},{"Type":" default profile - Medium Office ClgSetp","Time":"4.0","Value":"26.7"},{"Type":" default profile - Medium Office ClgSetp","Time":"5.0","Value":"26.7"},{"Type":" default profile - Medium Office ClgSetp","Time":"6.0","Value":"26.7"},{"Type":" default profile - Medium Office ClgSetp","Time":"7.0","Value":"24.0"},{"Type":" default profile - Medium Office ClgSetp","Time":"8.0","Value":"24.0"},{"Type":" default profile - Medium Office ClgSetp","Time":"9.0","Value":"24.0"},{"Type":" default profile - Medium Office ClgSetp","Time":"10.0","Value":"24.0"},{"Type":" default profile - Medium Office ClgSetp","Time":"11.0","Value":"24.0"},{"Type":" default profile - Medium Office ClgSetp","Time":"12.0","Value":"24.0"},{"Type":" default profile - Medium Office ClgSetp","Time":"13.0","Value":"24.0"},{"Type":" default profile - Medium Office ClgSetp","Time":"14.0","Value":"24.0"},{"Type":" default profile - Medium Office ClgSetp","Time":"15.0","Value":"24.0"},{"Type":" default profile - Medium Office ClgSetp","Time":"16.0","Value":"24.0"},{"Type":" default profile - Medium Office ClgSetp","Time":"17.0","Value":"24.0"},{"Type":" default profile - Medium Office ClgSetp","Time":"18.0","Value":"24.0"},{"Type":" default profile - Medium Office ClgSetp","Time":"19.0","Value":"24.0"},{"Type":" default profile - Medium Office ClgSetp","Time":"20.0","Value":"24.0"},{"Type":" default profile - Medium Office ClgSetp","Time":"21.0","Value":"24.0"},{"Type":" default profile - Medium Office ClgSetp","Time":"22.0","Value":"24.0"},{"Type":" default profile - Medium Office ClgSetp","Time":"23.0","Value":"26.7"},{"Type":" default profile - Medium Office ClgSetp","Time":"24.0","Value":"26.7"},{"Type":" summer design day","Time":"1.0","Value":"26.7"},{"Type":" summer design day","Time":"2.0","Value":"26.7"},{"Type":" summer design day","Time":"3.0","Value":"26.7"},{"Type":" summer design day","Time":"4.0","Value":"26.7"},{"Type":" summer design day","Time":"5.0","Value":"26.7"},{"Type":" summer design day","Time":"6.0","Value":"26.7"},{"Type":" summer design day","Time":"7.0","Value":"24.0"},{"Type":" summer design day","Time":"8.0","Value":"24.0"},{"Type":" summer design day","Time":"9.0","Value":"24.0"},{"Type":" summer design day","Time":"10.0","Value":"24.0"},{"Type":" summer design day","Time":"11.0","Value":"24.0"},{"Type":" summer design day","Time":"12.0","Value":"24.0"},{"Type":" summer design day","Time":"13.0","Value":"24.0"},{"Type":" summer design day","Time":"14.0","Value":"24.0"},{"Type":" summer design day","Time":"15.0","Value":"24.0"},{"Type":" summer design day","Time":"16.0","Value":"24.0"},{"Type":" summer design day","Time":"17.0","Value":"24.0"},{"Type":" summer design day","Time":"18.0","Value":"24.0"},{"Type":" summer design day","Time":"19.0","Value":"24.0"},{"Type":" summer design day","Time":"20.0","Value":"24.0"},{"Type":" summer design day","Time":"21.0","Value":"24.0"},{"Type":" summer design day","Time":"22.0","Value":"24.0"},{"Type":" summer design day","Time":"23.0","Value":"26.7"},{"Type":" summer design day","Time":"24.0","Value":"26.7"},{"Type":" winter design day","Time":"1.0","Value":"26.7"},{"Type":" winter design day","Time":"2.0","Value":"26.7"},{"Type":" winter design day","Time":"3.0","Value":"26.7"},{"Type":" winter design day","Time":"4.0","Value":"26.7"},{"Type":" winter design day","Time":"5.0","Value":"26.7"},{"Type":" winter design day","Time":"6.0","Value":"26.7"},{"Type":" winter design day","Time":"7.0","Value":"26.7"},{"Type":" winter design day","Time":"8.0","Value":"26.7"},{"Type":" winter design day","Time":"9.0","Value":"26.7"},{"Type":" winter design day","Time":"10.0","Value":"26.7"},{"Type":" winter design day","Time":"11.0","Value":"26.7"},{"Type":" winter design day","Time":"12.0","Value":"26.7"},{"Type":" winter design day","Time":"13.0","Value":"26.7"},{"Type":" winter design day","Time":"14.0","Value":"26.7"},{"Type":" winter design day","Time":"15.0","Value":"26.7"},{"Type":" winter design day","Time":"16.0","Value":"26.7"},{"Type":" winter design day","Time":"17.0","Value":"26.7"},{"Type":" winter design day","Time":"18.0","Value":"26.7"},{"Type":" winter design day","Time":"19.0","Value":"26.7"},{"Type":" winter design day","Time":"20.0","Value":"26.7"},{"Type":" winter design day","Time":"21.0","Value":"26.7"},{"Type":" winter design day","Time":"22.0","Value":"26.7"},{"Type":" winter design day","Time":"23.0","Value":"26.7"},{"Type":" winter design day","Time":"24.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"26.7"}];
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 100, 340, 250)
+        var x = myChart.addCategoryAxis("x", "Time");
+        x.addOrderRule("Time");
+        myChart.addMeasureAxis("y", "Value");
+        var s = myChart.addSeries("Type", dimple.plot.line);
+        s.addOrderRule("Type");
+        s.interpolation = "step";
+        var myLegend = myChart.addLegend(60, 10, 300, 100, "left");
+
+        myLegend._getEntries = function () {
+            var entries = [];
+            if (this.series) {
+                this.series.forEach(function (series) {
+                    var data = series._positionData;
+                    data.forEach(function (row) {
+                        var index = -1,
+                            j,
+                            field = ((series.plot.grouped && !series.x._hasCategories() && !series.y._hasCategories() && row.aggField.length < 2 ? "All" : row.aggField.slice(-1)[0]));
+                        for (j = 0; j < entries.length; j += 1) {
+                            if (entries[j].key === field) {
+                                index = j;
+                                break;
+                            }
+                        }
+                        if (index === -1 && series.chart._assignedColors[field]) {
+                            entries.push({
+                                key: field,
+                                fill: series.chart._assignedColors[field].fill,
+                                stroke: series.chart._assignedColors[field].stroke,
+                                opacity: series.chart._assignedColors[field].opacity,
+                                series: series,
+                                aggField: row.aggField
+                            });
+                            index = entries.length - 1;
+                        }
+                    });
+                }, this);
+            }
+
+            // PUT YOUR SORTING LOGIC HERE
+            // For example to sort numeric values ascending
+            entries.sort(function (a, b) { return parseFloat(a.key) - parseFloat(b.key); });
+
+            return entries;
+        };
+
+        myChart.draw();
+        </script>
+        </div>
+
+      </tr>
+  
+      <tr>
+
+        <div id="chartContainer">
+        <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+
+        <script type="text/javascript">
+        var svg = dimple.newSvg("body", 450,500);
+        var data = [{"Type":" default profile - Medium Office HtgSetp","Time":"1.0","Value":"15.6"},{"Type":" default profile - Medium Office HtgSetp","Time":"2.0","Value":"15.6"},{"Type":" default profile - Medium Office HtgSetp","Time":"3.0","Value":"15.6"},{"Type":" default profile - Medium Office HtgSetp","Time":"4.0","Value":"15.6"},{"Type":" default profile - Medium Office HtgSetp","Time":"5.0","Value":"15.6"},{"Type":" default profile - Medium Office HtgSetp","Time":"6.0","Value":"15.6"},{"Type":" default profile - Medium Office HtgSetp","Time":"7.0","Value":"21.0"},{"Type":" default profile - Medium Office HtgSetp","Time":"8.0","Value":"21.0"},{"Type":" default profile - Medium Office HtgSetp","Time":"9.0","Value":"21.0"},{"Type":" default profile - Medium Office HtgSetp","Time":"10.0","Value":"21.0"},{"Type":" default profile - Medium Office HtgSetp","Time":"11.0","Value":"21.0"},{"Type":" default profile - Medium Office HtgSetp","Time":"12.0","Value":"21.0"},{"Type":" default profile - Medium Office HtgSetp","Time":"13.0","Value":"21.0"},{"Type":" default profile - Medium Office HtgSetp","Time":"14.0","Value":"21.0"},{"Type":" default profile - Medium Office HtgSetp","Time":"15.0","Value":"21.0"},{"Type":" default profile - Medium Office HtgSetp","Time":"16.0","Value":"21.0"},{"Type":" default profile - Medium Office HtgSetp","Time":"17.0","Value":"21.0"},{"Type":" default profile - Medium Office HtgSetp","Time":"18.0","Value":"21.0"},{"Type":" default profile - Medium Office HtgSetp","Time":"19.0","Value":"21.0"},{"Type":" default profile - Medium Office HtgSetp","Time":"20.0","Value":"21.0"},{"Type":" default profile - Medium Office HtgSetp","Time":"21.0","Value":"21.0"},{"Type":" default profile - Medium Office HtgSetp","Time":"22.0","Value":"21.0"},{"Type":" default profile - Medium Office HtgSetp","Time":"23.0","Value":"15.6"},{"Type":" default profile - Medium Office HtgSetp","Time":"24.0","Value":"15.6"},{"Type":" summer design day","Time":"1.0","Value":"15.6"},{"Type":" summer design day","Time":"2.0","Value":"15.6"},{"Type":" summer design day","Time":"3.0","Value":"15.6"},{"Type":" summer design day","Time":"4.0","Value":"15.6"},{"Type":" summer design day","Time":"5.0","Value":"15.6"},{"Type":" summer design day","Time":"6.0","Value":"15.6"},{"Type":" summer design day","Time":"7.0","Value":"15.6"},{"Type":" summer design day","Time":"8.0","Value":"15.6"},{"Type":" summer design day","Time":"9.0","Value":"15.6"},{"Type":" summer design day","Time":"10.0","Value":"15.6"},{"Type":" summer design day","Time":"11.0","Value":"15.6"},{"Type":" summer design day","Time":"12.0","Value":"15.6"},{"Type":" summer design day","Time":"13.0","Value":"15.6"},{"Type":" summer design day","Time":"14.0","Value":"15.6"},{"Type":" summer design day","Time":"15.0","Value":"15.6"},{"Type":" summer design day","Time":"16.0","Value":"15.6"},{"Type":" summer design day","Time":"17.0","Value":"15.6"},{"Type":" summer design day","Time":"18.0","Value":"15.6"},{"Type":" summer design day","Time":"19.0","Value":"15.6"},{"Type":" summer design day","Time":"20.0","Value":"15.6"},{"Type":" summer design day","Time":"21.0","Value":"15.6"},{"Type":" summer design day","Time":"22.0","Value":"15.6"},{"Type":" summer design day","Time":"23.0","Value":"15.6"},{"Type":" summer design day","Time":"24.0","Value":"15.6"},{"Type":" winter design day","Time":"1.0","Value":"21.0"},{"Type":" winter design day","Time":"2.0","Value":"21.0"},{"Type":" winter design day","Time":"3.0","Value":"21.0"},{"Type":" winter design day","Time":"4.0","Value":"21.0"},{"Type":" winter design day","Time":"5.0","Value":"21.0"},{"Type":" winter design day","Time":"6.0","Value":"21.0"},{"Type":" winter design day","Time":"7.0","Value":"21.0"},{"Type":" winter design day","Time":"8.0","Value":"21.0"},{"Type":" winter design day","Time":"9.0","Value":"21.0"},{"Type":" winter design day","Time":"10.0","Value":"21.0"},{"Type":" winter design day","Time":"11.0","Value":"21.0"},{"Type":" winter design day","Time":"12.0","Value":"21.0"},{"Type":" winter design day","Time":"13.0","Value":"21.0"},{"Type":" winter design day","Time":"14.0","Value":"21.0"},{"Type":" winter design day","Time":"15.0","Value":"21.0"},{"Type":" winter design day","Time":"16.0","Value":"21.0"},{"Type":" winter design day","Time":"17.0","Value":"21.0"},{"Type":" winter design day","Time":"18.0","Value":"21.0"},{"Type":" winter design day","Time":"19.0","Value":"21.0"},{"Type":" winter design day","Time":"20.0","Value":"21.0"},{"Type":" winter design day","Time":"21.0","Value":"21.0"},{"Type":" winter design day","Time":"22.0","Value":"21.0"},{"Type":" winter design day","Time":"23.0","Value":"21.0"},{"Type":" winter design day","Time":"24.0","Value":"21.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"15.6"}];
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 100, 340, 250)
+        var x = myChart.addCategoryAxis("x", "Time");
+        x.addOrderRule("Time");
+        myChart.addMeasureAxis("y", "Value");
+        var s = myChart.addSeries("Type", dimple.plot.line);
+        s.addOrderRule("Type");
+        s.interpolation = "step";
+        var myLegend = myChart.addLegend(60, 10, 300, 100, "left");
+
+        myLegend._getEntries = function () {
+            var entries = [];
+            if (this.series) {
+                this.series.forEach(function (series) {
+                    var data = series._positionData;
+                    data.forEach(function (row) {
+                        var index = -1,
+                            j,
+                            field = ((series.plot.grouped && !series.x._hasCategories() && !series.y._hasCategories() && row.aggField.length < 2 ? "All" : row.aggField.slice(-1)[0]));
+                        for (j = 0; j < entries.length; j += 1) {
+                            if (entries[j].key === field) {
+                                index = j;
+                                break;
+                            }
+                        }
+                        if (index === -1 && series.chart._assignedColors[field]) {
+                            entries.push({
+                                key: field,
+                                fill: series.chart._assignedColors[field].fill,
+                                stroke: series.chart._assignedColors[field].stroke,
+                                opacity: series.chart._assignedColors[field].opacity,
+                                series: series,
+                                aggField: row.aggField
+                            });
+                            index = entries.length - 1;
+                        }
+                    });
+                }, this);
+            }
+
+            // PUT YOUR SORTING LOGIC HERE
+            // For example to sort numeric values ascending
+            entries.sort(function (a, b) { return parseFloat(a.key) - parseFloat(b.key); });
+
+            return entries;
+        };
+
+        myChart.draw();
+        </script>
+        </div>
+
+      </tr>
+  
+      <tr>
+
+        <div id="chartContainer">
+        <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+
+        <script type="text/javascript">
+        var svg = dimple.newSvg("body", 450,500);
+        var data = [{"Type":" default profile - Medium Office Infil Quarter On","Time":"1.0","Value":"1.0"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"2.0","Value":"1.0"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"3.0","Value":"1.0"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"4.0","Value":"1.0"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"5.0","Value":"1.0"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"6.0","Value":"1.0"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"7.0","Value":"0.25"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"8.0","Value":"0.25"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"9.0","Value":"0.25"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"10.0","Value":"0.25"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"11.0","Value":"0.25"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"12.0","Value":"0.25"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"13.0","Value":"0.25"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"14.0","Value":"0.25"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"15.0","Value":"0.25"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"16.0","Value":"0.25"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"17.0","Value":"0.25"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"18.0","Value":"0.25"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"19.0","Value":"0.25"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"20.0","Value":"0.25"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"21.0","Value":"0.25"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"22.0","Value":"0.25"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"23.0","Value":"1.0"},{"Type":" default profile - Medium Office Infil Quarter On","Time":"24.0","Value":"1.0"},{"Type":" summer design day","Time":"1.0","Value":"1.0"},{"Type":" summer design day","Time":"2.0","Value":"1.0"},{"Type":" summer design day","Time":"3.0","Value":"1.0"},{"Type":" summer design day","Time":"4.0","Value":"1.0"},{"Type":" summer design day","Time":"5.0","Value":"1.0"},{"Type":" summer design day","Time":"6.0","Value":"1.0"},{"Type":" summer design day","Time":"7.0","Value":"0.25"},{"Type":" summer design day","Time":"8.0","Value":"0.25"},{"Type":" summer design day","Time":"9.0","Value":"0.25"},{"Type":" summer design day","Time":"10.0","Value":"0.25"},{"Type":" summer design day","Time":"11.0","Value":"0.25"},{"Type":" summer design day","Time":"12.0","Value":"0.25"},{"Type":" summer design day","Time":"13.0","Value":"0.25"},{"Type":" summer design day","Time":"14.0","Value":"0.25"},{"Type":" summer design day","Time":"15.0","Value":"0.25"},{"Type":" summer design day","Time":"16.0","Value":"0.25"},{"Type":" summer design day","Time":"17.0","Value":"0.25"},{"Type":" summer design day","Time":"18.0","Value":"0.25"},{"Type":" summer design day","Time":"19.0","Value":"0.25"},{"Type":" summer design day","Time":"20.0","Value":"0.25"},{"Type":" summer design day","Time":"21.0","Value":"0.25"},{"Type":" summer design day","Time":"22.0","Value":"0.25"},{"Type":" summer design day","Time":"23.0","Value":"1.0"},{"Type":" summer design day","Time":"24.0","Value":"1.0"},{"Type":" winter design day","Time":"1.0","Value":"1.0"},{"Type":" winter design day","Time":"2.0","Value":"1.0"},{"Type":" winter design day","Time":"3.0","Value":"1.0"},{"Type":" winter design day","Time":"4.0","Value":"1.0"},{"Type":" winter design day","Time":"5.0","Value":"1.0"},{"Type":" winter design day","Time":"6.0","Value":"1.0"},{"Type":" winter design day","Time":"7.0","Value":"0.25"},{"Type":" winter design day","Time":"8.0","Value":"0.25"},{"Type":" winter design day","Time":"9.0","Value":"0.25"},{"Type":" winter design day","Time":"10.0","Value":"0.25"},{"Type":" winter design day","Time":"11.0","Value":"0.25"},{"Type":" winter design day","Time":"12.0","Value":"0.25"},{"Type":" winter design day","Time":"13.0","Value":"0.25"},{"Type":" winter design day","Time":"14.0","Value":"0.25"},{"Type":" winter design day","Time":"15.0","Value":"0.25"},{"Type":" winter design day","Time":"16.0","Value":"0.25"},{"Type":" winter design day","Time":"17.0","Value":"0.25"},{"Type":" winter design day","Time":"18.0","Value":"0.25"},{"Type":" winter design day","Time":"19.0","Value":"1.0"},{"Type":" winter design day","Time":"20.0","Value":"1.0"},{"Type":" winter design day","Time":"21.0","Value":"1.0"},{"Type":" winter design day","Time":"22.0","Value":"1.0"},{"Type":" winter design day","Time":"23.0","Value":"1.0"},{"Type":" winter design day","Time":"24.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"1.0"}];
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 100, 340, 250)
+        var x = myChart.addCategoryAxis("x", "Time");
+        x.addOrderRule("Time");
+        myChart.addMeasureAxis("y", "Value");
+        var s = myChart.addSeries("Type", dimple.plot.line);
+        s.addOrderRule("Type");
+        s.interpolation = "step";
+        var myLegend = myChart.addLegend(60, 10, 300, 100, "left");
+
+        myLegend._getEntries = function () {
+            var entries = [];
+            if (this.series) {
+                this.series.forEach(function (series) {
+                    var data = series._positionData;
+                    data.forEach(function (row) {
+                        var index = -1,
+                            j,
+                            field = ((series.plot.grouped && !series.x._hasCategories() && !series.y._hasCategories() && row.aggField.length < 2 ? "All" : row.aggField.slice(-1)[0]));
+                        for (j = 0; j < entries.length; j += 1) {
+                            if (entries[j].key === field) {
+                                index = j;
+                                break;
+                            }
+                        }
+                        if (index === -1 && series.chart._assignedColors[field]) {
+                            entries.push({
+                                key: field,
+                                fill: series.chart._assignedColors[field].fill,
+                                stroke: series.chart._assignedColors[field].stroke,
+                                opacity: series.chart._assignedColors[field].opacity,
+                                series: series,
+                                aggField: row.aggField
+                            });
+                            index = entries.length - 1;
+                        }
+                    });
+                }, this);
+            }
+
+            // PUT YOUR SORTING LOGIC HERE
+            // For example to sort numeric values ascending
+            entries.sort(function (a, b) { return parseFloat(a.key) - parseFloat(b.key); });
+
+            return entries;
+        };
+
+        myChart.draw();
+        </script>
+        </div>
+
+      </tr>
+  
+      <tr>
+
+        <div id="chartContainer">
+        <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+
+        <script type="text/javascript">
+        var svg = dimple.newSvg("body", 450,500);
+        var data = [{"Type":" default profile - Office Activity","Time":"1.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"2.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"3.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"4.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"5.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"6.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"7.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"8.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"9.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"10.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"11.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"12.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"13.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"14.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"15.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"16.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"17.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"18.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"19.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"20.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"21.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"22.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"23.0","Value":"132.0"},{"Type":" default profile - Office Activity","Time":"24.0","Value":"132.0"},{"Type":" summer design day","Time":"1.0","Value":"132.0"},{"Type":" summer design day","Time":"2.0","Value":"132.0"},{"Type":" summer design day","Time":"3.0","Value":"132.0"},{"Type":" summer design day","Time":"4.0","Value":"132.0"},{"Type":" summer design day","Time":"5.0","Value":"132.0"},{"Type":" summer design day","Time":"6.0","Value":"132.0"},{"Type":" summer design day","Time":"7.0","Value":"132.0"},{"Type":" summer design day","Time":"8.0","Value":"132.0"},{"Type":" summer design day","Time":"9.0","Value":"132.0"},{"Type":" summer design day","Time":"10.0","Value":"132.0"},{"Type":" summer design day","Time":"11.0","Value":"132.0"},{"Type":" summer design day","Time":"12.0","Value":"132.0"},{"Type":" summer design day","Time":"13.0","Value":"132.0"},{"Type":" summer design day","Time":"14.0","Value":"132.0"},{"Type":" summer design day","Time":"15.0","Value":"132.0"},{"Type":" summer design day","Time":"16.0","Value":"132.0"},{"Type":" summer design day","Time":"17.0","Value":"132.0"},{"Type":" summer design day","Time":"18.0","Value":"132.0"},{"Type":" summer design day","Time":"19.0","Value":"132.0"},{"Type":" summer design day","Time":"20.0","Value":"132.0"},{"Type":" summer design day","Time":"21.0","Value":"132.0"},{"Type":" summer design day","Time":"22.0","Value":"132.0"},{"Type":" summer design day","Time":"23.0","Value":"132.0"},{"Type":" summer design day","Time":"24.0","Value":"132.0"},{"Type":" winter design day","Time":"1.0","Value":"132.0"},{"Type":" winter design day","Time":"2.0","Value":"132.0"},{"Type":" winter design day","Time":"3.0","Value":"132.0"},{"Type":" winter design day","Time":"4.0","Value":"132.0"},{"Type":" winter design day","Time":"5.0","Value":"132.0"},{"Type":" winter design day","Time":"6.0","Value":"132.0"},{"Type":" winter design day","Time":"7.0","Value":"132.0"},{"Type":" winter design day","Time":"8.0","Value":"132.0"},{"Type":" winter design day","Time":"9.0","Value":"132.0"},{"Type":" winter design day","Time":"10.0","Value":"132.0"},{"Type":" winter design day","Time":"11.0","Value":"132.0"},{"Type":" winter design day","Time":"12.0","Value":"132.0"},{"Type":" winter design day","Time":"13.0","Value":"132.0"},{"Type":" winter design day","Time":"14.0","Value":"132.0"},{"Type":" winter design day","Time":"15.0","Value":"132.0"},{"Type":" winter design day","Time":"16.0","Value":"132.0"},{"Type":" winter design day","Time":"17.0","Value":"132.0"},{"Type":" winter design day","Time":"18.0","Value":"132.0"},{"Type":" winter design day","Time":"19.0","Value":"132.0"},{"Type":" winter design day","Time":"20.0","Value":"132.0"},{"Type":" winter design day","Time":"21.0","Value":"132.0"},{"Type":" winter design day","Time":"22.0","Value":"132.0"},{"Type":" winter design day","Time":"23.0","Value":"132.0"},{"Type":" winter design day","Time":"24.0","Value":"132.0"}];
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 100, 340, 250)
+        var x = myChart.addCategoryAxis("x", "Time");
+        x.addOrderRule("Time");
+        myChart.addMeasureAxis("y", "Value");
+        var s = myChart.addSeries("Type", dimple.plot.line);
+        s.addOrderRule("Type");
+        s.interpolation = "step";
+        var myLegend = myChart.addLegend(60, 10, 300, 100, "left");
+
+        myLegend._getEntries = function () {
+            var entries = [];
+            if (this.series) {
+                this.series.forEach(function (series) {
+                    var data = series._positionData;
+                    data.forEach(function (row) {
+                        var index = -1,
+                            j,
+                            field = ((series.plot.grouped && !series.x._hasCategories() && !series.y._hasCategories() && row.aggField.length < 2 ? "All" : row.aggField.slice(-1)[0]));
+                        for (j = 0; j < entries.length; j += 1) {
+                            if (entries[j].key === field) {
+                                index = j;
+                                break;
+                            }
+                        }
+                        if (index === -1 && series.chart._assignedColors[field]) {
+                            entries.push({
+                                key: field,
+                                fill: series.chart._assignedColors[field].fill,
+                                stroke: series.chart._assignedColors[field].stroke,
+                                opacity: series.chart._assignedColors[field].opacity,
+                                series: series,
+                                aggField: row.aggField
+                            });
+                            index = entries.length - 1;
+                        }
+                    });
+                }, this);
+            }
+
+            // PUT YOUR SORTING LOGIC HERE
+            // For example to sort numeric values ascending
+            entries.sort(function (a, b) { return parseFloat(a.key) - parseFloat(b.key); });
+
+            return entries;
+        };
+
+        myChart.draw();
+        </script>
+        </div>
+
+      </tr>
+  
+      <tr>
+
+        <div id="chartContainer">
+        <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+
+        <script type="text/javascript">
+        var svg = dimple.newSvg("body", 450,500);
+        var data = [{"Type":" default profile - Office Bldg Equip","Time":"1.0","Value":"0.4"},{"Type":" default profile - Office Bldg Equip","Time":"2.0","Value":"0.4"},{"Type":" default profile - Office Bldg Equip","Time":"3.0","Value":"0.4"},{"Type":" default profile - Office Bldg Equip","Time":"4.0","Value":"0.4"},{"Type":" default profile - Office Bldg Equip","Time":"5.0","Value":"0.4"},{"Type":" default profile - Office Bldg Equip","Time":"6.0","Value":"0.4"},{"Type":" default profile - Office Bldg Equip","Time":"7.0","Value":"0.4"},{"Type":" default profile - Office Bldg Equip","Time":"8.0","Value":"0.4"},{"Type":" default profile - Office Bldg Equip","Time":"9.0","Value":"0.9"},{"Type":" default profile - Office Bldg Equip","Time":"10.0","Value":"0.9"},{"Type":" default profile - Office Bldg Equip","Time":"11.0","Value":"0.9"},{"Type":" default profile - Office Bldg Equip","Time":"12.0","Value":"0.9"},{"Type":" default profile - Office Bldg Equip","Time":"13.0","Value":"0.8"},{"Type":" default profile - Office Bldg Equip","Time":"14.0","Value":"0.9"},{"Type":" default profile - Office Bldg Equip","Time":"15.0","Value":"0.9"},{"Type":" default profile - Office Bldg Equip","Time":"16.0","Value":"0.9"},{"Type":" default profile - Office Bldg Equip","Time":"17.0","Value":"0.9"},{"Type":" default profile - Office Bldg Equip","Time":"18.0","Value":"0.8"},{"Type":" default profile - Office Bldg Equip","Time":"19.0","Value":"0.6"},{"Type":" default profile - Office Bldg Equip","Time":"20.0","Value":"0.6"},{"Type":" default profile - Office Bldg Equip","Time":"21.0","Value":"0.5"},{"Type":" default profile - Office Bldg Equip","Time":"22.0","Value":"0.5"},{"Type":" default profile - Office Bldg Equip","Time":"23.0","Value":"0.4"},{"Type":" default profile - Office Bldg Equip","Time":"24.0","Value":"0.4"},{"Type":" summer design day","Time":"1.0","Value":"1.0"},{"Type":" summer design day","Time":"2.0","Value":"1.0"},{"Type":" summer design day","Time":"3.0","Value":"1.0"},{"Type":" summer design day","Time":"4.0","Value":"1.0"},{"Type":" summer design day","Time":"5.0","Value":"1.0"},{"Type":" summer design day","Time":"6.0","Value":"1.0"},{"Type":" summer design day","Time":"7.0","Value":"1.0"},{"Type":" summer design day","Time":"8.0","Value":"1.0"},{"Type":" summer design day","Time":"9.0","Value":"1.0"},{"Type":" summer design day","Time":"10.0","Value":"1.0"},{"Type":" summer design day","Time":"11.0","Value":"1.0"},{"Type":" summer design day","Time":"12.0","Value":"1.0"},{"Type":" summer design day","Time":"13.0","Value":"1.0"},{"Type":" summer design day","Time":"14.0","Value":"1.0"},{"Type":" summer design day","Time":"15.0","Value":"1.0"},{"Type":" summer design day","Time":"16.0","Value":"1.0"},{"Type":" summer design day","Time":"17.0","Value":"1.0"},{"Type":" summer design day","Time":"18.0","Value":"1.0"},{"Type":" summer design day","Time":"19.0","Value":"1.0"},{"Type":" summer design day","Time":"20.0","Value":"1.0"},{"Type":" summer design day","Time":"21.0","Value":"1.0"},{"Type":" summer design day","Time":"22.0","Value":"1.0"},{"Type":" summer design day","Time":"23.0","Value":"1.0"},{"Type":" summer design day","Time":"24.0","Value":"1.0"},{"Type":" winter design day","Time":"1.0","Value":"0.0"},{"Type":" winter design day","Time":"2.0","Value":"0.0"},{"Type":" winter design day","Time":"3.0","Value":"0.0"},{"Type":" winter design day","Time":"4.0","Value":"0.0"},{"Type":" winter design day","Time":"5.0","Value":"0.0"},{"Type":" winter design day","Time":"6.0","Value":"0.0"},{"Type":" winter design day","Time":"7.0","Value":"0.0"},{"Type":" winter design day","Time":"8.0","Value":"0.0"},{"Type":" winter design day","Time":"9.0","Value":"0.0"},{"Type":" winter design day","Time":"10.0","Value":"0.0"},{"Type":" winter design day","Time":"11.0","Value":"0.0"},{"Type":" winter design day","Time":"12.0","Value":"0.0"},{"Type":" winter design day","Time":"13.0","Value":"0.0"},{"Type":" winter design day","Time":"14.0","Value":"0.0"},{"Type":" winter design day","Time":"15.0","Value":"0.0"},{"Type":" winter design day","Time":"16.0","Value":"0.0"},{"Type":" winter design day","Time":"17.0","Value":"0.0"},{"Type":" winter design day","Time":"18.0","Value":"0.0"},{"Type":" winter design day","Time":"19.0","Value":"0.0"},{"Type":" winter design day","Time":"20.0","Value":"0.0"},{"Type":" winter design day","Time":"21.0","Value":"0.0"},{"Type":" winter design day","Time":"22.0","Value":"0.0"},{"Type":" winter design day","Time":"23.0","Value":"0.0"},{"Type":" winter design day","Time":"24.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"0.4"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"0.4"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"0.35"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"0.35"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"0.35"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"0.3"}];
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 100, 340, 250)
+        var x = myChart.addCategoryAxis("x", "Time");
+        x.addOrderRule("Time");
+        myChart.addMeasureAxis("y", "Value");
+        var s = myChart.addSeries("Type", dimple.plot.line);
+        s.addOrderRule("Type");
+        s.interpolation = "step";
+        var myLegend = myChart.addLegend(60, 10, 300, 100, "left");
+
+        myLegend._getEntries = function () {
+            var entries = [];
+            if (this.series) {
+                this.series.forEach(function (series) {
+                    var data = series._positionData;
+                    data.forEach(function (row) {
+                        var index = -1,
+                            j,
+                            field = ((series.plot.grouped && !series.x._hasCategories() && !series.y._hasCategories() && row.aggField.length < 2 ? "All" : row.aggField.slice(-1)[0]));
+                        for (j = 0; j < entries.length; j += 1) {
+                            if (entries[j].key === field) {
+                                index = j;
+                                break;
+                            }
+                        }
+                        if (index === -1 && series.chart._assignedColors[field]) {
+                            entries.push({
+                                key: field,
+                                fill: series.chart._assignedColors[field].fill,
+                                stroke: series.chart._assignedColors[field].stroke,
+                                opacity: series.chart._assignedColors[field].opacity,
+                                series: series,
+                                aggField: row.aggField
+                            });
+                            index = entries.length - 1;
+                        }
+                    });
+                }, this);
+            }
+
+            // PUT YOUR SORTING LOGIC HERE
+            // For example to sort numeric values ascending
+            entries.sort(function (a, b) { return parseFloat(a.key) - parseFloat(b.key); });
+
+            return entries;
+        };
+
+        myChart.draw();
+        </script>
+        </div>
+
+      </tr>
+  
+      <tr>
+
+        <div id="chartContainer">
+        <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+
+        <script type="text/javascript">
+        var svg = dimple.newSvg("body", 450,500);
+        var data = [{"Type":" default profile - Office Bldg Light","Time":"1.0","Value":"0.05"},{"Type":" default profile - Office Bldg Light","Time":"2.0","Value":"0.05"},{"Type":" default profile - Office Bldg Light","Time":"3.0","Value":"0.05"},{"Type":" default profile - Office Bldg Light","Time":"4.0","Value":"0.05"},{"Type":" default profile - Office Bldg Light","Time":"5.0","Value":"0.05"},{"Type":" default profile - Office Bldg Light","Time":"6.0","Value":"0.1"},{"Type":" default profile - Office Bldg Light","Time":"7.0","Value":"0.1"},{"Type":" default profile - Office Bldg Light","Time":"8.0","Value":"0.3"},{"Type":" default profile - Office Bldg Light","Time":"9.0","Value":"0.9"},{"Type":" default profile - Office Bldg Light","Time":"10.0","Value":"0.9"},{"Type":" default profile - Office Bldg Light","Time":"11.0","Value":"0.9"},{"Type":" default profile - Office Bldg Light","Time":"12.0","Value":"0.9"},{"Type":" default profile - Office Bldg Light","Time":"13.0","Value":"0.9"},{"Type":" default profile - Office Bldg Light","Time":"14.0","Value":"0.9"},{"Type":" default profile - Office Bldg Light","Time":"15.0","Value":"0.9"},{"Type":" default profile - Office Bldg Light","Time":"16.0","Value":"0.9"},{"Type":" default profile - Office Bldg Light","Time":"17.0","Value":"0.9"},{"Type":" default profile - Office Bldg Light","Time":"18.0","Value":"0.7"},{"Type":" default profile - Office Bldg Light","Time":"19.0","Value":"0.5"},{"Type":" default profile - Office Bldg Light","Time":"20.0","Value":"0.5"},{"Type":" default profile - Office Bldg Light","Time":"21.0","Value":"0.3"},{"Type":" default profile - Office Bldg Light","Time":"22.0","Value":"0.3"},{"Type":" default profile - Office Bldg Light","Time":"23.0","Value":"0.1"},{"Type":" default profile - Office Bldg Light","Time":"24.0","Value":"0.05"},{"Type":" summer design day","Time":"1.0","Value":"1.0"},{"Type":" summer design day","Time":"2.0","Value":"1.0"},{"Type":" summer design day","Time":"3.0","Value":"1.0"},{"Type":" summer design day","Time":"4.0","Value":"1.0"},{"Type":" summer design day","Time":"5.0","Value":"1.0"},{"Type":" summer design day","Time":"6.0","Value":"1.0"},{"Type":" summer design day","Time":"7.0","Value":"1.0"},{"Type":" summer design day","Time":"8.0","Value":"1.0"},{"Type":" summer design day","Time":"9.0","Value":"1.0"},{"Type":" summer design day","Time":"10.0","Value":"1.0"},{"Type":" summer design day","Time":"11.0","Value":"1.0"},{"Type":" summer design day","Time":"12.0","Value":"1.0"},{"Type":" summer design day","Time":"13.0","Value":"1.0"},{"Type":" summer design day","Time":"14.0","Value":"1.0"},{"Type":" summer design day","Time":"15.0","Value":"1.0"},{"Type":" summer design day","Time":"16.0","Value":"1.0"},{"Type":" summer design day","Time":"17.0","Value":"1.0"},{"Type":" summer design day","Time":"18.0","Value":"1.0"},{"Type":" summer design day","Time":"19.0","Value":"1.0"},{"Type":" summer design day","Time":"20.0","Value":"1.0"},{"Type":" summer design day","Time":"21.0","Value":"1.0"},{"Type":" summer design day","Time":"22.0","Value":"1.0"},{"Type":" summer design day","Time":"23.0","Value":"1.0"},{"Type":" summer design day","Time":"24.0","Value":"1.0"},{"Type":" winter design day","Time":"1.0","Value":"0.0"},{"Type":" winter design day","Time":"2.0","Value":"0.0"},{"Type":" winter design day","Time":"3.0","Value":"0.0"},{"Type":" winter design day","Time":"4.0","Value":"0.0"},{"Type":" winter design day","Time":"5.0","Value":"0.0"},{"Type":" winter design day","Time":"6.0","Value":"0.0"},{"Type":" winter design day","Time":"7.0","Value":"0.0"},{"Type":" winter design day","Time":"8.0","Value":"0.0"},{"Type":" winter design day","Time":"9.0","Value":"0.0"},{"Type":" winter design day","Time":"10.0","Value":"0.0"},{"Type":" winter design day","Time":"11.0","Value":"0.0"},{"Type":" winter design day","Time":"12.0","Value":"0.0"},{"Type":" winter design day","Time":"13.0","Value":"0.0"},{"Type":" winter design day","Time":"14.0","Value":"0.0"},{"Type":" winter design day","Time":"15.0","Value":"0.0"},{"Type":" winter design day","Time":"16.0","Value":"0.0"},{"Type":" winter design day","Time":"17.0","Value":"0.0"},{"Type":" winter design day","Time":"18.0","Value":"0.0"},{"Type":" winter design day","Time":"19.0","Value":"0.0"},{"Type":" winter design day","Time":"20.0","Value":"0.0"},{"Type":" winter design day","Time":"21.0","Value":"0.0"},{"Type":" winter design day","Time":"22.0","Value":"0.0"},{"Type":" winter design day","Time":"23.0","Value":"0.0"},{"Type":" winter design day","Time":"24.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"0.05"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"0.05"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"0.05"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"0.05"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"0.05"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"0.05"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"0.05"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"0.05"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"0.1"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"0.1"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"0.15"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"0.15"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"0.15"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"0.05"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"0.05"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"0.05"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"0.05"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"0.05"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"0.05"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"0.05"}];
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 100, 340, 250)
+        var x = myChart.addCategoryAxis("x", "Time");
+        x.addOrderRule("Time");
+        myChart.addMeasureAxis("y", "Value");
+        var s = myChart.addSeries("Type", dimple.plot.line);
+        s.addOrderRule("Type");
+        s.interpolation = "step";
+        var myLegend = myChart.addLegend(60, 10, 300, 100, "left");
+
+        myLegend._getEntries = function () {
+            var entries = [];
+            if (this.series) {
+                this.series.forEach(function (series) {
+                    var data = series._positionData;
+                    data.forEach(function (row) {
+                        var index = -1,
+                            j,
+                            field = ((series.plot.grouped && !series.x._hasCategories() && !series.y._hasCategories() && row.aggField.length < 2 ? "All" : row.aggField.slice(-1)[0]));
+                        for (j = 0; j < entries.length; j += 1) {
+                            if (entries[j].key === field) {
+                                index = j;
+                                break;
+                            }
+                        }
+                        if (index === -1 && series.chart._assignedColors[field]) {
+                            entries.push({
+                                key: field,
+                                fill: series.chart._assignedColors[field].fill,
+                                stroke: series.chart._assignedColors[field].stroke,
+                                opacity: series.chart._assignedColors[field].opacity,
+                                series: series,
+                                aggField: row.aggField
+                            });
+                            index = entries.length - 1;
+                        }
+                    });
+                }, this);
+            }
+
+            // PUT YOUR SORTING LOGIC HERE
+            // For example to sort numeric values ascending
+            entries.sort(function (a, b) { return parseFloat(a.key) - parseFloat(b.key); });
+
+            return entries;
+        };
+
+        myChart.draw();
+        </script>
+        </div>
+
+      </tr>
+  
+      <tr>
+
+        <div id="chartContainer">
+        <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+
+        <script type="text/javascript">
+        var svg = dimple.newSvg("body", 450,500);
+        var data = [{"Type":" default profile - Office Infil Quarter On","Time":"1.0","Value":"1.0"},{"Type":" default profile - Office Infil Quarter On","Time":"2.0","Value":"1.0"},{"Type":" default profile - Office Infil Quarter On","Time":"3.0","Value":"1.0"},{"Type":" default profile - Office Infil Quarter On","Time":"4.0","Value":"1.0"},{"Type":" default profile - Office Infil Quarter On","Time":"5.0","Value":"1.0"},{"Type":" default profile - Office Infil Quarter On","Time":"6.0","Value":"1.0"},{"Type":" default profile - Office Infil Quarter On","Time":"7.0","Value":"0.25"},{"Type":" default profile - Office Infil Quarter On","Time":"8.0","Value":"0.25"},{"Type":" default profile - Office Infil Quarter On","Time":"9.0","Value":"0.25"},{"Type":" default profile - Office Infil Quarter On","Time":"10.0","Value":"0.25"},{"Type":" default profile - Office Infil Quarter On","Time":"11.0","Value":"0.25"},{"Type":" default profile - Office Infil Quarter On","Time":"12.0","Value":"0.25"},{"Type":" default profile - Office Infil Quarter On","Time":"13.0","Value":"0.25"},{"Type":" default profile - Office Infil Quarter On","Time":"14.0","Value":"0.25"},{"Type":" default profile - Office Infil Quarter On","Time":"15.0","Value":"0.25"},{"Type":" default profile - Office Infil Quarter On","Time":"16.0","Value":"0.25"},{"Type":" default profile - Office Infil Quarter On","Time":"17.0","Value":"0.25"},{"Type":" default profile - Office Infil Quarter On","Time":"18.0","Value":"0.25"},{"Type":" default profile - Office Infil Quarter On","Time":"19.0","Value":"0.25"},{"Type":" default profile - Office Infil Quarter On","Time":"20.0","Value":"0.25"},{"Type":" default profile - Office Infil Quarter On","Time":"21.0","Value":"0.25"},{"Type":" default profile - Office Infil Quarter On","Time":"22.0","Value":"0.25"},{"Type":" default profile - Office Infil Quarter On","Time":"23.0","Value":"1.0"},{"Type":" default profile - Office Infil Quarter On","Time":"24.0","Value":"1.0"},{"Type":" summer design day","Time":"1.0","Value":"1.0"},{"Type":" summer design day","Time":"2.0","Value":"1.0"},{"Type":" summer design day","Time":"3.0","Value":"1.0"},{"Type":" summer design day","Time":"4.0","Value":"1.0"},{"Type":" summer design day","Time":"5.0","Value":"1.0"},{"Type":" summer design day","Time":"6.0","Value":"1.0"},{"Type":" summer design day","Time":"7.0","Value":"0.25"},{"Type":" summer design day","Time":"8.0","Value":"0.25"},{"Type":" summer design day","Time":"9.0","Value":"0.25"},{"Type":" summer design day","Time":"10.0","Value":"0.25"},{"Type":" summer design day","Time":"11.0","Value":"0.25"},{"Type":" summer design day","Time":"12.0","Value":"0.25"},{"Type":" summer design day","Time":"13.0","Value":"0.25"},{"Type":" summer design day","Time":"14.0","Value":"0.25"},{"Type":" summer design day","Time":"15.0","Value":"0.25"},{"Type":" summer design day","Time":"16.0","Value":"0.25"},{"Type":" summer design day","Time":"17.0","Value":"0.25"},{"Type":" summer design day","Time":"18.0","Value":"0.25"},{"Type":" summer design day","Time":"19.0","Value":"0.25"},{"Type":" summer design day","Time":"20.0","Value":"0.25"},{"Type":" summer design day","Time":"21.0","Value":"0.25"},{"Type":" summer design day","Time":"22.0","Value":"0.25"},{"Type":" summer design day","Time":"23.0","Value":"1.0"},{"Type":" summer design day","Time":"24.0","Value":"1.0"},{"Type":" winter design day","Time":"1.0","Value":"1.0"},{"Type":" winter design day","Time":"2.0","Value":"1.0"},{"Type":" winter design day","Time":"3.0","Value":"1.0"},{"Type":" winter design day","Time":"4.0","Value":"1.0"},{"Type":" winter design day","Time":"5.0","Value":"1.0"},{"Type":" winter design day","Time":"6.0","Value":"1.0"},{"Type":" winter design day","Time":"7.0","Value":"0.25"},{"Type":" winter design day","Time":"8.0","Value":"0.25"},{"Type":" winter design day","Time":"9.0","Value":"0.25"},{"Type":" winter design day","Time":"10.0","Value":"0.25"},{"Type":" winter design day","Time":"11.0","Value":"0.25"},{"Type":" winter design day","Time":"12.0","Value":"0.25"},{"Type":" winter design day","Time":"13.0","Value":"0.25"},{"Type":" winter design day","Time":"14.0","Value":"0.25"},{"Type":" winter design day","Time":"15.0","Value":"0.25"},{"Type":" winter design day","Time":"16.0","Value":"0.25"},{"Type":" winter design day","Time":"17.0","Value":"0.25"},{"Type":" winter design day","Time":"18.0","Value":"0.25"},{"Type":" winter design day","Time":"19.0","Value":"1.0"},{"Type":" winter design day","Time":"20.0","Value":"1.0"},{"Type":" winter design day","Time":"21.0","Value":"1.0"},{"Type":" winter design day","Time":"22.0","Value":"1.0"},{"Type":" winter design day","Time":"23.0","Value":"1.0"},{"Type":" winter design day","Time":"24.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"1.0"}];
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 100, 340, 250)
+        var x = myChart.addCategoryAxis("x", "Time");
+        x.addOrderRule("Time");
+        myChart.addMeasureAxis("y", "Value");
+        var s = myChart.addSeries("Type", dimple.plot.line);
+        s.addOrderRule("Type");
+        s.interpolation = "step";
+        var myLegend = myChart.addLegend(60, 10, 300, 100, "left");
+
+        myLegend._getEntries = function () {
+            var entries = [];
+            if (this.series) {
+                this.series.forEach(function (series) {
+                    var data = series._positionData;
+                    data.forEach(function (row) {
+                        var index = -1,
+                            j,
+                            field = ((series.plot.grouped && !series.x._hasCategories() && !series.y._hasCategories() && row.aggField.length < 2 ? "All" : row.aggField.slice(-1)[0]));
+                        for (j = 0; j < entries.length; j += 1) {
+                            if (entries[j].key === field) {
+                                index = j;
+                                break;
+                            }
+                        }
+                        if (index === -1 && series.chart._assignedColors[field]) {
+                            entries.push({
+                                key: field,
+                                fill: series.chart._assignedColors[field].fill,
+                                stroke: series.chart._assignedColors[field].stroke,
+                                opacity: series.chart._assignedColors[field].opacity,
+                                series: series,
+                                aggField: row.aggField
+                            });
+                            index = entries.length - 1;
+                        }
+                    });
+                }, this);
+            }
+
+            // PUT YOUR SORTING LOGIC HERE
+            // For example to sort numeric values ascending
+            entries.sort(function (a, b) { return parseFloat(a.key) - parseFloat(b.key); });
+
+            return entries;
+        };
+
+        myChart.draw();
+        </script>
+        </div>
+
+      </tr>
+  
+      <tr>
+
+        <div id="chartContainer">
+        <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+
+        <script type="text/javascript">
+        var svg = dimple.newSvg("body", 450,500);
+        var data = [{"Type":" default profile - Office Misc Occ","Time":"1.0","Value":"0.0"},{"Type":" default profile - Office Misc Occ","Time":"2.0","Value":"0.0"},{"Type":" default profile - Office Misc Occ","Time":"3.0","Value":"0.0"},{"Type":" default profile - Office Misc Occ","Time":"4.0","Value":"0.0"},{"Type":" default profile - Office Misc Occ","Time":"5.0","Value":"0.0"},{"Type":" default profile - Office Misc Occ","Time":"6.0","Value":"0.0"},{"Type":" default profile - Office Misc Occ","Time":"7.0","Value":"0.100000001490116"},{"Type":" default profile - Office Misc Occ","Time":"8.0","Value":"0.200000002980232"},{"Type":" default profile - Office Misc Occ","Time":"9.0","Value":"0.400000005960464"},{"Type":" default profile - Office Misc Occ","Time":"10.0","Value":"0.400000005960464"},{"Type":" default profile - Office Misc Occ","Time":"11.0","Value":"0.400000005960464"},{"Type":" default profile - Office Misc Occ","Time":"12.0","Value":"0.400000005960464"},{"Type":" default profile - Office Misc Occ","Time":"13.0","Value":"0.400000005960464"},{"Type":" default profile - Office Misc Occ","Time":"14.0","Value":"0.400000005960464"},{"Type":" default profile - Office Misc Occ","Time":"15.0","Value":"0.400000005960464"},{"Type":" default profile - Office Misc Occ","Time":"16.0","Value":"0.400000005960464"},{"Type":" default profile - Office Misc Occ","Time":"17.0","Value":"0.400000005960464"},{"Type":" default profile - Office Misc Occ","Time":"18.0","Value":"0.400000005960464"},{"Type":" default profile - Office Misc Occ","Time":"19.0","Value":"0.400000005960464"},{"Type":" default profile - Office Misc Occ","Time":"20.0","Value":"0.400000005960464"},{"Type":" default profile - Office Misc Occ","Time":"21.0","Value":"0.100000001490116"},{"Type":" default profile - Office Misc Occ","Time":"22.0","Value":"0.100000001490116"},{"Type":" default profile - Office Misc Occ","Time":"23.0","Value":"0.0500000007450581"},{"Type":" default profile - Office Misc Occ","Time":"24.0","Value":"0.0500000007450581"},{"Type":" summer design day","Time":"1.0","Value":"0.0"},{"Type":" summer design day","Time":"2.0","Value":"0.0"},{"Type":" summer design day","Time":"3.0","Value":"0.0"},{"Type":" summer design day","Time":"4.0","Value":"0.0"},{"Type":" summer design day","Time":"5.0","Value":"0.0"},{"Type":" summer design day","Time":"6.0","Value":"0.0"},{"Type":" summer design day","Time":"7.0","Value":"1.0"},{"Type":" summer design day","Time":"8.0","Value":"1.0"},{"Type":" summer design day","Time":"9.0","Value":"1.0"},{"Type":" summer design day","Time":"10.0","Value":"1.0"},{"Type":" summer design day","Time":"11.0","Value":"1.0"},{"Type":" summer design day","Time":"12.0","Value":"1.0"},{"Type":" summer design day","Time":"13.0","Value":"1.0"},{"Type":" summer design day","Time":"14.0","Value":"1.0"},{"Type":" summer design day","Time":"15.0","Value":"1.0"},{"Type":" summer design day","Time":"16.0","Value":"1.0"},{"Type":" summer design day","Time":"17.0","Value":"1.0"},{"Type":" summer design day","Time":"18.0","Value":"1.0"},{"Type":" summer design day","Time":"19.0","Value":"1.0"},{"Type":" summer design day","Time":"20.0","Value":"1.0"},{"Type":" summer design day","Time":"21.0","Value":"1.0"},{"Type":" summer design day","Time":"22.0","Value":"1.0"},{"Type":" summer design day","Time":"23.0","Value":"0.05"},{"Type":" summer design day","Time":"24.0","Value":"0.05"},{"Type":" winter design day","Time":"1.0","Value":"0.0"},{"Type":" winter design day","Time":"2.0","Value":"0.0"},{"Type":" winter design day","Time":"3.0","Value":"0.0"},{"Type":" winter design day","Time":"4.0","Value":"0.0"},{"Type":" winter design day","Time":"5.0","Value":"0.0"},{"Type":" winter design day","Time":"6.0","Value":"0.0"},{"Type":" winter design day","Time":"7.0","Value":"0.0"},{"Type":" winter design day","Time":"8.0","Value":"0.0"},{"Type":" winter design day","Time":"9.0","Value":"0.0"},{"Type":" winter design day","Time":"10.0","Value":"0.0"},{"Type":" winter design day","Time":"11.0","Value":"0.0"},{"Type":" winter design day","Time":"12.0","Value":"0.0"},{"Type":" winter design day","Time":"13.0","Value":"0.0"},{"Type":" winter design day","Time":"14.0","Value":"0.0"},{"Type":" winter design day","Time":"15.0","Value":"0.0"},{"Type":" winter design day","Time":"16.0","Value":"0.0"},{"Type":" winter design day","Time":"17.0","Value":"0.0"},{"Type":" winter design day","Time":"18.0","Value":"0.0"},{"Type":" winter design day","Time":"19.0","Value":"0.0"},{"Type":" winter design day","Time":"20.0","Value":"0.0"},{"Type":" winter design day","Time":"21.0","Value":"0.0"},{"Type":" winter design day","Time":"22.0","Value":"0.0"},{"Type":" winter design day","Time":"23.0","Value":"0.0"},{"Type":" winter design day","Time":"24.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"0.100000001490116"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"0.100000001490116"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"0.100000001490116"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"0.100000001490116"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"0.100000001490116"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"0.0"}];
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 100, 340, 250)
+        var x = myChart.addCategoryAxis("x", "Time");
+        x.addOrderRule("Time");
+        myChart.addMeasureAxis("y", "Value");
+        var s = myChart.addSeries("Type", dimple.plot.line);
+        s.addOrderRule("Type");
+        s.interpolation = "step";
+        var myLegend = myChart.addLegend(60, 10, 300, 100, "left");
+
+        myLegend._getEntries = function () {
+            var entries = [];
+            if (this.series) {
+                this.series.forEach(function (series) {
+                    var data = series._positionData;
+                    data.forEach(function (row) {
+                        var index = -1,
+                            j,
+                            field = ((series.plot.grouped && !series.x._hasCategories() && !series.y._hasCategories() && row.aggField.length < 2 ? "All" : row.aggField.slice(-1)[0]));
+                        for (j = 0; j < entries.length; j += 1) {
+                            if (entries[j].key === field) {
+                                index = j;
+                                break;
+                            }
+                        }
+                        if (index === -1 && series.chart._assignedColors[field]) {
+                            entries.push({
+                                key: field,
+                                fill: series.chart._assignedColors[field].fill,
+                                stroke: series.chart._assignedColors[field].stroke,
+                                opacity: series.chart._assignedColors[field].opacity,
+                                series: series,
+                                aggField: row.aggField
+                            });
+                            index = entries.length - 1;
+                        }
+                    });
+                }, this);
+            }
+
+            // PUT YOUR SORTING LOGIC HERE
+            // For example to sort numeric values ascending
+            entries.sort(function (a, b) { return parseFloat(a.key) - parseFloat(b.key); });
+
+            return entries;
+        };
+
+        myChart.draw();
+        </script>
+        </div>
+
+      </tr>
+  
+      <tr>
+
+        <div id="chartContainer">
+        <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+
+        <script type="text/javascript">
+        var svg = dimple.newSvg("body", 450,500);
+        var data = [{"Type":" default profile - Office Work Occ","Time":"1.0","Value":"0.0"},{"Type":" default profile - Office Work Occ","Time":"2.0","Value":"0.0"},{"Type":" default profile - Office Work Occ","Time":"3.0","Value":"0.0"},{"Type":" default profile - Office Work Occ","Time":"4.0","Value":"0.0"},{"Type":" default profile - Office Work Occ","Time":"5.0","Value":"0.0"},{"Type":" default profile - Office Work Occ","Time":"6.0","Value":"0.0"},{"Type":" default profile - Office Work Occ","Time":"7.0","Value":"0.100000001490116"},{"Type":" default profile - Office Work Occ","Time":"8.0","Value":"0.200000002980232"},{"Type":" default profile - Office Work Occ","Time":"9.0","Value":"0.850000023841858"},{"Type":" default profile - Office Work Occ","Time":"10.0","Value":"0.850000023841858"},{"Type":" default profile - Office Work Occ","Time":"11.0","Value":"0.850000023841858"},{"Type":" default profile - Office Work Occ","Time":"12.0","Value":"0.850000023841858"},{"Type":" default profile - Office Work Occ","Time":"13.0","Value":"0.5"},{"Type":" default profile - Office Work Occ","Time":"14.0","Value":"0.850000023841858"},{"Type":" default profile - Office Work Occ","Time":"15.0","Value":"0.850000023841858"},{"Type":" default profile - Office Work Occ","Time":"16.0","Value":"0.850000023841858"},{"Type":" default profile - Office Work Occ","Time":"17.0","Value":"0.850000023841858"},{"Type":" default profile - Office Work Occ","Time":"18.0","Value":"0.699999988079071"},{"Type":" default profile - Office Work Occ","Time":"19.0","Value":"0.400000005960464"},{"Type":" default profile - Office Work Occ","Time":"20.0","Value":"0.400000005960464"},{"Type":" default profile - Office Work Occ","Time":"21.0","Value":"0.100000001490116"},{"Type":" default profile - Office Work Occ","Time":"22.0","Value":"0.100000001490116"},{"Type":" default profile - Office Work Occ","Time":"23.0","Value":"0.0500000007450581"},{"Type":" default profile - Office Work Occ","Time":"24.0","Value":"0.0500000007450581"},{"Type":" summer design day","Time":"1.0","Value":"0.0"},{"Type":" summer design day","Time":"2.0","Value":"0.0"},{"Type":" summer design day","Time":"3.0","Value":"0.0"},{"Type":" summer design day","Time":"4.0","Value":"0.0"},{"Type":" summer design day","Time":"5.0","Value":"0.0"},{"Type":" summer design day","Time":"6.0","Value":"0.0"},{"Type":" summer design day","Time":"7.0","Value":"1.0"},{"Type":" summer design day","Time":"8.0","Value":"1.0"},{"Type":" summer design day","Time":"9.0","Value":"1.0"},{"Type":" summer design day","Time":"10.0","Value":"1.0"},{"Type":" summer design day","Time":"11.0","Value":"1.0"},{"Type":" summer design day","Time":"12.0","Value":"1.0"},{"Type":" summer design day","Time":"13.0","Value":"1.0"},{"Type":" summer design day","Time":"14.0","Value":"1.0"},{"Type":" summer design day","Time":"15.0","Value":"1.0"},{"Type":" summer design day","Time":"16.0","Value":"1.0"},{"Type":" summer design day","Time":"17.0","Value":"1.0"},{"Type":" summer design day","Time":"18.0","Value":"1.0"},{"Type":" summer design day","Time":"19.0","Value":"1.0"},{"Type":" summer design day","Time":"20.0","Value":"1.0"},{"Type":" summer design day","Time":"21.0","Value":"1.0"},{"Type":" summer design day","Time":"22.0","Value":"1.0"},{"Type":" summer design day","Time":"23.0","Value":"0.05"},{"Type":" summer design day","Time":"24.0","Value":"0.05"},{"Type":" winter design day","Time":"1.0","Value":"0.0"},{"Type":" winter design day","Time":"2.0","Value":"0.0"},{"Type":" winter design day","Time":"3.0","Value":"0.0"},{"Type":" winter design day","Time":"4.0","Value":"0.0"},{"Type":" winter design day","Time":"5.0","Value":"0.0"},{"Type":" winter design day","Time":"6.0","Value":"0.0"},{"Type":" winter design day","Time":"7.0","Value":"0.0"},{"Type":" winter design day","Time":"8.0","Value":"0.0"},{"Type":" winter design day","Time":"9.0","Value":"0.0"},{"Type":" winter design day","Time":"10.0","Value":"0.0"},{"Type":" winter design day","Time":"11.0","Value":"0.0"},{"Type":" winter design day","Time":"12.0","Value":"0.0"},{"Type":" winter design day","Time":"13.0","Value":"0.0"},{"Type":" winter design day","Time":"14.0","Value":"0.0"},{"Type":" winter design day","Time":"15.0","Value":"0.0"},{"Type":" winter design day","Time":"16.0","Value":"0.0"},{"Type":" winter design day","Time":"17.0","Value":"0.0"},{"Type":" winter design day","Time":"18.0","Value":"0.0"},{"Type":" winter design day","Time":"19.0","Value":"0.0"},{"Type":" winter design day","Time":"20.0","Value":"0.0"},{"Type":" winter design day","Time":"21.0","Value":"0.0"},{"Type":" winter design day","Time":"22.0","Value":"0.0"},{"Type":" winter design day","Time":"23.0","Value":"0.0"},{"Type":" winter design day","Time":"24.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"0.100000001490116"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"0.100000001490116"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"0.400000005960464"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"0.400000005960464"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"0.400000005960464"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"0.400000005960464"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"0.400000005960464"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"0.400000005960464"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"0.100000001490116"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"0.100000001490116"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"0.100000001490116"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"0.0"}];
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 100, 340, 250)
+        var x = myChart.addCategoryAxis("x", "Time");
+        x.addOrderRule("Time");
+        myChart.addMeasureAxis("y", "Value");
+        var s = myChart.addSeries("Type", dimple.plot.line);
+        s.addOrderRule("Type");
+        s.interpolation = "step";
+        var myLegend = myChart.addLegend(60, 10, 300, 100, "left");
+
+        myLegend._getEntries = function () {
+            var entries = [];
+            if (this.series) {
+                this.series.forEach(function (series) {
+                    var data = series._positionData;
+                    data.forEach(function (row) {
+                        var index = -1,
+                            j,
+                            field = ((series.plot.grouped && !series.x._hasCategories() && !series.y._hasCategories() && row.aggField.length < 2 ? "All" : row.aggField.slice(-1)[0]));
+                        for (j = 0; j < entries.length; j += 1) {
+                            if (entries[j].key === field) {
+                                index = j;
+                                break;
+                            }
+                        }
+                        if (index === -1 && series.chart._assignedColors[field]) {
+                            entries.push({
+                                key: field,
+                                fill: series.chart._assignedColors[field].fill,
+                                stroke: series.chart._assignedColors[field].stroke,
+                                opacity: series.chart._assignedColors[field].opacity,
+                                series: series,
+                                aggField: row.aggField
+                            });
+                            index = entries.length - 1;
+                        }
+                    });
+                }, this);
+            }
+
+            // PUT YOUR SORTING LOGIC HERE
+            // For example to sort numeric values ascending
+            entries.sort(function (a, b) { return parseFloat(a.key) - parseFloat(b.key); });
+
+            return entries;
+        };
+
+        myChart.draw();
+        </script>
+        </div>
+
+      </tr>
+  
+      <tr>
+
+        <div id="chartContainer">
+        <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+
+        <script type="text/javascript">
+        var svg = dimple.newSvg("body", 450,500);
+        var data = [{"Type":" default profile - Small Office Activity","Time":"1.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"2.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"3.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"4.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"5.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"6.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"7.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"8.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"9.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"10.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"11.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"12.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"13.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"14.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"15.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"16.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"17.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"18.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"19.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"20.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"21.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"22.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"23.0","Value":"120.0"},{"Type":" default profile - Small Office Activity","Time":"24.0","Value":"120.0"},{"Type":" summer design day","Time":"1.0","Value":"120.0"},{"Type":" summer design day","Time":"2.0","Value":"120.0"},{"Type":" summer design day","Time":"3.0","Value":"120.0"},{"Type":" summer design day","Time":"4.0","Value":"120.0"},{"Type":" summer design day","Time":"5.0","Value":"120.0"},{"Type":" summer design day","Time":"6.0","Value":"120.0"},{"Type":" summer design day","Time":"7.0","Value":"120.0"},{"Type":" summer design day","Time":"8.0","Value":"120.0"},{"Type":" summer design day","Time":"9.0","Value":"120.0"},{"Type":" summer design day","Time":"10.0","Value":"120.0"},{"Type":" summer design day","Time":"11.0","Value":"120.0"},{"Type":" summer design day","Time":"12.0","Value":"120.0"},{"Type":" summer design day","Time":"13.0","Value":"120.0"},{"Type":" summer design day","Time":"14.0","Value":"120.0"},{"Type":" summer design day","Time":"15.0","Value":"120.0"},{"Type":" summer design day","Time":"16.0","Value":"120.0"},{"Type":" summer design day","Time":"17.0","Value":"120.0"},{"Type":" summer design day","Time":"18.0","Value":"120.0"},{"Type":" summer design day","Time":"19.0","Value":"120.0"},{"Type":" summer design day","Time":"20.0","Value":"120.0"},{"Type":" summer design day","Time":"21.0","Value":"120.0"},{"Type":" summer design day","Time":"22.0","Value":"120.0"},{"Type":" summer design day","Time":"23.0","Value":"120.0"},{"Type":" summer design day","Time":"24.0","Value":"120.0"},{"Type":" winter design day","Time":"1.0","Value":"120.0"},{"Type":" winter design day","Time":"2.0","Value":"120.0"},{"Type":" winter design day","Time":"3.0","Value":"120.0"},{"Type":" winter design day","Time":"4.0","Value":"120.0"},{"Type":" winter design day","Time":"5.0","Value":"120.0"},{"Type":" winter design day","Time":"6.0","Value":"120.0"},{"Type":" winter design day","Time":"7.0","Value":"120.0"},{"Type":" winter design day","Time":"8.0","Value":"120.0"},{"Type":" winter design day","Time":"9.0","Value":"120.0"},{"Type":" winter design day","Time":"10.0","Value":"120.0"},{"Type":" winter design day","Time":"11.0","Value":"120.0"},{"Type":" winter design day","Time":"12.0","Value":"120.0"},{"Type":" winter design day","Time":"13.0","Value":"120.0"},{"Type":" winter design day","Time":"14.0","Value":"120.0"},{"Type":" winter design day","Time":"15.0","Value":"120.0"},{"Type":" winter design day","Time":"16.0","Value":"120.0"},{"Type":" winter design day","Time":"17.0","Value":"120.0"},{"Type":" winter design day","Time":"18.0","Value":"120.0"},{"Type":" winter design day","Time":"19.0","Value":"120.0"},{"Type":" winter design day","Time":"20.0","Value":"120.0"},{"Type":" winter design day","Time":"21.0","Value":"120.0"},{"Type":" winter design day","Time":"22.0","Value":"120.0"},{"Type":" winter design day","Time":"23.0","Value":"120.0"},{"Type":" winter design day","Time":"24.0","Value":"120.0"}];
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 100, 340, 250)
+        var x = myChart.addCategoryAxis("x", "Time");
+        x.addOrderRule("Time");
+        myChart.addMeasureAxis("y", "Value");
+        var s = myChart.addSeries("Type", dimple.plot.line);
+        s.addOrderRule("Type");
+        s.interpolation = "step";
+        var myLegend = myChart.addLegend(60, 10, 300, 100, "left");
+
+        myLegend._getEntries = function () {
+            var entries = [];
+            if (this.series) {
+                this.series.forEach(function (series) {
+                    var data = series._positionData;
+                    data.forEach(function (row) {
+                        var index = -1,
+                            j,
+                            field = ((series.plot.grouped && !series.x._hasCategories() && !series.y._hasCategories() && row.aggField.length < 2 ? "All" : row.aggField.slice(-1)[0]));
+                        for (j = 0; j < entries.length; j += 1) {
+                            if (entries[j].key === field) {
+                                index = j;
+                                break;
+                            }
+                        }
+                        if (index === -1 && series.chart._assignedColors[field]) {
+                            entries.push({
+                                key: field,
+                                fill: series.chart._assignedColors[field].fill,
+                                stroke: series.chart._assignedColors[field].stroke,
+                                opacity: series.chart._assignedColors[field].opacity,
+                                series: series,
+                                aggField: row.aggField
+                            });
+                            index = entries.length - 1;
+                        }
+                    });
+                }, this);
+            }
+
+            // PUT YOUR SORTING LOGIC HERE
+            // For example to sort numeric values ascending
+            entries.sort(function (a, b) { return parseFloat(a.key) - parseFloat(b.key); });
+
+            return entries;
+        };
+
+        myChart.draw();
+        </script>
+        </div>
+
+      </tr>
+  
+      <tr>
+
+        <div id="chartContainer">
+        <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+
+        <script type="text/javascript">
+        var svg = dimple.newSvg("body", 450,500);
+        var data = [{"Type":" default profile - Small Office Bldg Equip","Time":"1.0","Value":"0.4"},{"Type":" default profile - Small Office Bldg Equip","Time":"2.0","Value":"0.4"},{"Type":" default profile - Small Office Bldg Equip","Time":"3.0","Value":"0.4"},{"Type":" default profile - Small Office Bldg Equip","Time":"4.0","Value":"0.4"},{"Type":" default profile - Small Office Bldg Equip","Time":"5.0","Value":"0.4"},{"Type":" default profile - Small Office Bldg Equip","Time":"6.0","Value":"0.4"},{"Type":" default profile - Small Office Bldg Equip","Time":"7.0","Value":"0.4"},{"Type":" default profile - Small Office Bldg Equip","Time":"8.0","Value":"0.4"},{"Type":" default profile - Small Office Bldg Equip","Time":"9.0","Value":"0.9"},{"Type":" default profile - Small Office Bldg Equip","Time":"10.0","Value":"0.9"},{"Type":" default profile - Small Office Bldg Equip","Time":"11.0","Value":"0.9"},{"Type":" default profile - Small Office Bldg Equip","Time":"12.0","Value":"0.9"},{"Type":" default profile - Small Office Bldg Equip","Time":"13.0","Value":"0.8"},{"Type":" default profile - Small Office Bldg Equip","Time":"14.0","Value":"0.9"},{"Type":" default profile - Small Office Bldg Equip","Time":"15.0","Value":"0.9"},{"Type":" default profile - Small Office Bldg Equip","Time":"16.0","Value":"0.9"},{"Type":" default profile - Small Office Bldg Equip","Time":"17.0","Value":"0.9"},{"Type":" default profile - Small Office Bldg Equip","Time":"18.0","Value":"0.5"},{"Type":" default profile - Small Office Bldg Equip","Time":"19.0","Value":"0.4"},{"Type":" default profile - Small Office Bldg Equip","Time":"20.0","Value":"0.4"},{"Type":" default profile - Small Office Bldg Equip","Time":"21.0","Value":"0.4"},{"Type":" default profile - Small Office Bldg Equip","Time":"22.0","Value":"0.4"},{"Type":" default profile - Small Office Bldg Equip","Time":"23.0","Value":"0.4"},{"Type":" default profile - Small Office Bldg Equip","Time":"24.0","Value":"0.4"},{"Type":" summer design day","Time":"1.0","Value":"1.0"},{"Type":" summer design day","Time":"2.0","Value":"1.0"},{"Type":" summer design day","Time":"3.0","Value":"1.0"},{"Type":" summer design day","Time":"4.0","Value":"1.0"},{"Type":" summer design day","Time":"5.0","Value":"1.0"},{"Type":" summer design day","Time":"6.0","Value":"1.0"},{"Type":" summer design day","Time":"7.0","Value":"1.0"},{"Type":" summer design day","Time":"8.0","Value":"1.0"},{"Type":" summer design day","Time":"9.0","Value":"1.0"},{"Type":" summer design day","Time":"10.0","Value":"1.0"},{"Type":" summer design day","Time":"11.0","Value":"1.0"},{"Type":" summer design day","Time":"12.0","Value":"1.0"},{"Type":" summer design day","Time":"13.0","Value":"1.0"},{"Type":" summer design day","Time":"14.0","Value":"1.0"},{"Type":" summer design day","Time":"15.0","Value":"1.0"},{"Type":" summer design day","Time":"16.0","Value":"1.0"},{"Type":" summer design day","Time":"17.0","Value":"1.0"},{"Type":" summer design day","Time":"18.0","Value":"1.0"},{"Type":" summer design day","Time":"19.0","Value":"1.0"},{"Type":" summer design day","Time":"20.0","Value":"1.0"},{"Type":" summer design day","Time":"21.0","Value":"1.0"},{"Type":" summer design day","Time":"22.0","Value":"1.0"},{"Type":" summer design day","Time":"23.0","Value":"1.0"},{"Type":" summer design day","Time":"24.0","Value":"1.0"},{"Type":" winter design day","Time":"1.0","Value":"0.0"},{"Type":" winter design day","Time":"2.0","Value":"0.0"},{"Type":" winter design day","Time":"3.0","Value":"0.0"},{"Type":" winter design day","Time":"4.0","Value":"0.0"},{"Type":" winter design day","Time":"5.0","Value":"0.0"},{"Type":" winter design day","Time":"6.0","Value":"0.0"},{"Type":" winter design day","Time":"7.0","Value":"0.0"},{"Type":" winter design day","Time":"8.0","Value":"0.0"},{"Type":" winter design day","Time":"9.0","Value":"0.0"},{"Type":" winter design day","Time":"10.0","Value":"0.0"},{"Type":" winter design day","Time":"11.0","Value":"0.0"},{"Type":" winter design day","Time":"12.0","Value":"0.0"},{"Type":" winter design day","Time":"13.0","Value":"0.0"},{"Type":" winter design day","Time":"14.0","Value":"0.0"},{"Type":" winter design day","Time":"15.0","Value":"0.0"},{"Type":" winter design day","Time":"16.0","Value":"0.0"},{"Type":" winter design day","Time":"17.0","Value":"0.0"},{"Type":" winter design day","Time":"18.0","Value":"0.0"},{"Type":" winter design day","Time":"19.0","Value":"0.0"},{"Type":" winter design day","Time":"20.0","Value":"0.0"},{"Type":" winter design day","Time":"21.0","Value":"0.0"},{"Type":" winter design day","Time":"22.0","Value":"0.0"},{"Type":" winter design day","Time":"23.0","Value":"0.0"},{"Type":" winter design day","Time":"24.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"0.3"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"0.4"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"0.4"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"0.5"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"0.35"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"0.35"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"0.35"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"0.35"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"0.35"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"0.3"}];
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 100, 340, 250)
+        var x = myChart.addCategoryAxis("x", "Time");
+        x.addOrderRule("Time");
+        myChart.addMeasureAxis("y", "Value");
+        var s = myChart.addSeries("Type", dimple.plot.line);
+        s.addOrderRule("Type");
+        s.interpolation = "step";
+        var myLegend = myChart.addLegend(60, 10, 300, 100, "left");
+
+        myLegend._getEntries = function () {
+            var entries = [];
+            if (this.series) {
+                this.series.forEach(function (series) {
+                    var data = series._positionData;
+                    data.forEach(function (row) {
+                        var index = -1,
+                            j,
+                            field = ((series.plot.grouped && !series.x._hasCategories() && !series.y._hasCategories() && row.aggField.length < 2 ? "All" : row.aggField.slice(-1)[0]));
+                        for (j = 0; j < entries.length; j += 1) {
+                            if (entries[j].key === field) {
+                                index = j;
+                                break;
+                            }
+                        }
+                        if (index === -1 && series.chart._assignedColors[field]) {
+                            entries.push({
+                                key: field,
+                                fill: series.chart._assignedColors[field].fill,
+                                stroke: series.chart._assignedColors[field].stroke,
+                                opacity: series.chart._assignedColors[field].opacity,
+                                series: series,
+                                aggField: row.aggField
+                            });
+                            index = entries.length - 1;
+                        }
+                    });
+                }, this);
+            }
+
+            // PUT YOUR SORTING LOGIC HERE
+            // For example to sort numeric values ascending
+            entries.sort(function (a, b) { return parseFloat(a.key) - parseFloat(b.key); });
+
+            return entries;
+        };
+
+        myChart.draw();
+        </script>
+        </div>
+
+      </tr>
+  
+      <tr>
+
+        <div id="chartContainer">
+        <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+
+        <script type="text/javascript">
+        var svg = dimple.newSvg("body", 450,500);
+        var data = [{"Type":" default profile - Small Office Bldg Occ","Time":"1.0","Value":"0.0"},{"Type":" default profile - Small Office Bldg Occ","Time":"2.0","Value":"0.0"},{"Type":" default profile - Small Office Bldg Occ","Time":"3.0","Value":"0.0"},{"Type":" default profile - Small Office Bldg Occ","Time":"4.0","Value":"0.0"},{"Type":" default profile - Small Office Bldg Occ","Time":"5.0","Value":"0.0"},{"Type":" default profile - Small Office Bldg Occ","Time":"6.0","Value":"0.0"},{"Type":" default profile - Small Office Bldg Occ","Time":"7.0","Value":"0.1"},{"Type":" default profile - Small Office Bldg Occ","Time":"8.0","Value":"0.2"},{"Type":" default profile - Small Office Bldg Occ","Time":"9.0","Value":"0.95"},{"Type":" default profile - Small Office Bldg Occ","Time":"10.0","Value":"0.95"},{"Type":" default profile - Small Office Bldg Occ","Time":"11.0","Value":"0.95"},{"Type":" default profile - Small Office Bldg Occ","Time":"12.0","Value":"0.95"},{"Type":" default profile - Small Office Bldg Occ","Time":"13.0","Value":"0.5"},{"Type":" default profile - Small Office Bldg Occ","Time":"14.0","Value":"0.95"},{"Type":" default profile - Small Office Bldg Occ","Time":"15.0","Value":"0.95"},{"Type":" default profile - Small Office Bldg Occ","Time":"16.0","Value":"0.95"},{"Type":" default profile - Small Office Bldg Occ","Time":"17.0","Value":"0.95"},{"Type":" default profile - Small Office Bldg Occ","Time":"18.0","Value":"0.3"},{"Type":" default profile - Small Office Bldg Occ","Time":"19.0","Value":"0.1"},{"Type":" default profile - Small Office Bldg Occ","Time":"20.0","Value":"0.1"},{"Type":" default profile - Small Office Bldg Occ","Time":"21.0","Value":"0.05"},{"Type":" default profile - Small Office Bldg Occ","Time":"22.0","Value":"0.05"},{"Type":" default profile - Small Office Bldg Occ","Time":"23.0","Value":"0.05"},{"Type":" default profile - Small Office Bldg Occ","Time":"24.0","Value":"0.05"},{"Type":" summer design day","Time":"1.0","Value":"0.0"},{"Type":" summer design day","Time":"2.0","Value":"0.0"},{"Type":" summer design day","Time":"3.0","Value":"0.0"},{"Type":" summer design day","Time":"4.0","Value":"0.0"},{"Type":" summer design day","Time":"5.0","Value":"0.0"},{"Type":" summer design day","Time":"6.0","Value":"0.0"},{"Type":" summer design day","Time":"7.0","Value":"1.0"},{"Type":" summer design day","Time":"8.0","Value":"1.0"},{"Type":" summer design day","Time":"9.0","Value":"1.0"},{"Type":" summer design day","Time":"10.0","Value":"1.0"},{"Type":" summer design day","Time":"11.0","Value":"1.0"},{"Type":" summer design day","Time":"12.0","Value":"1.0"},{"Type":" summer design day","Time":"13.0","Value":"1.0"},{"Type":" summer design day","Time":"14.0","Value":"1.0"},{"Type":" summer design day","Time":"15.0","Value":"1.0"},{"Type":" summer design day","Time":"16.0","Value":"1.0"},{"Type":" summer design day","Time":"17.0","Value":"1.0"},{"Type":" summer design day","Time":"18.0","Value":"1.0"},{"Type":" summer design day","Time":"19.0","Value":"1.0"},{"Type":" summer design day","Time":"20.0","Value":"1.0"},{"Type":" summer design day","Time":"21.0","Value":"1.0"},{"Type":" summer design day","Time":"22.0","Value":"1.0"},{"Type":" summer design day","Time":"23.0","Value":"0.05"},{"Type":" summer design day","Time":"24.0","Value":"0.05"},{"Type":" winter design day","Time":"1.0","Value":"0.0"},{"Type":" winter design day","Time":"2.0","Value":"0.0"},{"Type":" winter design day","Time":"3.0","Value":"0.0"},{"Type":" winter design day","Time":"4.0","Value":"0.0"},{"Type":" winter design day","Time":"5.0","Value":"0.0"},{"Type":" winter design day","Time":"6.0","Value":"0.0"},{"Type":" winter design day","Time":"7.0","Value":"0.0"},{"Type":" winter design day","Time":"8.0","Value":"0.0"},{"Type":" winter design day","Time":"9.0","Value":"0.0"},{"Type":" winter design day","Time":"10.0","Value":"0.0"},{"Type":" winter design day","Time":"11.0","Value":"0.0"},{"Type":" winter design day","Time":"12.0","Value":"0.0"},{"Type":" winter design day","Time":"13.0","Value":"0.0"},{"Type":" winter design day","Time":"14.0","Value":"0.0"},{"Type":" winter design day","Time":"15.0","Value":"0.0"},{"Type":" winter design day","Time":"16.0","Value":"0.0"},{"Type":" winter design day","Time":"17.0","Value":"0.0"},{"Type":" winter design day","Time":"18.0","Value":"0.0"},{"Type":" winter design day","Time":"19.0","Value":"0.0"},{"Type":" winter design day","Time":"20.0","Value":"0.0"},{"Type":" winter design day","Time":"21.0","Value":"0.0"},{"Type":" winter design day","Time":"22.0","Value":"0.0"},{"Type":" winter design day","Time":"23.0","Value":"0.0"},{"Type":" winter design day","Time":"24.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"0.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"0.1"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"0.1"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"0.3"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"0.1"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"0.1"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"0.1"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"0.1"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"0.1"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"0.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"0.0"}];
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 100, 340, 250)
+        var x = myChart.addCategoryAxis("x", "Time");
+        x.addOrderRule("Time");
+        myChart.addMeasureAxis("y", "Value");
+        var s = myChart.addSeries("Type", dimple.plot.line);
+        s.addOrderRule("Type");
+        s.interpolation = "step";
+        var myLegend = myChart.addLegend(60, 10, 300, 100, "left");
+
+        myLegend._getEntries = function () {
+            var entries = [];
+            if (this.series) {
+                this.series.forEach(function (series) {
+                    var data = series._positionData;
+                    data.forEach(function (row) {
+                        var index = -1,
+                            j,
+                            field = ((series.plot.grouped && !series.x._hasCategories() && !series.y._hasCategories() && row.aggField.length < 2 ? "All" : row.aggField.slice(-1)[0]));
+                        for (j = 0; j < entries.length; j += 1) {
+                            if (entries[j].key === field) {
+                                index = j;
+                                break;
+                            }
+                        }
+                        if (index === -1 && series.chart._assignedColors[field]) {
+                            entries.push({
+                                key: field,
+                                fill: series.chart._assignedColors[field].fill,
+                                stroke: series.chart._assignedColors[field].stroke,
+                                opacity: series.chart._assignedColors[field].opacity,
+                                series: series,
+                                aggField: row.aggField
+                            });
+                            index = entries.length - 1;
+                        }
+                    });
+                }, this);
+            }
+
+            // PUT YOUR SORTING LOGIC HERE
+            // For example to sort numeric values ascending
+            entries.sort(function (a, b) { return parseFloat(a.key) - parseFloat(b.key); });
+
+            return entries;
+        };
+
+        myChart.draw();
+        </script>
+        </div>
+
+      </tr>
+  
+      <tr>
+
+        <div id="chartContainer">
+        <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+
+        <script type="text/javascript">
+        var svg = dimple.newSvg("body", 450,500);
+        var data = [{"Type":" default profile - Small Office ClgSetp","Time":"1.0","Value":"26.7"},{"Type":" default profile - Small Office ClgSetp","Time":"2.0","Value":"26.7"},{"Type":" default profile - Small Office ClgSetp","Time":"3.0","Value":"26.7"},{"Type":" default profile - Small Office ClgSetp","Time":"4.0","Value":"26.7"},{"Type":" default profile - Small Office ClgSetp","Time":"5.0","Value":"26.7"},{"Type":" default profile - Small Office ClgSetp","Time":"6.0","Value":"26.7"},{"Type":" default profile - Small Office ClgSetp","Time":"7.0","Value":"24.0"},{"Type":" default profile - Small Office ClgSetp","Time":"8.0","Value":"24.0"},{"Type":" default profile - Small Office ClgSetp","Time":"9.0","Value":"24.0"},{"Type":" default profile - Small Office ClgSetp","Time":"10.0","Value":"24.0"},{"Type":" default profile - Small Office ClgSetp","Time":"11.0","Value":"24.0"},{"Type":" default profile - Small Office ClgSetp","Time":"12.0","Value":"24.0"},{"Type":" default profile - Small Office ClgSetp","Time":"13.0","Value":"24.0"},{"Type":" default profile - Small Office ClgSetp","Time":"14.0","Value":"24.0"},{"Type":" default profile - Small Office ClgSetp","Time":"15.0","Value":"24.0"},{"Type":" default profile - Small Office ClgSetp","Time":"16.0","Value":"24.0"},{"Type":" default profile - Small Office ClgSetp","Time":"17.0","Value":"24.0"},{"Type":" default profile - Small Office ClgSetp","Time":"18.0","Value":"24.0"},{"Type":" default profile - Small Office ClgSetp","Time":"19.0","Value":"24.0"},{"Type":" default profile - Small Office ClgSetp","Time":"20.0","Value":"24.0"},{"Type":" default profile - Small Office ClgSetp","Time":"21.0","Value":"24.0"},{"Type":" default profile - Small Office ClgSetp","Time":"22.0","Value":"24.0"},{"Type":" default profile - Small Office ClgSetp","Time":"23.0","Value":"26.7"},{"Type":" default profile - Small Office ClgSetp","Time":"24.0","Value":"26.7"},{"Type":" summer design day","Time":"1.0","Value":"26.7"},{"Type":" summer design day","Time":"2.0","Value":"26.7"},{"Type":" summer design day","Time":"3.0","Value":"26.7"},{"Type":" summer design day","Time":"4.0","Value":"26.7"},{"Type":" summer design day","Time":"5.0","Value":"26.7"},{"Type":" summer design day","Time":"6.0","Value":"26.7"},{"Type":" summer design day","Time":"7.0","Value":"24.0"},{"Type":" summer design day","Time":"8.0","Value":"24.0"},{"Type":" summer design day","Time":"9.0","Value":"24.0"},{"Type":" summer design day","Time":"10.0","Value":"24.0"},{"Type":" summer design day","Time":"11.0","Value":"24.0"},{"Type":" summer design day","Time":"12.0","Value":"24.0"},{"Type":" summer design day","Time":"13.0","Value":"24.0"},{"Type":" summer design day","Time":"14.0","Value":"24.0"},{"Type":" summer design day","Time":"15.0","Value":"24.0"},{"Type":" summer design day","Time":"16.0","Value":"24.0"},{"Type":" summer design day","Time":"17.0","Value":"24.0"},{"Type":" summer design day","Time":"18.0","Value":"24.0"},{"Type":" summer design day","Time":"19.0","Value":"24.0"},{"Type":" summer design day","Time":"20.0","Value":"24.0"},{"Type":" summer design day","Time":"21.0","Value":"24.0"},{"Type":" summer design day","Time":"22.0","Value":"24.0"},{"Type":" summer design day","Time":"23.0","Value":"26.7"},{"Type":" summer design day","Time":"24.0","Value":"26.7"},{"Type":" winter design day","Time":"1.0","Value":"26.7"},{"Type":" winter design day","Time":"2.0","Value":"26.7"},{"Type":" winter design day","Time":"3.0","Value":"26.7"},{"Type":" winter design day","Time":"4.0","Value":"26.7"},{"Type":" winter design day","Time":"5.0","Value":"26.7"},{"Type":" winter design day","Time":"6.0","Value":"26.7"},{"Type":" winter design day","Time":"7.0","Value":"26.7"},{"Type":" winter design day","Time":"8.0","Value":"26.7"},{"Type":" winter design day","Time":"9.0","Value":"26.7"},{"Type":" winter design day","Time":"10.0","Value":"26.7"},{"Type":" winter design day","Time":"11.0","Value":"26.7"},{"Type":" winter design day","Time":"12.0","Value":"26.7"},{"Type":" winter design day","Time":"13.0","Value":"26.7"},{"Type":" winter design day","Time":"14.0","Value":"26.7"},{"Type":" winter design day","Time":"15.0","Value":"26.7"},{"Type":" winter design day","Time":"16.0","Value":"26.7"},{"Type":" winter design day","Time":"17.0","Value":"26.7"},{"Type":" winter design day","Time":"18.0","Value":"26.7"},{"Type":" winter design day","Time":"19.0","Value":"26.7"},{"Type":" winter design day","Time":"20.0","Value":"26.7"},{"Type":" winter design day","Time":"21.0","Value":"26.7"},{"Type":" winter design day","Time":"22.0","Value":"26.7"},{"Type":" winter design day","Time":"23.0","Value":"26.7"},{"Type":" winter design day","Time":"24.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"26.7"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"24.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"26.7"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"26.7"}];
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 100, 340, 250)
+        var x = myChart.addCategoryAxis("x", "Time");
+        x.addOrderRule("Time");
+        myChart.addMeasureAxis("y", "Value");
+        var s = myChart.addSeries("Type", dimple.plot.line);
+        s.addOrderRule("Type");
+        s.interpolation = "step";
+        var myLegend = myChart.addLegend(60, 10, 300, 100, "left");
+
+        myLegend._getEntries = function () {
+            var entries = [];
+            if (this.series) {
+                this.series.forEach(function (series) {
+                    var data = series._positionData;
+                    data.forEach(function (row) {
+                        var index = -1,
+                            j,
+                            field = ((series.plot.grouped && !series.x._hasCategories() && !series.y._hasCategories() && row.aggField.length < 2 ? "All" : row.aggField.slice(-1)[0]));
+                        for (j = 0; j < entries.length; j += 1) {
+                            if (entries[j].key === field) {
+                                index = j;
+                                break;
+                            }
+                        }
+                        if (index === -1 && series.chart._assignedColors[field]) {
+                            entries.push({
+                                key: field,
+                                fill: series.chart._assignedColors[field].fill,
+                                stroke: series.chart._assignedColors[field].stroke,
+                                opacity: series.chart._assignedColors[field].opacity,
+                                series: series,
+                                aggField: row.aggField
+                            });
+                            index = entries.length - 1;
+                        }
+                    });
+                }, this);
+            }
+
+            // PUT YOUR SORTING LOGIC HERE
+            // For example to sort numeric values ascending
+            entries.sort(function (a, b) { return parseFloat(a.key) - parseFloat(b.key); });
+
+            return entries;
+        };
+
+        myChart.draw();
+        </script>
+        </div>
+
+      </tr>
+  
+      <tr>
+
+        <div id="chartContainer">
+        <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+
+        <script type="text/javascript">
+        var svg = dimple.newSvg("body", 450,500);
+        var data = [{"Type":" default profile - Small Office HtgSetp","Time":"1.0","Value":"15.6"},{"Type":" default profile - Small Office HtgSetp","Time":"2.0","Value":"15.6"},{"Type":" default profile - Small Office HtgSetp","Time":"3.0","Value":"15.6"},{"Type":" default profile - Small Office HtgSetp","Time":"4.0","Value":"15.6"},{"Type":" default profile - Small Office HtgSetp","Time":"5.0","Value":"15.6"},{"Type":" default profile - Small Office HtgSetp","Time":"6.0","Value":"15.6"},{"Type":" default profile - Small Office HtgSetp","Time":"7.0","Value":"21.0"},{"Type":" default profile - Small Office HtgSetp","Time":"8.0","Value":"21.0"},{"Type":" default profile - Small Office HtgSetp","Time":"9.0","Value":"21.0"},{"Type":" default profile - Small Office HtgSetp","Time":"10.0","Value":"21.0"},{"Type":" default profile - Small Office HtgSetp","Time":"11.0","Value":"21.0"},{"Type":" default profile - Small Office HtgSetp","Time":"12.0","Value":"21.0"},{"Type":" default profile - Small Office HtgSetp","Time":"13.0","Value":"21.0"},{"Type":" default profile - Small Office HtgSetp","Time":"14.0","Value":"21.0"},{"Type":" default profile - Small Office HtgSetp","Time":"15.0","Value":"21.0"},{"Type":" default profile - Small Office HtgSetp","Time":"16.0","Value":"21.0"},{"Type":" default profile - Small Office HtgSetp","Time":"17.0","Value":"21.0"},{"Type":" default profile - Small Office HtgSetp","Time":"18.0","Value":"21.0"},{"Type":" default profile - Small Office HtgSetp","Time":"19.0","Value":"21.0"},{"Type":" default profile - Small Office HtgSetp","Time":"20.0","Value":"21.0"},{"Type":" default profile - Small Office HtgSetp","Time":"21.0","Value":"21.0"},{"Type":" default profile - Small Office HtgSetp","Time":"22.0","Value":"21.0"},{"Type":" default profile - Small Office HtgSetp","Time":"23.0","Value":"15.6"},{"Type":" default profile - Small Office HtgSetp","Time":"24.0","Value":"15.6"},{"Type":" summer design day","Time":"1.0","Value":"15.6"},{"Type":" summer design day","Time":"2.0","Value":"15.6"},{"Type":" summer design day","Time":"3.0","Value":"15.6"},{"Type":" summer design day","Time":"4.0","Value":"15.6"},{"Type":" summer design day","Time":"5.0","Value":"15.6"},{"Type":" summer design day","Time":"6.0","Value":"15.6"},{"Type":" summer design day","Time":"7.0","Value":"15.6"},{"Type":" summer design day","Time":"8.0","Value":"15.6"},{"Type":" summer design day","Time":"9.0","Value":"15.6"},{"Type":" summer design day","Time":"10.0","Value":"15.6"},{"Type":" summer design day","Time":"11.0","Value":"15.6"},{"Type":" summer design day","Time":"12.0","Value":"15.6"},{"Type":" summer design day","Time":"13.0","Value":"15.6"},{"Type":" summer design day","Time":"14.0","Value":"15.6"},{"Type":" summer design day","Time":"15.0","Value":"15.6"},{"Type":" summer design day","Time":"16.0","Value":"15.6"},{"Type":" summer design day","Time":"17.0","Value":"15.6"},{"Type":" summer design day","Time":"18.0","Value":"15.6"},{"Type":" summer design day","Time":"19.0","Value":"15.6"},{"Type":" summer design day","Time":"20.0","Value":"15.6"},{"Type":" summer design day","Time":"21.0","Value":"15.6"},{"Type":" summer design day","Time":"22.0","Value":"15.6"},{"Type":" summer design day","Time":"23.0","Value":"15.6"},{"Type":" summer design day","Time":"24.0","Value":"15.6"},{"Type":" winter design day","Time":"1.0","Value":"21.0"},{"Type":" winter design day","Time":"2.0","Value":"21.0"},{"Type":" winter design day","Time":"3.0","Value":"21.0"},{"Type":" winter design day","Time":"4.0","Value":"21.0"},{"Type":" winter design day","Time":"5.0","Value":"21.0"},{"Type":" winter design day","Time":"6.0","Value":"21.0"},{"Type":" winter design day","Time":"7.0","Value":"21.0"},{"Type":" winter design day","Time":"8.0","Value":"21.0"},{"Type":" winter design day","Time":"9.0","Value":"21.0"},{"Type":" winter design day","Time":"10.0","Value":"21.0"},{"Type":" winter design day","Time":"11.0","Value":"21.0"},{"Type":" winter design day","Time":"12.0","Value":"21.0"},{"Type":" winter design day","Time":"13.0","Value":"21.0"},{"Type":" winter design day","Time":"14.0","Value":"21.0"},{"Type":" winter design day","Time":"15.0","Value":"21.0"},{"Type":" winter design day","Time":"16.0","Value":"21.0"},{"Type":" winter design day","Time":"17.0","Value":"21.0"},{"Type":" winter design day","Time":"18.0","Value":"21.0"},{"Type":" winter design day","Time":"19.0","Value":"21.0"},{"Type":" winter design day","Time":"20.0","Value":"21.0"},{"Type":" winter design day","Time":"21.0","Value":"21.0"},{"Type":" winter design day","Time":"22.0","Value":"21.0"},{"Type":" winter design day","Time":"23.0","Value":"21.0"},{"Type":" winter design day","Time":"24.0","Value":"21.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"15.6"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"21.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"15.6"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"15.6"}];
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 100, 340, 250)
+        var x = myChart.addCategoryAxis("x", "Time");
+        x.addOrderRule("Time");
+        myChart.addMeasureAxis("y", "Value");
+        var s = myChart.addSeries("Type", dimple.plot.line);
+        s.addOrderRule("Type");
+        s.interpolation = "step";
+        var myLegend = myChart.addLegend(60, 10, 300, 100, "left");
+
+        myLegend._getEntries = function () {
+            var entries = [];
+            if (this.series) {
+                this.series.forEach(function (series) {
+                    var data = series._positionData;
+                    data.forEach(function (row) {
+                        var index = -1,
+                            j,
+                            field = ((series.plot.grouped && !series.x._hasCategories() && !series.y._hasCategories() && row.aggField.length < 2 ? "All" : row.aggField.slice(-1)[0]));
+                        for (j = 0; j < entries.length; j += 1) {
+                            if (entries[j].key === field) {
+                                index = j;
+                                break;
+                            }
+                        }
+                        if (index === -1 && series.chart._assignedColors[field]) {
+                            entries.push({
+                                key: field,
+                                fill: series.chart._assignedColors[field].fill,
+                                stroke: series.chart._assignedColors[field].stroke,
+                                opacity: series.chart._assignedColors[field].opacity,
+                                series: series,
+                                aggField: row.aggField
+                            });
+                            index = entries.length - 1;
+                        }
+                    });
+                }, this);
+            }
+
+            // PUT YOUR SORTING LOGIC HERE
+            // For example to sort numeric values ascending
+            entries.sort(function (a, b) { return parseFloat(a.key) - parseFloat(b.key); });
+
+            return entries;
+        };
+
+        myChart.draw();
+        </script>
+        </div>
+
+      </tr>
+  
+      <tr>
+
+        <div id="chartContainer">
+        <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+
+        <script type="text/javascript">
+        var svg = dimple.newSvg("body", 450,500);
+        var data = [{"Type":" default profile - Small Office Infil Quarter On","Time":"1.0","Value":"1.0"},{"Type":" default profile - Small Office Infil Quarter On","Time":"2.0","Value":"1.0"},{"Type":" default profile - Small Office Infil Quarter On","Time":"3.0","Value":"1.0"},{"Type":" default profile - Small Office Infil Quarter On","Time":"4.0","Value":"1.0"},{"Type":" default profile - Small Office Infil Quarter On","Time":"5.0","Value":"1.0"},{"Type":" default profile - Small Office Infil Quarter On","Time":"6.0","Value":"1.0"},{"Type":" default profile - Small Office Infil Quarter On","Time":"7.0","Value":"0.25"},{"Type":" default profile - Small Office Infil Quarter On","Time":"8.0","Value":"0.25"},{"Type":" default profile - Small Office Infil Quarter On","Time":"9.0","Value":"0.25"},{"Type":" default profile - Small Office Infil Quarter On","Time":"10.0","Value":"0.25"},{"Type":" default profile - Small Office Infil Quarter On","Time":"11.0","Value":"0.25"},{"Type":" default profile - Small Office Infil Quarter On","Time":"12.0","Value":"0.25"},{"Type":" default profile - Small Office Infil Quarter On","Time":"13.0","Value":"0.25"},{"Type":" default profile - Small Office Infil Quarter On","Time":"14.0","Value":"0.25"},{"Type":" default profile - Small Office Infil Quarter On","Time":"15.0","Value":"0.25"},{"Type":" default profile - Small Office Infil Quarter On","Time":"16.0","Value":"0.25"},{"Type":" default profile - Small Office Infil Quarter On","Time":"17.0","Value":"0.25"},{"Type":" default profile - Small Office Infil Quarter On","Time":"18.0","Value":"0.25"},{"Type":" default profile - Small Office Infil Quarter On","Time":"19.0","Value":"0.25"},{"Type":" default profile - Small Office Infil Quarter On","Time":"20.0","Value":"0.25"},{"Type":" default profile - Small Office Infil Quarter On","Time":"21.0","Value":"0.25"},{"Type":" default profile - Small Office Infil Quarter On","Time":"22.0","Value":"0.25"},{"Type":" default profile - Small Office Infil Quarter On","Time":"23.0","Value":"1.0"},{"Type":" default profile - Small Office Infil Quarter On","Time":"24.0","Value":"1.0"},{"Type":" summer design day","Time":"1.0","Value":"1.0"},{"Type":" summer design day","Time":"2.0","Value":"1.0"},{"Type":" summer design day","Time":"3.0","Value":"1.0"},{"Type":" summer design day","Time":"4.0","Value":"1.0"},{"Type":" summer design day","Time":"5.0","Value":"1.0"},{"Type":" summer design day","Time":"6.0","Value":"1.0"},{"Type":" summer design day","Time":"7.0","Value":"0.25"},{"Type":" summer design day","Time":"8.0","Value":"0.25"},{"Type":" summer design day","Time":"9.0","Value":"0.25"},{"Type":" summer design day","Time":"10.0","Value":"0.25"},{"Type":" summer design day","Time":"11.0","Value":"0.25"},{"Type":" summer design day","Time":"12.0","Value":"0.25"},{"Type":" summer design day","Time":"13.0","Value":"0.25"},{"Type":" summer design day","Time":"14.0","Value":"0.25"},{"Type":" summer design day","Time":"15.0","Value":"0.25"},{"Type":" summer design day","Time":"16.0","Value":"0.25"},{"Type":" summer design day","Time":"17.0","Value":"0.25"},{"Type":" summer design day","Time":"18.0","Value":"0.25"},{"Type":" summer design day","Time":"19.0","Value":"0.25"},{"Type":" summer design day","Time":"20.0","Value":"0.25"},{"Type":" summer design day","Time":"21.0","Value":"0.25"},{"Type":" summer design day","Time":"22.0","Value":"0.25"},{"Type":" summer design day","Time":"23.0","Value":"1.0"},{"Type":" summer design day","Time":"24.0","Value":"1.0"},{"Type":" winter design day","Time":"1.0","Value":"1.0"},{"Type":" winter design day","Time":"2.0","Value":"1.0"},{"Type":" winter design day","Time":"3.0","Value":"1.0"},{"Type":" winter design day","Time":"4.0","Value":"1.0"},{"Type":" winter design day","Time":"5.0","Value":"1.0"},{"Type":" winter design day","Time":"6.0","Value":"1.0"},{"Type":" winter design day","Time":"7.0","Value":"0.25"},{"Type":" winter design day","Time":"8.0","Value":"0.25"},{"Type":" winter design day","Time":"9.0","Value":"0.25"},{"Type":" winter design day","Time":"10.0","Value":"0.25"},{"Type":" winter design day","Time":"11.0","Value":"0.25"},{"Type":" winter design day","Time":"12.0","Value":"0.25"},{"Type":" winter design day","Time":"13.0","Value":"0.25"},{"Type":" winter design day","Time":"14.0","Value":"0.25"},{"Type":" winter design day","Time":"15.0","Value":"0.25"},{"Type":" winter design day","Time":"16.0","Value":"0.25"},{"Type":" winter design day","Time":"17.0","Value":"0.25"},{"Type":" winter design day","Time":"18.0","Value":"0.25"},{"Type":" winter design day","Time":"19.0","Value":"1.0"},{"Type":" winter design day","Time":"20.0","Value":"1.0"},{"Type":" winter design day","Time":"21.0","Value":"1.0"},{"Type":" winter design day","Time":"22.0","Value":"1.0"},{"Type":" winter design day","Time":"23.0","Value":"1.0"},{"Type":" winter design day","Time":"24.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"1.0"},{"Type":"Priority 1 - (Sun) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"1.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"2.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"3.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"4.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"5.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"6.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"7.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"8.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"9.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"10.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"11.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"12.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"13.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"14.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"15.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"16.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"17.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"18.0","Value":"0.25"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"19.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"20.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"21.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"22.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"23.0","Value":"1.0"},{"Type":"Priority 2 - (Sat) 2006-Jan-01-2006-Jan-01","Time":"24.0","Value":"1.0"}];
+
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 100, 340, 250)
+        var x = myChart.addCategoryAxis("x", "Time");
+        x.addOrderRule("Time");
+        myChart.addMeasureAxis("y", "Value");
+        var s = myChart.addSeries("Type", dimple.plot.line);
+        s.addOrderRule("Type");
+        s.interpolation = "step";
+        var myLegend = myChart.addLegend(60, 10, 300, 100, "left");
+
+        myLegend._getEntries = function () {
+            var entries = [];
+            if (this.series) {
+                this.series.forEach(function (series) {
+                    var data = series._positionData;
+                    data.forEach(function (row) {
+                        var index = -1,
+                            j,
+                            field = ((series.plot.grouped && !series.x._hasCategories() && !series.y._hasCategories() && row.aggField.length < 2 ? "All" : row.aggField.slice(-1)[0]));
+                        for (j = 0; j < entries.length; j += 1) {
+                            if (entries[j].key === field) {
+                                index = j;
+                                break;
+                            }
+                        }
+                        if (index === -1 && series.chart._assignedColors[field]) {
+                            entries.push({
+                                key: field,
+                                fill: series.chart._assignedColors[field].fill,
+                                stroke: series.chart._assignedColors[field].stroke,
+                                opacity: series.chart._assignedColors[field].opacity,
+                                series: series,
+                                aggField: row.aggField
+                            });
+                            index = entries.length - 1;
+                        }
+                    });
+                }, this);
+            }
+
+            // PUT YOUR SORTING LOGIC HERE
+            // For example to sort numeric values ascending
+            entries.sort(function (a, b) { return parseFloat(a.key) - parseFloat(b.key); });
+
+            return entries;
+        };
+
+        myChart.draw();
+        </script>
+        </div>
+
+      </tr>
+  
+
+</table>
+
+
+</body>
+</html>

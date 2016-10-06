@@ -1,0 +1,3077 @@
+
+Version,
+  8.1;                                    !- Version Identifier
+
+LifeCycleCost:Parameters,
+  {b8d72f2e-bbab-42d4-abf3-712dc13633dd}, !- Name
+  EndOfYear,                              !- Discounting Convention
+  ConstantDollar,                         !- Inflation Approach
+  0.03,                                   !- Real Discount Rate
+  ,                                       !- Nominal Discount Rate
+  ,                                       !- Inflation
+  ,                                       !- Base Date Month
+  2011,                                   !- Base Date Year
+  ,                                       !- Service Date Month
+  2011,                                   !- Service Date Year
+  25,                                     !- Length of Study Period in Years
+  ,                                       !- Tax rate
+  None;                                   !- Depreciation Method
+
+LifeCycleCost:UsePriceEscalation,
+  U.S. Avg  Commercial-Electricity,       !- Name
+  Electricity,                            !- Resource
+  2011,                                   !- Escalation Start Year
+  January,                                !- Escalation Start Month
+  0.9838,                                 !- Year Escalation 1
+  0.9730,                                 !- Year Escalation 2
+  0.9632,                                 !- Year Escalation 3
+  0.9611,                                 !- Year Escalation 4
+  0.9571,                                 !- Year Escalation 5
+  0.9553,                                 !- Year Escalation 6
+  0.9539,                                 !- Year Escalation 7
+  0.9521,                                 !- Year Escalation 8
+  0.9546,                                 !- Year Escalation 9
+  0.9550,                                 !- Year Escalation 10
+  0.9553,                                 !- Year Escalation 11
+  0.9564,                                 !- Year Escalation 12
+  0.9575,                                 !- Year Escalation 13
+  0.9596,                                 !- Year Escalation 14
+  0.9618,                                 !- Year Escalation 15
+  0.9614,                                 !- Year Escalation 16
+  0.9618,                                 !- Year Escalation 17
+  0.9618,                                 !- Year Escalation 18
+  0.9593,                                 !- Year Escalation 19
+  0.9589,                                 !- Year Escalation 20
+  0.9607,                                 !- Year Escalation 21
+  0.9625,                                 !- Year Escalation 22
+  0.9650,                                 !- Year Escalation 23
+  0.9708,                                 !- Year Escalation 24
+  0.9751,                                 !- Year Escalation 25
+  0.9762,                                 !- Year Escalation 26
+  0.9766,                                 !- Year Escalation 27
+  0.9766,                                 !- Year Escalation 28
+  0.9769,                                 !- Year Escalation 29
+  0.9773;                                 !- Year Escalation 30
+
+LifeCycleCost:UsePriceEscalation,
+  U.S. Avg  Commercial-Distillate Oil,    !- Name
+  FuelOil#1,                              !- Resource
+  2011,                                   !- Escalation Start Year
+  January,                                !- Escalation Start Month
+  0.9714,                                 !- Year Escalation 1
+  0.9730,                                 !- Year Escalation 2
+  0.9942,                                 !- Year Escalation 3
+  1.0164,                                 !- Year Escalation 4
+  1.0541,                                 !- Year Escalation 5
+  1.0928,                                 !- Year Escalation 6
+  1.1267,                                 !- Year Escalation 7
+  1.1580,                                 !- Year Escalation 8
+  1.1792,                                 !- Year Escalation 9
+  1.1967,                                 !- Year Escalation 10
+  1.2200,                                 !- Year Escalation 11
+  1.2333,                                 !- Year Escalation 12
+  1.2566,                                 !- Year Escalation 13
+  1.2709,                                 !- Year Escalation 14
+  1.2826,                                 !- Year Escalation 15
+  1.2985,                                 !- Year Escalation 16
+  1.3102,                                 !- Year Escalation 17
+  1.3250,                                 !- Year Escalation 18
+  1.3261,                                 !- Year Escalation 19
+  1.3282,                                 !- Year Escalation 20
+  1.3324,                                 !- Year Escalation 21
+  1.3356,                                 !- Year Escalation 22
+  1.3431,                                 !- Year Escalation 23
+  1.3510,                                 !- Year Escalation 24
+  1.3568,                                 !- Year Escalation 25
+  1.3606,                                 !- Year Escalation 26
+  1.3637,                                 !- Year Escalation 27
+  1.3674,                                 !- Year Escalation 28
+  1.3706,                                 !- Year Escalation 29
+  1.3743;                                 !- Year Escalation 30
+
+LifeCycleCost:UsePriceEscalation,
+  U.S. Avg  Commercial-Residual Oil,      !- Name
+  FuelOil#2,                              !- Resource
+  2011,                                   !- Escalation Start Year
+  January,                                !- Escalation Start Month
+  0.8469,                                 !- Year Escalation 1
+  0.8257,                                 !- Year Escalation 2
+  0.8681,                                 !- Year Escalation 3
+  0.8988,                                 !- Year Escalation 4
+  0.9289,                                 !- Year Escalation 5
+  0.9604,                                 !- Year Escalation 6
+  0.9897,                                 !- Year Escalation 7
+  1.0075,                                 !- Year Escalation 8
+  1.0314,                                 !- Year Escalation 9
+  1.0554,                                 !- Year Escalation 10
+  1.0861,                                 !- Year Escalation 11
+  1.1278,                                 !- Year Escalation 12
+  1.1497,                                 !- Year Escalation 13
+  1.1620,                                 !- Year Escalation 14
+  1.1743,                                 !- Year Escalation 15
+  1.1852,                                 !- Year Escalation 16
+  1.1948,                                 !- Year Escalation 17
+  1.2037,                                 !- Year Escalation 18
+  1.2071,                                 !- Year Escalation 19
+  1.2119,                                 !- Year Escalation 20
+  1.2139,                                 !- Year Escalation 21
+  1.2194,                                 !- Year Escalation 22
+  1.2276,                                 !- Year Escalation 23
+  1.2365,                                 !- Year Escalation 24
+  1.2420,                                 !- Year Escalation 25
+  1.2461,                                 !- Year Escalation 26
+  1.2509,                                 !- Year Escalation 27
+  1.2550,                                 !- Year Escalation 28
+  1.2591,                                 !- Year Escalation 29
+  1.2638;                                 !- Year Escalation 30
+
+LifeCycleCost:UsePriceEscalation,
+  U.S. Avg  Commercial-Natural gas,       !- Name
+  NaturalGas,                             !- Resource
+  2011,                                   !- Escalation Start Year
+  January,                                !- Escalation Start Month
+  0.9823,                                 !- Year Escalation 1
+  0.9557,                                 !- Year Escalation 2
+  0.9279,                                 !- Year Escalation 3
+  0.9257,                                 !- Year Escalation 4
+  0.9346,                                 !- Year Escalation 5
+  0.9412,                                 !- Year Escalation 6
+  0.9512,                                 !- Year Escalation 7
+  0.9645,                                 !- Year Escalation 8
+  0.9856,                                 !- Year Escalation 9
+  1.0067,                                 !- Year Escalation 10
+  1.0222,                                 !- Year Escalation 11
+  1.0410,                                 !- Year Escalation 12
+  1.0610,                                 !- Year Escalation 13
+  1.0787,                                 !- Year Escalation 14
+  1.0942,                                 !- Year Escalation 15
+  1.1098,                                 !- Year Escalation 16
+  1.1220,                                 !- Year Escalation 17
+  1.1308,                                 !- Year Escalation 18
+  1.1386,                                 !- Year Escalation 19
+  1.1486,                                 !- Year Escalation 20
+  1.1619,                                 !- Year Escalation 21
+  1.1763,                                 !- Year Escalation 22
+  1.1918,                                 !- Year Escalation 23
+  1.2118,                                 !- Year Escalation 24
+  1.2284,                                 !- Year Escalation 25
+  1.2439,                                 !- Year Escalation 26
+  1.2605,                                 !- Year Escalation 27
+  1.2772,                                 !- Year Escalation 28
+  1.2938,                                 !- Year Escalation 29
+  1.3115;                                 !- Year Escalation 30
+
+LifeCycleCost:UsePriceEscalation,
+  U.S. Avg  Commercial-Coal,              !- Name
+  Coal,                                   !- Resource
+  2011,                                   !- Escalation Start Year
+  January,                                !- Escalation Start Month
+  0.9970,                                 !- Year Escalation 1
+  1.0089,                                 !- Year Escalation 2
+  1.0089,                                 !- Year Escalation 3
+  0.9941,                                 !- Year Escalation 4
+  0.9941,                                 !- Year Escalation 5
+  1.0000,                                 !- Year Escalation 6
+  1.0030,                                 !- Year Escalation 7
+  1.0059,                                 !- Year Escalation 8
+  1.0089,                                 !- Year Escalation 9
+  1.0119,                                 !- Year Escalation 10
+  1.0148,                                 !- Year Escalation 11
+  1.0178,                                 !- Year Escalation 12
+  1.0208,                                 !- Year Escalation 13
+  1.0267,                                 !- Year Escalation 14
+  1.0297,                                 !- Year Escalation 15
+  1.0356,                                 !- Year Escalation 16
+  1.0415,                                 !- Year Escalation 17
+  1.0534,                                 !- Year Escalation 18
+  1.0564,                                 !- Year Escalation 19
+  1.0593,                                 !- Year Escalation 20
+  1.0653,                                 !- Year Escalation 21
+  1.0712,                                 !- Year Escalation 22
+  1.0742,                                 !- Year Escalation 23
+  1.0801,                                 !- Year Escalation 24
+  1.0831,                                 !- Year Escalation 25
+  1.0831,                                 !- Year Escalation 26
+  1.0861,                                 !- Year Escalation 27
+  1.0890,                                 !- Year Escalation 28
+  1.0920,                                 !- Year Escalation 29
+  1.0950;                                 !- Year Escalation 30
+
+Building,
+  Building 1,                             !- Name
+  ,                                       !- North Axis {deg}
+  ,                                       !- Terrain
+  ,                                       !- Loads Convergence Tolerance Value
+  ,                                       !- Temperature Convergence Tolerance Value {deltaC}
+  ,                                       !- Solar Distribution
+  ,                                       !- Maximum Number of Warmup Days
+  ;                                       !- Minimum Number of Warmup Days
+
+Zone,
+  Story 1 Core Zone,                      !- Name
+  -0,                                     !- Direction of Relative North {deg}
+  4.57,                                   !- X Origin {m}
+  4.57,                                   !- Y Origin {m}
+  0,                                      !- Z Origin {m}
+  ,                                       !- Type
+  ,                                       !- Multiplier
+  ,                                       !- Ceiling Height {m}
+  ,                                       !- Volume {m3}
+  ,                                       !- Floor Area {m2}
+  ,                                       !- Zone Inside Convection Algorithm
+  ;                                       !- Zone Outside Convection Algorithm
+
+BuildingSurface:Detailed,
+  Surface 25,                             !- Name
+  Floor,                                  !- Surface Type
+  ExtSlabCarpet 4in ClimateZone 1-8,      !- Construction Name
+  Story 1 Core Zone,                      !- Zone Name
+  Ground,                                 !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0, 0,                                !- X,Y,Z Vertex 1 {m}
+  0, 6.1, 0,                              !- X,Y,Z Vertex 2 {m}
+  21.34, 6.1, 0,                          !- X,Y,Z Vertex 3 {m}
+  21.34, 0, 0;                            !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 26,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 1 Core Zone,                      !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 4,                              !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 6.1, 3.048,                          !- X,Y,Z Vertex 1 {m}
+  0, 6.1, 0,                              !- X,Y,Z Vertex 2 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 3 {m}
+  0, 0, 3.048;                            !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 27,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 1 Core Zone,                      !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 10,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  21.34, 6.1, 3.048,                      !- X,Y,Z Vertex 1 {m}
+  21.34, 6.1, 0,                          !- X,Y,Z Vertex 2 {m}
+  0, 6.1, 0,                              !- X,Y,Z Vertex 3 {m}
+  0, 6.1, 3.048;                          !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 28,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 1 Core Zone,                      !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 16,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  21.34, 0, 3.048,                        !- X,Y,Z Vertex 1 {m}
+  21.34, 0, 0,                            !- X,Y,Z Vertex 2 {m}
+  21.34, 6.1, 0,                          !- X,Y,Z Vertex 3 {m}
+  21.34, 6.1, 3.048;                      !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 29,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 1 Core Zone,                      !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 22,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0, 3.048,                            !- X,Y,Z Vertex 1 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 2 {m}
+  21.34, 0, 0,                            !- X,Y,Z Vertex 3 {m}
+  21.34, 0, 3.048;                        !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 30,                             !- Name
+  Ceiling,                                !- Surface Type
+  Interior Ceiling,                       !- Construction Name
+  Story 1 Core Zone,                      !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 55,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  21.34, 0, 3.048,                        !- X,Y,Z Vertex 1 {m}
+  21.34, 6.1, 3.048,                      !- X,Y,Z Vertex 2 {m}
+  0, 6.1, 3.048,                          !- X,Y,Z Vertex 3 {m}
+  0, 0, 3.048;                            !- X,Y,Z Vertex 4 {m}
+
+Zone,
+  Story 1 East Perimeter Zone,            !- Name
+  -0,                                     !- Direction of Relative North {deg}
+  25.91,                                  !- X Origin {m}
+  4.57,                                   !- Y Origin {m}
+  0,                                      !- Z Origin {m}
+  ,                                       !- Type
+  ,                                       !- Multiplier
+  ,                                       !- Ceiling Height {m}
+  ,                                       !- Volume {m3}
+  ,                                       !- Floor Area {m2}
+  ,                                       !- Zone Inside Convection Algorithm
+  ;                                       !- Zone Outside Convection Algorithm
+
+BuildingSurface:Detailed,
+  Surface 13,                             !- Name
+  Floor,                                  !- Surface Type
+  ExtSlabCarpet 4in ClimateZone 1-8,      !- Construction Name
+  Story 1 East Perimeter Zone,            !- Zone Name
+  Ground,                                 !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  4.57, 10.67, 0,                         !- X,Y,Z Vertex 1 {m}
+  4.57, -4.57, 0,                         !- X,Y,Z Vertex 2 {m}
+  -3.5527136788005e-015, 0, 0,            !- X,Y,Z Vertex 3 {m}
+  -3.5527136788005e-015, 6.1, 0;          !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 14,                             !- Name
+  Wall,                                   !- Surface Type
+  ASHRAE 90.1-2004 ExtWall Mass ClimateZone 5, !- Construction Name
+  Story 1 East Perimeter Zone,            !- Zone Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  4.57, -4.57, 3.048,                     !- X,Y,Z Vertex 1 {m}
+  4.57, -4.57, 0,                         !- X,Y,Z Vertex 2 {m}
+  4.57, 10.67, 0,                         !- X,Y,Z Vertex 3 {m}
+  4.57, 10.67, 3.048;                     !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 15,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 1 East Perimeter Zone,            !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 23,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  -3.5527136788005e-015, 0, 3.048,        !- X,Y,Z Vertex 1 {m}
+  -3.5527136788005e-015, 0, 0,            !- X,Y,Z Vertex 2 {m}
+  4.57, -4.57, 0,                         !- X,Y,Z Vertex 3 {m}
+  4.57, -4.57, 3.048;                     !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 16,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 1 East Perimeter Zone,            !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 28,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  -3.5527136788005e-015, 6.1, 3.048,      !- X,Y,Z Vertex 1 {m}
+  -3.5527136788005e-015, 6.1, 0,          !- X,Y,Z Vertex 2 {m}
+  -3.5527136788005e-015, 0, 0,            !- X,Y,Z Vertex 3 {m}
+  -3.5527136788005e-015, 0, 3.048;        !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 17,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 1 East Perimeter Zone,            !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 9,                              !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  4.57, 10.67, 3.048,                     !- X,Y,Z Vertex 1 {m}
+  4.57, 10.67, 0,                         !- X,Y,Z Vertex 2 {m}
+  -3.5527136788005e-015, 6.1, 0,          !- X,Y,Z Vertex 3 {m}
+  -3.5527136788005e-015, 6.1, 3.048;      !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 18,                             !- Name
+  Ceiling,                                !- Surface Type
+  Interior Ceiling,                       !- Construction Name
+  Story 1 East Perimeter Zone,            !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 43,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  -3.5527136788005e-015, 6.1, 3.048,      !- X,Y,Z Vertex 1 {m}
+  -3.5527136788005e-015, 0, 3.048,        !- X,Y,Z Vertex 2 {m}
+  4.57, -4.57, 3.048,                     !- X,Y,Z Vertex 3 {m}
+  4.57, 10.67, 3.048;                     !- X,Y,Z Vertex 4 {m}
+
+Zone,
+  Story 1 North Perimeter Zone,           !- Name
+  -0,                                     !- Direction of Relative North {deg}
+  4.57,                                   !- X Origin {m}
+  10.67,                                  !- Y Origin {m}
+  0,                                      !- Z Origin {m}
+  ,                                       !- Type
+  ,                                       !- Multiplier
+  ,                                       !- Ceiling Height {m}
+  ,                                       !- Volume {m3}
+  ,                                       !- Floor Area {m2}
+  ,                                       !- Zone Inside Convection Algorithm
+  ;                                       !- Zone Outside Convection Algorithm
+
+BuildingSurface:Detailed,
+  Surface 10,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 1 North Perimeter Zone,           !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 27,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0, 3.048,                            !- X,Y,Z Vertex 1 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 2 {m}
+  21.34, 0, 0,                            !- X,Y,Z Vertex 3 {m}
+  21.34, 0, 3.048;                        !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 11,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 1 North Perimeter Zone,           !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 3,                              !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  -4.57, 4.57, 3.048,                     !- X,Y,Z Vertex 1 {m}
+  -4.57, 4.57, 0,                         !- X,Y,Z Vertex 2 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 3 {m}
+  0, 0, 3.048;                            !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 12,                             !- Name
+  Ceiling,                                !- Surface Type
+  Interior Ceiling,                       !- Construction Name
+  Story 1 North Perimeter Zone,           !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 37,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0, 3.048,                            !- X,Y,Z Vertex 1 {m}
+  21.34, 0, 3.048,                        !- X,Y,Z Vertex 2 {m}
+  25.91, 4.57, 3.048,                     !- X,Y,Z Vertex 3 {m}
+  -4.57, 4.57, 3.048;                     !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 7,                              !- Name
+  Floor,                                  !- Surface Type
+  ExtSlabCarpet 4in ClimateZone 1-8,      !- Construction Name
+  Story 1 North Perimeter Zone,           !- Zone Name
+  Ground,                                 !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  -4.57, 4.57, 0,                         !- X,Y,Z Vertex 1 {m}
+  25.91, 4.57, 0,                         !- X,Y,Z Vertex 2 {m}
+  21.34, 0, 0,                            !- X,Y,Z Vertex 3 {m}
+  0, 0, 0;                                !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 8,                              !- Name
+  Wall,                                   !- Surface Type
+  ASHRAE 90.1-2004 ExtWall Mass ClimateZone 5, !- Construction Name
+  Story 1 North Perimeter Zone,           !- Zone Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  25.91, 4.57, 3.048,                     !- X,Y,Z Vertex 1 {m}
+  25.91, 4.57, 0,                         !- X,Y,Z Vertex 2 {m}
+  -4.57, 4.57, 0,                         !- X,Y,Z Vertex 3 {m}
+  -4.57, 4.57, 3.048;                     !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 9,                              !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 1 North Perimeter Zone,           !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 17,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  21.34, 0, 3.048,                        !- X,Y,Z Vertex 1 {m}
+  21.34, 0, 0,                            !- X,Y,Z Vertex 2 {m}
+  25.91, 4.57, 0,                         !- X,Y,Z Vertex 3 {m}
+  25.91, 4.57, 3.048;                     !- X,Y,Z Vertex 4 {m}
+
+Zone,
+  Story 1 South Perimeter Zone,           !- Name
+  -0,                                     !- Direction of Relative North {deg}
+  0,                                      !- X Origin {m}
+  0,                                      !- Y Origin {m}
+  0,                                      !- Z Origin {m}
+  ,                                       !- Type
+  ,                                       !- Multiplier
+  ,                                       !- Ceiling Height {m}
+  ,                                       !- Volume {m3}
+  ,                                       !- Floor Area {m2}
+  ,                                       !- Zone Inside Convection Algorithm
+  ;                                       !- Zone Outside Convection Algorithm
+
+BuildingSurface:Detailed,
+  Surface 19,                             !- Name
+  Floor,                                  !- Surface Type
+  ExtSlabCarpet 4in ClimateZone 1-8,      !- Construction Name
+  Story 1 South Perimeter Zone,           !- Zone Name
+  Ground,                                 !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  30.48, 0, 0,                            !- X,Y,Z Vertex 1 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 2 {m}
+  4.57, 4.57, 0,                          !- X,Y,Z Vertex 3 {m}
+  25.91, 4.57, 0;                         !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 20,                             !- Name
+  Wall,                                   !- Surface Type
+  ASHRAE 90.1-2004 ExtWall Mass ClimateZone 5, !- Construction Name
+  Story 1 South Perimeter Zone,           !- Zone Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0, 3.048,                            !- X,Y,Z Vertex 1 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 2 {m}
+  30.48, 0, 0,                            !- X,Y,Z Vertex 3 {m}
+  30.48, 0, 3.048;                        !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 21,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 1 South Perimeter Zone,           !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 5,                              !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  4.57, 4.57, 3.048,                      !- X,Y,Z Vertex 1 {m}
+  4.57, 4.57, 0,                          !- X,Y,Z Vertex 2 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 3 {m}
+  0, 0, 3.048;                            !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 22,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 1 South Perimeter Zone,           !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 29,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  25.91, 4.57, 3.048,                     !- X,Y,Z Vertex 1 {m}
+  25.91, 4.57, 0,                         !- X,Y,Z Vertex 2 {m}
+  4.57, 4.57, 0,                          !- X,Y,Z Vertex 3 {m}
+  4.57, 4.57, 3.048;                      !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 23,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 1 South Perimeter Zone,           !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 15,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  30.48, 0, 3.048,                        !- X,Y,Z Vertex 1 {m}
+  30.48, 0, 0,                            !- X,Y,Z Vertex 2 {m}
+  25.91, 4.57, 0,                         !- X,Y,Z Vertex 3 {m}
+  25.91, 4.57, 3.048;                     !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 24,                             !- Name
+  Ceiling,                                !- Surface Type
+  Interior Ceiling,                       !- Construction Name
+  Story 1 South Perimeter Zone,           !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 49,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  25.91, 4.57, 3.048,                     !- X,Y,Z Vertex 1 {m}
+  4.57, 4.57, 3.048,                      !- X,Y,Z Vertex 2 {m}
+  0, 0, 3.048,                            !- X,Y,Z Vertex 3 {m}
+  30.48, 0, 3.048;                        !- X,Y,Z Vertex 4 {m}
+
+Zone,
+  Story 1 West Perimeter Zone,            !- Name
+  -0,                                     !- Direction of Relative North {deg}
+  0,                                      !- X Origin {m}
+  0,                                      !- Y Origin {m}
+  0,                                      !- Z Origin {m}
+  ,                                       !- Type
+  ,                                       !- Multiplier
+  ,                                       !- Ceiling Height {m}
+  ,                                       !- Volume {m3}
+  ,                                       !- Floor Area {m2}
+  ,                                       !- Zone Inside Convection Algorithm
+  ;                                       !- Zone Outside Convection Algorithm
+
+BuildingSurface:Detailed,
+  Surface 1,                              !- Name
+  Floor,                                  !- Surface Type
+  ExtSlabCarpet 4in ClimateZone 1-8,      !- Construction Name
+  Story 1 West Perimeter Zone,            !- Zone Name
+  Ground,                                 !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0, 0,                                !- X,Y,Z Vertex 1 {m}
+  0, 15.24, 0,                            !- X,Y,Z Vertex 2 {m}
+  4.57, 10.67, 0,                         !- X,Y,Z Vertex 3 {m}
+  4.57, 4.57, 0;                          !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 2,                              !- Name
+  Wall,                                   !- Surface Type
+  ASHRAE 90.1-2004 ExtWall Mass ClimateZone 5, !- Construction Name
+  Story 1 West Perimeter Zone,            !- Zone Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 15.24, 3.048,                        !- X,Y,Z Vertex 1 {m}
+  0, 15.24, 0,                            !- X,Y,Z Vertex 2 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 3 {m}
+  0, 0, 3.048;                            !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 3,                              !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 1 West Perimeter Zone,            !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 11,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  4.57, 10.67, 3.048,                     !- X,Y,Z Vertex 1 {m}
+  4.57, 10.67, 0,                         !- X,Y,Z Vertex 2 {m}
+  0, 15.24, 0,                            !- X,Y,Z Vertex 3 {m}
+  0, 15.24, 3.048;                        !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 4,                              !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 1 West Perimeter Zone,            !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 26,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  4.57, 4.57, 3.048,                      !- X,Y,Z Vertex 1 {m}
+  4.57, 4.57, 0,                          !- X,Y,Z Vertex 2 {m}
+  4.57, 10.67, 0,                         !- X,Y,Z Vertex 3 {m}
+  4.57, 10.67, 3.048;                     !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 5,                              !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 1 West Perimeter Zone,            !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 21,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0, 3.048,                            !- X,Y,Z Vertex 1 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 2 {m}
+  4.57, 4.57, 0,                          !- X,Y,Z Vertex 3 {m}
+  4.57, 4.57, 3.048;                      !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 6,                              !- Name
+  Ceiling,                                !- Surface Type
+  Interior Ceiling,                       !- Construction Name
+  Story 1 West Perimeter Zone,            !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 31,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  4.57, 4.57, 3.048,                      !- X,Y,Z Vertex 1 {m}
+  4.57, 10.67, 3.048,                     !- X,Y,Z Vertex 2 {m}
+  0, 15.24, 3.048,                        !- X,Y,Z Vertex 3 {m}
+  0, 0, 3.048;                            !- X,Y,Z Vertex 4 {m}
+
+Zone,
+  Story 2 Core Zone,                      !- Name
+  -0,                                     !- Direction of Relative North {deg}
+  4.57,                                   !- X Origin {m}
+  4.57,                                   !- Y Origin {m}
+  3.048,                                  !- Z Origin {m}
+  ,                                       !- Type
+  ,                                       !- Multiplier
+  ,                                       !- Ceiling Height {m}
+  ,                                       !- Volume {m3}
+  ,                                       !- Floor Area {m2}
+  ,                                       !- Zone Inside Convection Algorithm
+  ;                                       !- Zone Outside Convection Algorithm
+
+BuildingSurface:Detailed,
+  Surface 55,                             !- Name
+  Floor,                                  !- Surface Type
+  Interior Floor,                         !- Construction Name
+  Story 2 Core Zone,                      !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 30,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0, 0,                                !- X,Y,Z Vertex 1 {m}
+  0, 6.1, 0,                              !- X,Y,Z Vertex 2 {m}
+  21.34, 6.1, 0,                          !- X,Y,Z Vertex 3 {m}
+  21.34, 0, 0;                            !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 56,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 2 Core Zone,                      !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 34,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 6.1, 3.048,                          !- X,Y,Z Vertex 1 {m}
+  0, 6.1, 0,                              !- X,Y,Z Vertex 2 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 3 {m}
+  0, 0, 3.048;                            !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 57,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 2 Core Zone,                      !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 40,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  21.34, 6.1, 3.048,                      !- X,Y,Z Vertex 1 {m}
+  21.34, 6.1, 0,                          !- X,Y,Z Vertex 2 {m}
+  0, 6.1, 0,                              !- X,Y,Z Vertex 3 {m}
+  0, 6.1, 3.048;                          !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 58,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 2 Core Zone,                      !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 46,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  21.34, 0, 3.048,                        !- X,Y,Z Vertex 1 {m}
+  21.34, 0, 0,                            !- X,Y,Z Vertex 2 {m}
+  21.34, 6.1, 0,                          !- X,Y,Z Vertex 3 {m}
+  21.34, 6.1, 3.048;                      !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 59,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 2 Core Zone,                      !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 52,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0, 3.048,                            !- X,Y,Z Vertex 1 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 2 {m}
+  21.34, 0, 0,                            !- X,Y,Z Vertex 3 {m}
+  21.34, 0, 3.048;                        !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 60,                             !- Name
+  Roof,                                   !- Surface Type
+  ASHRAE 90.1-2004 ExtRoof IEAD ClimateZone 5-6, !- Construction Name
+  Story 2 Core Zone,                      !- Zone Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  21.34, 0, 3.048,                        !- X,Y,Z Vertex 1 {m}
+  21.34, 6.1, 3.048,                      !- X,Y,Z Vertex 2 {m}
+  0, 6.1, 3.048,                          !- X,Y,Z Vertex 3 {m}
+  0, 0, 3.048;                            !- X,Y,Z Vertex 4 {m}
+
+Zone,
+  Story 2 East Perimeter Zone,            !- Name
+  -0,                                     !- Direction of Relative North {deg}
+  25.91,                                  !- X Origin {m}
+  4.57,                                   !- Y Origin {m}
+  3.048,                                  !- Z Origin {m}
+  ,                                       !- Type
+  ,                                       !- Multiplier
+  ,                                       !- Ceiling Height {m}
+  ,                                       !- Volume {m3}
+  ,                                       !- Floor Area {m2}
+  ,                                       !- Zone Inside Convection Algorithm
+  ;                                       !- Zone Outside Convection Algorithm
+
+BuildingSurface:Detailed,
+  Surface 43,                             !- Name
+  Floor,                                  !- Surface Type
+  Interior Floor,                         !- Construction Name
+  Story 2 East Perimeter Zone,            !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 18,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  4.57, 10.67, 0,                         !- X,Y,Z Vertex 1 {m}
+  4.57, -4.57, 0,                         !- X,Y,Z Vertex 2 {m}
+  -3.5527136788005e-015, 0, 0,            !- X,Y,Z Vertex 3 {m}
+  -3.5527136788005e-015, 6.1, 0;          !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 44,                             !- Name
+  Wall,                                   !- Surface Type
+  ASHRAE 90.1-2004 ExtWall Mass ClimateZone 5, !- Construction Name
+  Story 2 East Perimeter Zone,            !- Zone Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  4.57, -4.57, 3.048,                     !- X,Y,Z Vertex 1 {m}
+  4.57, -4.57, 0,                         !- X,Y,Z Vertex 2 {m}
+  4.57, 10.67, 0,                         !- X,Y,Z Vertex 3 {m}
+  4.57, 10.67, 3.048;                     !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 45,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 2 East Perimeter Zone,            !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 53,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  -3.5527136788005e-015, 0, 3.048,        !- X,Y,Z Vertex 1 {m}
+  -3.5527136788005e-015, 0, 0,            !- X,Y,Z Vertex 2 {m}
+  4.57, -4.57, 0,                         !- X,Y,Z Vertex 3 {m}
+  4.57, -4.57, 3.048;                     !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 46,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 2 East Perimeter Zone,            !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 58,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  -3.5527136788005e-015, 6.1, 3.048,      !- X,Y,Z Vertex 1 {m}
+  -3.5527136788005e-015, 6.1, 0,          !- X,Y,Z Vertex 2 {m}
+  -3.5527136788005e-015, 0, 0,            !- X,Y,Z Vertex 3 {m}
+  -3.5527136788005e-015, 0, 3.048;        !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 47,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 2 East Perimeter Zone,            !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 39,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  4.57, 10.67, 3.048,                     !- X,Y,Z Vertex 1 {m}
+  4.57, 10.67, 0,                         !- X,Y,Z Vertex 2 {m}
+  -3.5527136788005e-015, 6.1, 0,          !- X,Y,Z Vertex 3 {m}
+  -3.5527136788005e-015, 6.1, 3.048;      !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 48,                             !- Name
+  Roof,                                   !- Surface Type
+  ASHRAE 90.1-2004 ExtRoof IEAD ClimateZone 5-6, !- Construction Name
+  Story 2 East Perimeter Zone,            !- Zone Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  -3.5527136788005e-015, 6.1, 3.048,      !- X,Y,Z Vertex 1 {m}
+  -3.5527136788005e-015, 0, 3.048,        !- X,Y,Z Vertex 2 {m}
+  4.57, -4.57, 3.048,                     !- X,Y,Z Vertex 3 {m}
+  4.57, 10.67, 3.048;                     !- X,Y,Z Vertex 4 {m}
+
+Zone,
+  Story 2 North Perimeter Zone,           !- Name
+  -0,                                     !- Direction of Relative North {deg}
+  4.57,                                   !- X Origin {m}
+  10.67,                                  !- Y Origin {m}
+  3.048,                                  !- Z Origin {m}
+  ,                                       !- Type
+  ,                                       !- Multiplier
+  ,                                       !- Ceiling Height {m}
+  ,                                       !- Volume {m3}
+  ,                                       !- Floor Area {m2}
+  ,                                       !- Zone Inside Convection Algorithm
+  ;                                       !- Zone Outside Convection Algorithm
+
+BuildingSurface:Detailed,
+  Surface 37,                             !- Name
+  Floor,                                  !- Surface Type
+  Interior Floor,                         !- Construction Name
+  Story 2 North Perimeter Zone,           !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 12,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  -4.57, 4.57, 0,                         !- X,Y,Z Vertex 1 {m}
+  25.91, 4.57, 0,                         !- X,Y,Z Vertex 2 {m}
+  21.34, 0, 0,                            !- X,Y,Z Vertex 3 {m}
+  0, 0, 0;                                !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 38,                             !- Name
+  Wall,                                   !- Surface Type
+  ASHRAE 90.1-2004 ExtWall Mass ClimateZone 5, !- Construction Name
+  Story 2 North Perimeter Zone,           !- Zone Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  25.91, 4.57, 3.048,                     !- X,Y,Z Vertex 1 {m}
+  25.91, 4.57, 0,                         !- X,Y,Z Vertex 2 {m}
+  -4.57, 4.57, 0,                         !- X,Y,Z Vertex 3 {m}
+  -4.57, 4.57, 3.048;                     !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 39,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 2 North Perimeter Zone,           !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 47,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  21.34, 0, 3.048,                        !- X,Y,Z Vertex 1 {m}
+  21.34, 0, 0,                            !- X,Y,Z Vertex 2 {m}
+  25.91, 4.57, 0,                         !- X,Y,Z Vertex 3 {m}
+  25.91, 4.57, 3.048;                     !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 40,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 2 North Perimeter Zone,           !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 57,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0, 3.048,                            !- X,Y,Z Vertex 1 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 2 {m}
+  21.34, 0, 0,                            !- X,Y,Z Vertex 3 {m}
+  21.34, 0, 3.048;                        !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 41,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 2 North Perimeter Zone,           !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 33,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  -4.57, 4.57, 3.048,                     !- X,Y,Z Vertex 1 {m}
+  -4.57, 4.57, 0,                         !- X,Y,Z Vertex 2 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 3 {m}
+  0, 0, 3.048;                            !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 42,                             !- Name
+  Roof,                                   !- Surface Type
+  ASHRAE 90.1-2004 ExtRoof IEAD ClimateZone 5-6, !- Construction Name
+  Story 2 North Perimeter Zone,           !- Zone Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0, 3.048,                            !- X,Y,Z Vertex 1 {m}
+  21.34, 0, 3.048,                        !- X,Y,Z Vertex 2 {m}
+  25.91, 4.57, 3.048,                     !- X,Y,Z Vertex 3 {m}
+  -4.57, 4.57, 3.048;                     !- X,Y,Z Vertex 4 {m}
+
+Zone,
+  Story 2 South Perimeter Zone,           !- Name
+  -0,                                     !- Direction of Relative North {deg}
+  0,                                      !- X Origin {m}
+  0,                                      !- Y Origin {m}
+  3.048,                                  !- Z Origin {m}
+  ,                                       !- Type
+  ,                                       !- Multiplier
+  ,                                       !- Ceiling Height {m}
+  ,                                       !- Volume {m3}
+  ,                                       !- Floor Area {m2}
+  ,                                       !- Zone Inside Convection Algorithm
+  ;                                       !- Zone Outside Convection Algorithm
+
+BuildingSurface:Detailed,
+  Surface 49,                             !- Name
+  Floor,                                  !- Surface Type
+  Interior Floor,                         !- Construction Name
+  Story 2 South Perimeter Zone,           !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 24,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  30.48, 0, 0,                            !- X,Y,Z Vertex 1 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 2 {m}
+  4.57, 4.57, 0,                          !- X,Y,Z Vertex 3 {m}
+  25.91, 4.57, 0;                         !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 50,                             !- Name
+  Wall,                                   !- Surface Type
+  ASHRAE 90.1-2004 ExtWall Mass ClimateZone 5, !- Construction Name
+  Story 2 South Perimeter Zone,           !- Zone Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0, 3.048,                            !- X,Y,Z Vertex 1 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 2 {m}
+  30.48, 0, 0,                            !- X,Y,Z Vertex 3 {m}
+  30.48, 0, 3.048;                        !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 51,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 2 South Perimeter Zone,           !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 35,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  4.57, 4.57, 3.048,                      !- X,Y,Z Vertex 1 {m}
+  4.57, 4.57, 0,                          !- X,Y,Z Vertex 2 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 3 {m}
+  0, 0, 3.048;                            !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 52,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 2 South Perimeter Zone,           !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 59,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  25.91, 4.57, 3.048,                     !- X,Y,Z Vertex 1 {m}
+  25.91, 4.57, 0,                         !- X,Y,Z Vertex 2 {m}
+  4.57, 4.57, 0,                          !- X,Y,Z Vertex 3 {m}
+  4.57, 4.57, 3.048;                      !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 53,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 2 South Perimeter Zone,           !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 45,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  30.48, 0, 3.048,                        !- X,Y,Z Vertex 1 {m}
+  30.48, 0, 0,                            !- X,Y,Z Vertex 2 {m}
+  25.91, 4.57, 0,                         !- X,Y,Z Vertex 3 {m}
+  25.91, 4.57, 3.048;                     !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 54,                             !- Name
+  Roof,                                   !- Surface Type
+  ASHRAE 90.1-2004 ExtRoof IEAD ClimateZone 5-6, !- Construction Name
+  Story 2 South Perimeter Zone,           !- Zone Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  25.91, 4.57, 3.048,                     !- X,Y,Z Vertex 1 {m}
+  4.57, 4.57, 3.048,                      !- X,Y,Z Vertex 2 {m}
+  0, 0, 3.048,                            !- X,Y,Z Vertex 3 {m}
+  30.48, 0, 3.048;                        !- X,Y,Z Vertex 4 {m}
+
+Zone,
+  Story 2 West Perimeter Zone,            !- Name
+  -0,                                     !- Direction of Relative North {deg}
+  0,                                      !- X Origin {m}
+  0,                                      !- Y Origin {m}
+  3.048,                                  !- Z Origin {m}
+  ,                                       !- Type
+  ,                                       !- Multiplier
+  ,                                       !- Ceiling Height {m}
+  ,                                       !- Volume {m3}
+  ,                                       !- Floor Area {m2}
+  ,                                       !- Zone Inside Convection Algorithm
+  ;                                       !- Zone Outside Convection Algorithm
+
+BuildingSurface:Detailed,
+  Surface 31,                             !- Name
+  Floor,                                  !- Surface Type
+  Interior Floor,                         !- Construction Name
+  Story 2 West Perimeter Zone,            !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 6,                              !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0, 0,                                !- X,Y,Z Vertex 1 {m}
+  0, 15.24, 0,                            !- X,Y,Z Vertex 2 {m}
+  4.57, 10.67, 0,                         !- X,Y,Z Vertex 3 {m}
+  4.57, 4.57, 0;                          !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 32,                             !- Name
+  Wall,                                   !- Surface Type
+  ASHRAE 90.1-2004 ExtWall Mass ClimateZone 5, !- Construction Name
+  Story 2 West Perimeter Zone,            !- Zone Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 15.24, 3.048,                        !- X,Y,Z Vertex 1 {m}
+  0, 15.24, 0,                            !- X,Y,Z Vertex 2 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 3 {m}
+  0, 0, 3.048;                            !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 33,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 2 West Perimeter Zone,            !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 41,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  4.57, 10.67, 3.048,                     !- X,Y,Z Vertex 1 {m}
+  4.57, 10.67, 0,                         !- X,Y,Z Vertex 2 {m}
+  0, 15.24, 0,                            !- X,Y,Z Vertex 3 {m}
+  0, 15.24, 3.048;                        !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 34,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 2 West Perimeter Zone,            !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 56,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  4.57, 4.57, 3.048,                      !- X,Y,Z Vertex 1 {m}
+  4.57, 4.57, 0,                          !- X,Y,Z Vertex 2 {m}
+  4.57, 10.67, 0,                         !- X,Y,Z Vertex 3 {m}
+  4.57, 10.67, 3.048;                     !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 35,                             !- Name
+  Wall,                                   !- Surface Type
+  Interior Wall,                          !- Construction Name
+  Story 2 West Perimeter Zone,            !- Zone Name
+  Surface,                                !- Outside Boundary Condition
+  Surface 51,                             !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0, 3.048,                            !- X,Y,Z Vertex 1 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 2 {m}
+  4.57, 4.57, 0,                          !- X,Y,Z Vertex 3 {m}
+  4.57, 4.57, 3.048;                      !- X,Y,Z Vertex 4 {m}
+
+BuildingSurface:Detailed,
+  Surface 36,                             !- Name
+  Roof,                                   !- Surface Type
+  ASHRAE 90.1-2004 ExtRoof IEAD ClimateZone 5-6, !- Construction Name
+  Story 2 West Perimeter Zone,            !- Zone Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  4.57, 4.57, 3.048,                      !- X,Y,Z Vertex 1 {m}
+  4.57, 10.67, 3.048,                     !- X,Y,Z Vertex 2 {m}
+  0, 15.24, 3.048,                        !- X,Y,Z Vertex 3 {m}
+  0, 0, 3.048;                            !- X,Y,Z Vertex 4 {m}
+
+SimulationControl,
+  No,                                     !- Do Zone Sizing Calculation
+  No,                                     !- Do System Sizing Calculation
+  No,                                     !- Do Plant Sizing Calculation
+  Yes,                                    !- Run Simulation for Sizing Periods
+  Yes;                                    !- Run Simulation for Weather File Run Periods
+
+ConvergenceLimits,
+  1;                                      !- Minimum System Timestep {minutes}
+
+HeatBalanceAlgorithm,
+  ConductionTransferFunction,             !- Algorithm
+  200;                                    !- Surface Temperature Upper Limit {C}
+
+RunPeriod,
+  Run Period 1,                           !- Name
+  1,                                      !- Begin Month
+  1,                                      !- Begin Day of Month
+  12,                                     !- End Month
+  31,                                     !- End Day of Month
+  Sunday,                                 !- Day of Week for Start Day
+  No,                                     !- Use Weather File Holidays and Special Days
+  No,                                     !- Use Weather File Daylight Saving Period
+  No,                                     !- Apply Weekend Holiday Rule
+  Yes,                                    !- Use Weather File Rain Indicators
+  Yes,                                    !- Use Weather File Snow Indicators
+  1;                                      !- Number of Times Runperiod to be Repeated
+
+ShadowCalculation,
+  AverageOverDaysInFrequency,             !- Calculation Method
+  7,                                      !- Calculation Frequency
+  15000;                                  !- Maximum Figures in Shadow Overlap Calculations
+
+SurfaceConvectionAlgorithm:Inside,
+  TARP;                                   !- Algorithm
+
+SurfaceConvectionAlgorithm:Outside,
+  DOE-2;                                  !- Algorithm
+
+Timestep,
+  6;                                      !- Number of Timesteps per Hour
+
+Sizing:Parameters,
+  1.25,                                   !- Heating Sizing Factor
+  1.15;                                   !- Cooling Sizing Factor
+
+ZoneAirHeatBalanceAlgorithm,
+  AnalyticalSolution;                     !- Algorithm
+
+ProgramControl,
+  1;                                      !- Number of Threads Allowed
+
+GlobalGeometryRules,
+  UpperLeftCorner,                        !- Starting Vertex Position
+  Counterclockwise,                       !- Vertex Entry Direction
+  Relative,                               !- Coordinate System
+  Relative,                               !- Daylighting Reference Point Coordinate System
+  Relative;                               !- Rectangular Surface Coordinate System
+
+Material,
+  1/2IN Gypsum,                           !- Name
+  Smooth,                                 !- Roughness
+  0.0127,                                 !- Thickness {m}
+  0.16,                                   !- Conductivity {W/m-K}
+  784.9,                                  !- Density {kg/m3}
+  830.000000000001,                       !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.4,                                    !- Solar Absorptance
+  0.4;                                    !- Visible Absorptance
+
+Material,
+  1IN Stucco,                             !- Name
+  Smooth,                                 !- Roughness
+  0.0253,                                 !- Thickness {m}
+  0.691799999999999,                      !- Conductivity {W/m-K}
+  1858,                                   !- Density {kg/m3}
+  836.999999999999,                       !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.92,                                   !- Solar Absorptance
+  0.92;                                   !- Visible Absorptance
+
+Material,
+  8IN CONCRETE HW RefBldg,                !- Name
+  Rough,                                  !- Roughness
+  0.2032,                                 !- Thickness {m}
+  1.311,                                  !- Conductivity {W/m-K}
+  2240,                                   !- Density {kg/m3}
+  836.800000000001,                       !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.7,                                    !- Solar Absorptance
+  0.7;                                    !- Visible Absorptance
+
+Material,
+  F08 Metal surface,                      !- Name
+  Smooth,                                 !- Roughness
+  0.0008,                                 !- Thickness {m}
+  45.2800000000001,                       !- Conductivity {W/m-K}
+  7823.99999999999,                       !- Density {kg/m3}
+  500,                                    !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.7,                                    !- Solar Absorptance
+  0.7;                                    !- Visible Absorptance
+
+Material,
+  F16 Acoustic tile,                      !- Name
+  MediumSmooth,                           !- Roughness
+  0.0191,                                 !- Thickness {m}
+  0.06,                                   !- Conductivity {W/m-K}
+  368,                                    !- Density {kg/m3}
+  590.000000000002,                       !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.3,                                    !- Solar Absorptance
+  0.3;                                    !- Visible Absorptance
+
+Material,
+  G01a 19mm gypsum board,                 !- Name
+  MediumSmooth,                           !- Roughness
+  0.019,                                  !- Thickness {m}
+  0.16,                                   !- Conductivity {W/m-K}
+  800,                                    !- Density {kg/m3}
+  1090,                                   !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.4,                                    !- Solar Absorptance
+  0.4;                                    !- Visible Absorptance
+
+Material,
+  G05 25mm wood,                          !- Name
+  MediumSmooth,                           !- Roughness
+  0.0254,                                 !- Thickness {m}
+  0.15,                                   !- Conductivity {W/m-K}
+  608,                                    !- Density {kg/m3}
+  1630,                                   !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.5,                                    !- Solar Absorptance
+  0.5;                                    !- Visible Absorptance
+
+Material,
+  I01 25mm insulation board,              !- Name
+  MediumRough,                            !- Roughness
+  0.0254,                                 !- Thickness {m}
+  0.03,                                   !- Conductivity {W/m-K}
+  43,                                     !- Density {kg/m3}
+  1210,                                   !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.6,                                    !- Solar Absorptance
+  0.6;                                    !- Visible Absorptance
+
+Material,
+  IEAD NonRes Roof Insulation-2.85,       !- Name
+  MediumRough,                            !- Roughness
+  0.127338688569477,                      !- Thickness {m}
+  0.049,                                  !- Conductivity {W/m-K}
+  265,                                    !- Density {kg/m3}
+  836.800000000001,                       !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.7,                                    !- Solar Absorptance
+  0.7;                                    !- Visible Absorptance
+
+Material,
+  M11 100mm lightweight concrete,         !- Name
+  MediumRough,                            !- Roughness
+  0.1016,                                 !- Thickness {m}
+  0.53,                                   !- Conductivity {W/m-K}
+  1280,                                   !- Density {kg/m3}
+  840.000000000002,                       !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.5,                                    !- Solar Absorptance
+  0.5;                                    !- Visible Absorptance
+
+Material,
+  Mass NonRes Wall Insulation-1.43,       !- Name
+  MediumRough,                            !- Roughness
+  0.0495494599433394,                     !- Thickness {m}
+  0.049,                                  !- Conductivity {W/m-K}
+  265,                                    !- Density {kg/m3}
+  836.800000000001,                       !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.7,                                    !- Solar Absorptance
+  0.7;                                    !- Visible Absorptance
+
+Material,
+  MAT-CC05 4 HW CONCRETE,                 !- Name
+  Rough,                                  !- Roughness
+  0.1016,                                 !- Thickness {m}
+  1.311,                                  !- Conductivity {W/m-K}
+  2240,                                   !- Density {kg/m3}
+  836.800000000001,                       !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.85,                                   !- Solar Absorptance
+  0.85;                                   !- Visible Absorptance
+
+Material,
+  Metal Decking,                          !- Name
+  MediumSmooth,                           !- Roughness
+  0.0015,                                 !- Thickness {m}
+  45.006,                                 !- Conductivity {W/m-K}
+  7680,                                   !- Density {kg/m3}
+  418.4,                                  !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.6,                                    !- Solar Absorptance
+  0.6;                                    !- Visible Absorptance
+
+Material,
+  Roof Membrane,                          !- Name
+  VeryRough,                              !- Roughness
+  0.0095,                                 !- Thickness {m}
+  0.16,                                   !- Conductivity {W/m-K}
+  1121.29,                                !- Density {kg/m3}
+  1460,                                   !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.7,                                    !- Solar Absorptance
+  0.7;                                    !- Visible Absorptance
+
+Material:AirGap,
+  F04 Wall air space resistance,          !- Name
+  0.15;                                   !- Thermal Resistance {m2-K/W}
+
+Material:AirGap,
+  F05 Ceiling air space resistance,       !- Name
+  0.18;                                   !- Thermal Resistance {m2-K/W}
+
+Material:NoMass,
+  CP02 CARPET PAD,                        !- Name
+  Smooth,                                 !- Roughness
+  0.1,                                    !- Thermal Resistance {m2-K/W}
+  0.9,                                    !- Thermal Absorptance
+  0.8,                                    !- Solar Absorptance
+  0.8;                                    !- Visible Absorptance
+
+WindowMaterial:Glazing,
+  Clear 3mm,                              !- Name
+  SpectralAverage,                        !- Optical Data Type
+  ,                                       !- Window Glass Spectral Data Set Name
+  0.00299999999999999,                    !- Thickness {m}
+  0.837,                                  !- Solar Transmittance at Normal Incidence
+  0.075,                                  !- Front Side Solar Reflectance at Normal Incidence
+  0,                                      !- Back Side Solar Reflectance at Normal Incidence
+  0.898,                                  !- Visible Transmittance at Normal Incidence
+  0.081,                                  !- Front Side Visible Reflectance at Normal Incidence
+  0,                                      !- Back Side Visible Reflectance at Normal Incidence
+  0,                                      !- Infrared Transmittance at Normal Incidence
+  0.84,                                   !- Front Side Infrared Hemispherical Emissivity
+  0.84,                                   !- Back Side Infrared Hemispherical Emissivity
+  0.9,                                    !- Conductivity {W/m-K}
+  1,                                      !- Dirt Correction Factor for Solar and Visible Transmittance
+  No;                                     !- Solar Diffusing
+
+WindowMaterial:SimpleGlazingSystem,
+  Fixed Window 3.24/0.39/0.31,            !- Name
+  3.23646,                                !- U-Factor {W/m2-K}
+  0.39,                                   !- Solar Heat Gain Coefficient
+  0.31;                                   !- Visible Transmittance
+
+Construction,
+  ASHRAE 90.1-2004 ExtRoof IEAD ClimateZone 5-6, !- Name
+  Roof Membrane,                          !- Layer 1
+  IEAD NonRes Roof Insulation-2.85,       !- Layer 2
+  Metal Decking;                          !- Layer 3
+
+Construction,
+  ASHRAE 90.1-2004 ExtWall Mass ClimateZone 5, !- Name
+  1IN Stucco,                             !- Layer 1
+  8IN CONCRETE HW RefBldg,                !- Layer 2
+  Mass NonRes Wall Insulation-1.43,       !- Layer 3
+  1/2IN Gypsum;                           !- Layer 4
+
+Construction,
+  ASHRAE 90.1-2004 ExtWindow ClimateZone 4-6, !- Name
+  Fixed Window 3.24/0.39/0.31;            !- Layer 1
+
+Construction,
+  Exterior Door,                          !- Name
+  F08 Metal surface,                      !- Layer 1
+  I01 25mm insulation board;              !- Layer 2
+
+Construction,
+  ExtSlabCarpet 4in ClimateZone 1-8,      !- Name
+  MAT-CC05 4 HW CONCRETE,                 !- Layer 1
+  CP02 CARPET PAD;                        !- Layer 2
+
+Construction,
+  Interior Ceiling,                       !- Name
+  M11 100mm lightweight concrete,         !- Layer 1
+  F05 Ceiling air space resistance,       !- Layer 2
+  F16 Acoustic tile;                      !- Layer 3
+
+Construction,
+  Interior Door,                          !- Name
+  G05 25mm wood;                          !- Layer 1
+
+Construction,
+  Interior Floor,                         !- Name
+  F16 Acoustic tile,                      !- Layer 1
+  F05 Ceiling air space resistance,       !- Layer 2
+  M11 100mm lightweight concrete;         !- Layer 3
+
+Construction,
+  Interior Partition,                     !- Name
+  G05 25mm wood;                          !- Layer 1
+
+Construction,
+  Interior Wall,                          !- Name
+  G01a 19mm gypsum board,                 !- Layer 1
+  F04 Wall air space resistance,          !- Layer 2
+  G01a 19mm gypsum board;                 !- Layer 3
+
+Construction,
+  Interior Window,                        !- Name
+  Clear 3mm;                              !- Layer 1
+
+ScheduleTypeLimits,
+  ActivityLevel,                          !- Name
+  0,                                      !- Lower Limit Value {BasedOnField A3}
+  ,                                       !- Upper Limit Value {BasedOnField A3}
+  Continuous,                             !- Numeric Type
+  activitylevel;                          !- Unit Type
+
+ScheduleTypeLimits,
+  ActivityLevel 12,                       !- Name
+  0,                                      !- Lower Limit Value {BasedOnField A3}
+  ,                                       !- Upper Limit Value {BasedOnField A3}
+  Continuous,                             !- Numeric Type
+  activitylevel;                          !- Unit Type
+
+ScheduleTypeLimits,
+  ActivityLevel 13,                       !- Name
+  0,                                      !- Lower Limit Value {BasedOnField A3}
+  ,                                       !- Upper Limit Value {BasedOnField A3}
+  Continuous,                             !- Numeric Type
+  activitylevel;                          !- Unit Type
+
+ScheduleTypeLimits,
+  Fraction,                               !- Name
+  0,                                      !- Lower Limit Value {BasedOnField A3}
+  1,                                      !- Upper Limit Value {BasedOnField A3}
+  CONTINUOUS;                             !- Numeric Type
+
+ScheduleTypeLimits,
+  Fractional,                             !- Name
+  0,                                      !- Lower Limit Value {BasedOnField A3}
+  1,                                      !- Upper Limit Value {BasedOnField A3}
+  Continuous;                             !- Numeric Type
+
+ScheduleTypeLimits,
+  Temperature 11,                         !- Name
+  ,                                       !- Lower Limit Value {BasedOnField A3}
+  ,                                       !- Upper Limit Value {BasedOnField A3}
+  Continuous,                             !- Numeric Type
+  temperature;                            !- Unit Type
+
+ScheduleTypeLimits,
+  Temperature 36,                         !- Name
+  ,                                       !- Lower Limit Value {BasedOnField A3}
+  ,                                       !- Upper Limit Value {BasedOnField A3}
+  Continuous,                             !- Numeric Type
+  temperature;                            !- Unit Type
+
+ScheduleTypeLimits,
+  Temperature 37,                         !- Name
+  ,                                       !- Lower Limit Value {BasedOnField A3}
+  ,                                       !- Upper Limit Value {BasedOnField A3}
+  Continuous,                             !- Numeric Type
+  temperature;                            !- Unit Type
+
+ScheduleTypeLimits,
+  Temperature 4,                          !- Name
+  ,                                       !- Lower Limit Value {BasedOnField A3}
+  ,                                       !- Upper Limit Value {BasedOnField A3}
+  Continuous,                             !- Numeric Type
+  temperature;                            !- Unit Type
+
+Schedule:Day:Interval,
+  Medium Office Activity Default Schedule, !- Name
+  ActivityLevel 13,                       !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  120;                                    !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Medium Office Activity Summer Design Day, !- Name
+  ActivityLevel 13,                       !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  120;                                    !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Medium Office Activity Winter Design Day, !- Name
+  ActivityLevel 13,                       !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  120;                                    !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Medium Office Bldg Equip Default Schedule, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  08:00,                                  !- Time 1 {hh:mm}
+  0.4,                                    !- Value Until Time 1
+  12:00,                                  !- Time 2 {hh:mm}
+  0.9,                                    !- Value Until Time 2
+  13:00,                                  !- Time 3 {hh:mm}
+  0.8,                                    !- Value Until Time 3
+  17:00,                                  !- Time 4 {hh:mm}
+  0.9,                                    !- Value Until Time 4
+  18:00,                                  !- Time 5 {hh:mm}
+  0.8,                                    !- Value Until Time 5
+  20:00,                                  !- Time 6 {hh:mm}
+  0.6,                                    !- Value Until Time 6
+  22:00,                                  !- Time 7 {hh:mm}
+  0.5,                                    !- Value Until Time 7
+  24:00,                                  !- Time 8 {hh:mm}
+  0.4;                                    !- Value Until Time 8
+
+Schedule:Day:Interval,
+  Medium Office Bldg Equip Rule 1 Day Schedule, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  0.3;                                    !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Medium Office Bldg Equip Rule 2 Day Schedule, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  0.3,                                    !- Value Until Time 1
+  08:00,                                  !- Time 2 {hh:mm}
+  0.4,                                    !- Value Until Time 2
+  14:00,                                  !- Time 3 {hh:mm}
+  0.5,                                    !- Value Until Time 3
+  17:00,                                  !- Time 4 {hh:mm}
+  0.35,                                   !- Value Until Time 4
+  24:00,                                  !- Time 5 {hh:mm}
+  0.3;                                    !- Value Until Time 5
+
+Schedule:Day:Interval,
+  Medium Office Bldg Equip Summer Design Day, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  1;                                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Medium Office Bldg Equip Winter Design Day, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  0;                                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Medium Office Bldg Occ Default Schedule, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  0,                                      !- Value Until Time 1
+  07:00,                                  !- Time 2 {hh:mm}
+  0.1,                                    !- Value Until Time 2
+  08:00,                                  !- Time 3 {hh:mm}
+  0.2,                                    !- Value Until Time 3
+  12:00,                                  !- Time 4 {hh:mm}
+  0.95,                                   !- Value Until Time 4
+  13:00,                                  !- Time 5 {hh:mm}
+  0.5,                                    !- Value Until Time 5
+  17:00,                                  !- Time 6 {hh:mm}
+  0.95,                                   !- Value Until Time 6
+  18:00,                                  !- Time 7 {hh:mm}
+  0.7,                                    !- Value Until Time 7
+  20:00,                                  !- Time 8 {hh:mm}
+  0.4,                                    !- Value Until Time 8
+  22:00,                                  !- Time 9 {hh:mm}
+  0.1,                                    !- Value Until Time 9
+  24:00,                                  !- Time 10 {hh:mm}
+  0.05;                                   !- Value Until Time 10
+
+Schedule:Day:Interval,
+  Medium Office Bldg Occ Rule 1 Day Schedule, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  0;                                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Medium Office Bldg Occ Rule 2 Day Schedule, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  0,                                      !- Value Until Time 1
+  08:00,                                  !- Time 2 {hh:mm}
+  0.1,                                    !- Value Until Time 2
+  14:00,                                  !- Time 3 {hh:mm}
+  0.5,                                    !- Value Until Time 3
+  17:00,                                  !- Time 4 {hh:mm}
+  0.1,                                    !- Value Until Time 4
+  24:00,                                  !- Time 5 {hh:mm}
+  0;                                      !- Value Until Time 5
+
+Schedule:Day:Interval,
+  Medium Office Bldg Occ Summer Design Day, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  0,                                      !- Value Until Time 1
+  22:00,                                  !- Time 2 {hh:mm}
+  1,                                      !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  0.05;                                   !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Medium Office Bldg Occ Winter Design Day, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  0;                                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Medium Office ClgSetp Default Schedule, !- Name
+  Temperature 37,                         !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  26.7,                                   !- Value Until Time 1
+  22:00,                                  !- Time 2 {hh:mm}
+  24,                                     !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  26.7;                                   !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Medium Office ClgSetp Rule 1 Day Schedule, !- Name
+  Temperature 37,                         !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  26.7;                                   !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Medium Office ClgSetp Rule 2 Day Schedule, !- Name
+  Temperature 37,                         !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  26.7,                                   !- Value Until Time 1
+  18:00,                                  !- Time 2 {hh:mm}
+  24,                                     !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  26.7;                                   !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Medium Office ClgSetp Summer Design Day, !- Name
+  Temperature 37,                         !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  26.7,                                   !- Value Until Time 1
+  22:00,                                  !- Time 2 {hh:mm}
+  24,                                     !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  26.7;                                   !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Medium Office ClgSetp Winter Design Day, !- Name
+  Temperature 37,                         !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  26.7;                                   !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Medium Office HtgSetp Default Schedule, !- Name
+  Temperature 36,                         !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  15.6,                                   !- Value Until Time 1
+  22:00,                                  !- Time 2 {hh:mm}
+  21,                                     !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  15.6;                                   !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Medium Office HtgSetp Rule 1 Day Schedule, !- Name
+  Temperature 36,                         !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  15.6;                                   !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Medium Office HtgSetp Rule 2 Day Schedule, !- Name
+  Temperature 36,                         !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  15.6,                                   !- Value Until Time 1
+  18:00,                                  !- Time 2 {hh:mm}
+  21,                                     !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  15.6;                                   !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Medium Office HtgSetp Summer Design Day, !- Name
+  Temperature 36,                         !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  15.6;                                   !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Medium Office HtgSetp Winter Design Day, !- Name
+  Temperature 36,                         !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  21;                                     !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Medium Office Infil Quarter On Default Schedule, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  1,                                      !- Value Until Time 1
+  22:00,                                  !- Time 2 {hh:mm}
+  0.25,                                   !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  1;                                      !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Medium Office Infil Quarter On Rule 1 Day Schedule, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  1;                                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Medium Office Infil Quarter On Rule 2 Day Schedule, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  1,                                      !- Value Until Time 1
+  18:00,                                  !- Time 2 {hh:mm}
+  0.25,                                   !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  1;                                      !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Medium Office Infil Quarter On Summer Design Day, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  1,                                      !- Value Until Time 1
+  22:00,                                  !- Time 2 {hh:mm}
+  0.25,                                   !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  1;                                      !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Medium Office Infil Quarter On Winter Design Day, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  1,                                      !- Value Until Time 1
+  18:00,                                  !- Time 2 {hh:mm}
+  0.25,                                   !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  1;                                      !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Office Activity Default Schedule,       !- Name
+  ActivityLevel,                          !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  132;                                    !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Office Activity Summer Design Day,      !- Name
+  ActivityLevel,                          !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  132;                                    !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Office Activity Winter Design Day,      !- Name
+  ActivityLevel,                          !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  132;                                    !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Office Bldg Equip Default Schedule,     !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  08:00,                                  !- Time 1 {hh:mm}
+  0.4,                                    !- Value Until Time 1
+  12:00,                                  !- Time 2 {hh:mm}
+  0.9,                                    !- Value Until Time 2
+  13:00,                                  !- Time 3 {hh:mm}
+  0.8,                                    !- Value Until Time 3
+  17:00,                                  !- Time 4 {hh:mm}
+  0.9,                                    !- Value Until Time 4
+  18:00,                                  !- Time 5 {hh:mm}
+  0.8,                                    !- Value Until Time 5
+  20:00,                                  !- Time 6 {hh:mm}
+  0.6,                                    !- Value Until Time 6
+  22:00,                                  !- Time 7 {hh:mm}
+  0.5,                                    !- Value Until Time 7
+  24:00,                                  !- Time 8 {hh:mm}
+  0.4;                                    !- Value Until Time 8
+
+Schedule:Day:Interval,
+  Office Bldg Equip Rule 1 Day Schedule,  !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  0.3;                                    !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Office Bldg Equip Rule 2 Day Schedule,  !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  0.3,                                    !- Value Until Time 1
+  08:00,                                  !- Time 2 {hh:mm}
+  0.4,                                    !- Value Until Time 2
+  14:00,                                  !- Time 3 {hh:mm}
+  0.5,                                    !- Value Until Time 3
+  17:00,                                  !- Time 4 {hh:mm}
+  0.35,                                   !- Value Until Time 4
+  24:00,                                  !- Time 5 {hh:mm}
+  0.3;                                    !- Value Until Time 5
+
+Schedule:Day:Interval,
+  Office Bldg Equip Summer Design Day,    !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  1;                                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Office Bldg Equip Winter Design Day,    !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  0;                                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Office Bldg Light Default Schedule,     !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  05:00,                                  !- Time 1 {hh:mm}
+  0.05,                                   !- Value Until Time 1
+  07:00,                                  !- Time 2 {hh:mm}
+  0.1,                                    !- Value Until Time 2
+  08:00,                                  !- Time 3 {hh:mm}
+  0.3,                                    !- Value Until Time 3
+  17:00,                                  !- Time 4 {hh:mm}
+  0.9,                                    !- Value Until Time 4
+  18:00,                                  !- Time 5 {hh:mm}
+  0.7,                                    !- Value Until Time 5
+  20:00,                                  !- Time 6 {hh:mm}
+  0.5,                                    !- Value Until Time 6
+  22:00,                                  !- Time 7 {hh:mm}
+  0.3,                                    !- Value Until Time 7
+  23:00,                                  !- Time 8 {hh:mm}
+  0.1,                                    !- Value Until Time 8
+  24:00,                                  !- Time 9 {hh:mm}
+  0.05;                                   !- Value Until Time 9
+
+Schedule:Day:Interval,
+  Office Bldg Light Rule 1 Day Schedule,  !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  0.05;                                   !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Office Bldg Light Rule 2 Day Schedule,  !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  0.05,                                   !- Value Until Time 1
+  08:00,                                  !- Time 2 {hh:mm}
+  0.1,                                    !- Value Until Time 2
+  14:00,                                  !- Time 3 {hh:mm}
+  0.5,                                    !- Value Until Time 3
+  17:00,                                  !- Time 4 {hh:mm}
+  0.15,                                   !- Value Until Time 4
+  24:00,                                  !- Time 5 {hh:mm}
+  0.05;                                   !- Value Until Time 5
+
+Schedule:Day:Interval,
+  Office Bldg Light Summer Design Day,    !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  1;                                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Office Bldg Light Winter Design Day,    !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  0;                                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Office Bldg Occ Default Schedule,       !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  0,                                      !- Value Until Time 1
+  07:00,                                  !- Time 2 {hh:mm}
+  0.100000001490116,                      !- Value Until Time 2
+  08:00,                                  !- Time 3 {hh:mm}
+  0.200000002980232,                      !- Value Until Time 3
+  12:00,                                  !- Time 4 {hh:mm}
+  0.850000023841858,                      !- Value Until Time 4
+  13:00,                                  !- Time 5 {hh:mm}
+  0.5,                                    !- Value Until Time 5
+  17:00,                                  !- Time 6 {hh:mm}
+  0.850000023841858,                      !- Value Until Time 6
+  18:00,                                  !- Time 7 {hh:mm}
+  0.699999988079071,                      !- Value Until Time 7
+  20:00,                                  !- Time 8 {hh:mm}
+  0.400000005960464,                      !- Value Until Time 8
+  22:00,                                  !- Time 9 {hh:mm}
+  0.100000001490116,                      !- Value Until Time 9
+  24:00,                                  !- Time 10 {hh:mm}
+  0.0500000007450581;                     !- Value Until Time 10
+
+Schedule:Day:Interval,
+  Office Bldg Occ Default Schedule 1,     !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  0,                                      !- Value Until Time 1
+  07:00,                                  !- Time 2 {hh:mm}
+  0.100000001490116,                      !- Value Until Time 2
+  08:00,                                  !- Time 3 {hh:mm}
+  0.200000002980232,                      !- Value Until Time 3
+  20:00,                                  !- Time 4 {hh:mm}
+  0.400000005960464,                      !- Value Until Time 4
+  22:00,                                  !- Time 5 {hh:mm}
+  0.100000001490116,                      !- Value Until Time 5
+  24:00,                                  !- Time 6 {hh:mm}
+  0.0500000007450581;                     !- Value Until Time 6
+
+Schedule:Day:Interval,
+  Office Bldg Occ Rule 1 Day Schedule,    !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  0;                                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Office Bldg Occ Rule 1 Day Schedule 1,  !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  0;                                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Office Bldg Occ Rule 2 Day Schedule,    !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  0,                                      !- Value Until Time 1
+  08:00,                                  !- Time 2 {hh:mm}
+  0.100000001490116,                      !- Value Until Time 2
+  14:00,                                  !- Time 3 {hh:mm}
+  0.400000005960464,                      !- Value Until Time 3
+  17:00,                                  !- Time 4 {hh:mm}
+  0.100000001490116,                      !- Value Until Time 4
+  24:00,                                  !- Time 5 {hh:mm}
+  0;                                      !- Value Until Time 5
+
+Schedule:Day:Interval,
+  Office Bldg Occ Rule 2 Day Schedule 1,  !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  0,                                      !- Value Until Time 1
+  08:00,                                  !- Time 2 {hh:mm}
+  0.100000001490116,                      !- Value Until Time 2
+  14:00,                                  !- Time 3 {hh:mm}
+  0.25,                                   !- Value Until Time 3
+  17:00,                                  !- Time 4 {hh:mm}
+  0.100000001490116,                      !- Value Until Time 4
+  24:00,                                  !- Time 5 {hh:mm}
+  0;                                      !- Value Until Time 5
+
+Schedule:Day:Interval,
+  Office Bldg Occ Summer Design Day,      !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  0,                                      !- Value Until Time 1
+  22:00,                                  !- Time 2 {hh:mm}
+  1,                                      !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  0.05;                                   !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Office Bldg Occ Summer Design Day 1,    !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  0,                                      !- Value Until Time 1
+  22:00,                                  !- Time 2 {hh:mm}
+  1,                                      !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  0.05;                                   !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Office Bldg Occ Winter Design Day,      !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  0;                                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Office Bldg Occ Winter Design Day 1,    !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  0;                                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Office Infil Quarter On Default Schedule, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  1,                                      !- Value Until Time 1
+  22:00,                                  !- Time 2 {hh:mm}
+  0.25,                                   !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  1;                                      !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Office Infil Quarter On Rule 1 Day Schedule, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  1;                                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Office Infil Quarter On Rule 2 Day Schedule, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  1,                                      !- Value Until Time 1
+  18:00,                                  !- Time 2 {hh:mm}
+  0.25,                                   !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  1;                                      !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Office Infil Quarter On Summer Design Day, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  1,                                      !- Value Until Time 1
+  22:00,                                  !- Time 2 {hh:mm}
+  0.25,                                   !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  1;                                      !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Office Infil Quarter On Winter Design Day, !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  1,                                      !- Value Until Time 1
+  18:00,                                  !- Time 2 {hh:mm}
+  0.25,                                   !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  1;                                      !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Small Office Activity Default Schedule, !- Name
+  ActivityLevel 12,                       !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  120;                                    !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Small Office Activity Summer Design Day, !- Name
+  ActivityLevel 12,                       !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  120;                                    !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Small Office Activity Winter Design Day, !- Name
+  ActivityLevel 12,                       !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  120;                                    !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Small Office Bldg Equip Default Schedule, !- Name
+  Fractional,                             !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  08:00,                                  !- Time 1 {hh:mm}
+  0.4,                                    !- Value Until Time 1
+  12:00,                                  !- Time 2 {hh:mm}
+  0.9,                                    !- Value Until Time 2
+  13:00,                                  !- Time 3 {hh:mm}
+  0.8,                                    !- Value Until Time 3
+  17:00,                                  !- Time 4 {hh:mm}
+  0.9,                                    !- Value Until Time 4
+  18:00,                                  !- Time 5 {hh:mm}
+  0.5,                                    !- Value Until Time 5
+  24:00,                                  !- Time 6 {hh:mm}
+  0.4;                                    !- Value Until Time 6
+
+Schedule:Day:Interval,
+  Small Office Bldg Equip Rule 1 Day Schedule, !- Name
+  Fractional,                             !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  0.3;                                    !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Small Office Bldg Equip Rule 2 Day Schedule, !- Name
+  Fractional,                             !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  0.3,                                    !- Value Until Time 1
+  08:00,                                  !- Time 2 {hh:mm}
+  0.4,                                    !- Value Until Time 2
+  12:00,                                  !- Time 3 {hh:mm}
+  0.5,                                    !- Value Until Time 3
+  17:00,                                  !- Time 4 {hh:mm}
+  0.35,                                   !- Value Until Time 4
+  24:00,                                  !- Time 5 {hh:mm}
+  0.3;                                    !- Value Until Time 5
+
+Schedule:Day:Interval,
+  Small Office Bldg Equip Summer Design Day, !- Name
+  Fractional,                             !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  1;                                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Small Office Bldg Equip Winter Design Day, !- Name
+  Fractional,                             !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  0;                                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Small Office Bldg Occ Default Schedule, !- Name
+  Fractional,                             !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  0,                                      !- Value Until Time 1
+  07:00,                                  !- Time 2 {hh:mm}
+  0.1,                                    !- Value Until Time 2
+  08:00,                                  !- Time 3 {hh:mm}
+  0.2,                                    !- Value Until Time 3
+  12:00,                                  !- Time 4 {hh:mm}
+  0.95,                                   !- Value Until Time 4
+  13:00,                                  !- Time 5 {hh:mm}
+  0.5,                                    !- Value Until Time 5
+  17:00,                                  !- Time 6 {hh:mm}
+  0.95,                                   !- Value Until Time 6
+  18:00,                                  !- Time 7 {hh:mm}
+  0.3,                                    !- Value Until Time 7
+  20:00,                                  !- Time 8 {hh:mm}
+  0.1,                                    !- Value Until Time 8
+  24:00,                                  !- Time 9 {hh:mm}
+  0.05;                                   !- Value Until Time 9
+
+Schedule:Day:Interval,
+  Small Office Bldg Occ Rule 1 Day Schedule, !- Name
+  Fractional,                             !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  0;                                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Small Office Bldg Occ Rule 2 Day Schedule, !- Name
+  Fractional,                             !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  0,                                      !- Value Until Time 1
+  08:00,                                  !- Time 2 {hh:mm}
+  0.1,                                    !- Value Until Time 2
+  12:00,                                  !- Time 3 {hh:mm}
+  0.3,                                    !- Value Until Time 3
+  17:00,                                  !- Time 4 {hh:mm}
+  0.1,                                    !- Value Until Time 4
+  24:00,                                  !- Time 5 {hh:mm}
+  0;                                      !- Value Until Time 5
+
+Schedule:Day:Interval,
+  Small Office Bldg Occ Summer Design Day, !- Name
+  Fractional,                             !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  0,                                      !- Value Until Time 1
+  22:00,                                  !- Time 2 {hh:mm}
+  1,                                      !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  0.05;                                   !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Small Office Bldg Occ Winter Design Day, !- Name
+  Fractional,                             !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  0;                                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Small Office ClgSetp Default Schedule,  !- Name
+  Temperature 4,                          !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  26.7,                                   !- Value Until Time 1
+  22:00,                                  !- Time 2 {hh:mm}
+  24,                                     !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  26.7;                                   !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Small Office ClgSetp Rule 1 Day Schedule, !- Name
+  Temperature 4,                          !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  26.7;                                   !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Small Office ClgSetp Rule 2 Day Schedule, !- Name
+  Temperature 4,                          !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  26.7,                                   !- Value Until Time 1
+  18:00,                                  !- Time 2 {hh:mm}
+  24,                                     !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  26.7;                                   !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Small Office ClgSetp Summer Design Day, !- Name
+  Temperature 4,                          !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  26.7,                                   !- Value Until Time 1
+  22:00,                                  !- Time 2 {hh:mm}
+  24,                                     !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  26.7;                                   !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Small Office ClgSetp Winter Design Day, !- Name
+  Temperature 4,                          !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  26.7;                                   !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Small Office HtgSetp Default Schedule,  !- Name
+  Temperature 11,                         !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  15.6,                                   !- Value Until Time 1
+  22:00,                                  !- Time 2 {hh:mm}
+  21,                                     !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  15.6;                                   !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Small Office HtgSetp Rule 1 Day Schedule, !- Name
+  Temperature 11,                         !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  15.6;                                   !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Small Office HtgSetp Rule 2 Day Schedule, !- Name
+  Temperature 11,                         !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  15.6,                                   !- Value Until Time 1
+  18:00,                                  !- Time 2 {hh:mm}
+  21,                                     !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  15.6;                                   !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Small Office HtgSetp Summer Design Day, !- Name
+  Temperature 11,                         !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  15.6;                                   !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Small Office HtgSetp Winter Design Day, !- Name
+  Temperature 11,                         !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  21;                                     !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Small Office Infil Quarter On Default Schedule, !- Name
+  Fractional,                             !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  1,                                      !- Value Until Time 1
+  22:00,                                  !- Time 2 {hh:mm}
+  0.25,                                   !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  1;                                      !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Small Office Infil Quarter On Rule 1 Day Schedule, !- Name
+  Fractional,                             !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24:00,                                  !- Time 1 {hh:mm}
+  1;                                      !- Value Until Time 1
+
+Schedule:Day:Interval,
+  Small Office Infil Quarter On Rule 2 Day Schedule, !- Name
+  Fractional,                             !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  1,                                      !- Value Until Time 1
+  18:00,                                  !- Time 2 {hh:mm}
+  0.25,                                   !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  1;                                      !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Small Office Infil Quarter On Summer Design Day, !- Name
+  Fractional,                             !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  1,                                      !- Value Until Time 1
+  22:00,                                  !- Time 2 {hh:mm}
+  0.25,                                   !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  1;                                      !- Value Until Time 3
+
+Schedule:Day:Interval,
+  Small Office Infil Quarter On Winter Design Day, !- Name
+  Fractional,                             !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  06:00,                                  !- Time 1 {hh:mm}
+  1,                                      !- Value Until Time 1
+  18:00,                                  !- Time 2 {hh:mm}
+  0.25,                                   !- Value Until Time 2
+  24:00,                                  !- Time 3 {hh:mm}
+  1;                                      !- Value Until Time 3
+
+Schedule:Week:Daily,
+  Schedule:Week:Daily {82e64ff1-8d3a-4569-b3e2-bedef18335d9}, !- Name
+  Medium Office Activity Default Schedule, !- Sunday Schedule:Day Name
+  Medium Office Activity Default Schedule, !- Monday Schedule:Day Name
+  Medium Office Activity Default Schedule, !- Tuesday Schedule:Day Name
+  Medium Office Activity Default Schedule, !- Wednesday Schedule:Day Name
+  Medium Office Activity Default Schedule, !- Thursday Schedule:Day Name
+  Medium Office Activity Default Schedule, !- Friday Schedule:Day Name
+  Medium Office Activity Default Schedule, !- Saturday Schedule:Day Name
+  Medium Office Activity Default Schedule, !- Holiday Schedule:Day Name
+  Medium Office Activity Summer Design Day, !- SummerDesignDay Schedule:Day Name
+  Medium Office Activity Winter Design Day, !- WinterDesignDay Schedule:Day Name
+  Medium Office Activity Default Schedule, !- CustomDay1 Schedule:Day Name
+  Medium Office Activity Default Schedule; !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,
+  Medium Office Activity,                 !- Name
+  ActivityLevel 13,                       !- Schedule Type Limits Name
+  Schedule:Week:Daily {82e64ff1-8d3a-4569-b3e2-bedef18335d9}, !- Schedule:Week Name 1
+  1,                                      !- Start Month 1
+  1,                                      !- Start Day 1
+  12,                                     !- End Month 1
+  31;                                     !- End Day 1
+
+Schedule:Week:Daily,
+  Schedule:Week:Daily {db0aaa7e-ef7f-46bd-a36f-40c0c75a6db5}, !- Name
+  Medium Office Bldg Equip Rule 1 Day Schedule, !- Sunday Schedule:Day Name
+  Medium Office Bldg Equip Default Schedule, !- Monday Schedule:Day Name
+  Medium Office Bldg Equip Default Schedule, !- Tuesday Schedule:Day Name
+  Medium Office Bldg Equip Default Schedule, !- Wednesday Schedule:Day Name
+  Medium Office Bldg Equip Default Schedule, !- Thursday Schedule:Day Name
+  Medium Office Bldg Equip Default Schedule, !- Friday Schedule:Day Name
+  Medium Office Bldg Equip Rule 2 Day Schedule, !- Saturday Schedule:Day Name
+  Medium Office Bldg Equip Default Schedule, !- Holiday Schedule:Day Name
+  Medium Office Bldg Equip Summer Design Day, !- SummerDesignDay Schedule:Day Name
+  Medium Office Bldg Equip Winter Design Day, !- WinterDesignDay Schedule:Day Name
+  Medium Office Bldg Equip Default Schedule, !- CustomDay1 Schedule:Day Name
+  Medium Office Bldg Equip Default Schedule; !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,
+  Medium Office Bldg Equip,               !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  Schedule:Week:Daily {db0aaa7e-ef7f-46bd-a36f-40c0c75a6db5}, !- Schedule:Week Name 1
+  1,                                      !- Start Month 1
+  1,                                      !- Start Day 1
+  12,                                     !- End Month 1
+  31;                                     !- End Day 1
+
+Schedule:Week:Daily,
+  Schedule:Week:Daily {05d1ec8d-b30f-406a-b907-9c6c5bff61b4}, !- Name
+  Medium Office Bldg Occ Rule 1 Day Schedule, !- Sunday Schedule:Day Name
+  Medium Office Bldg Occ Default Schedule, !- Monday Schedule:Day Name
+  Medium Office Bldg Occ Default Schedule, !- Tuesday Schedule:Day Name
+  Medium Office Bldg Occ Default Schedule, !- Wednesday Schedule:Day Name
+  Medium Office Bldg Occ Default Schedule, !- Thursday Schedule:Day Name
+  Medium Office Bldg Occ Default Schedule, !- Friday Schedule:Day Name
+  Medium Office Bldg Occ Rule 2 Day Schedule, !- Saturday Schedule:Day Name
+  Medium Office Bldg Occ Default Schedule, !- Holiday Schedule:Day Name
+  Medium Office Bldg Occ Summer Design Day, !- SummerDesignDay Schedule:Day Name
+  Medium Office Bldg Occ Winter Design Day, !- WinterDesignDay Schedule:Day Name
+  Medium Office Bldg Occ Default Schedule, !- CustomDay1 Schedule:Day Name
+  Medium Office Bldg Occ Default Schedule; !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,
+  Medium Office Bldg Occ,                 !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  Schedule:Week:Daily {05d1ec8d-b30f-406a-b907-9c6c5bff61b4}, !- Schedule:Week Name 1
+  1,                                      !- Start Month 1
+  1,                                      !- Start Day 1
+  12,                                     !- End Month 1
+  31;                                     !- End Day 1
+
+Schedule:Week:Daily,
+  Schedule:Week:Daily {a7a256aa-e151-4bb3-8ec9-ae5686cc4c36}, !- Name
+  Medium Office ClgSetp Rule 1 Day Schedule, !- Sunday Schedule:Day Name
+  Medium Office ClgSetp Default Schedule, !- Monday Schedule:Day Name
+  Medium Office ClgSetp Default Schedule, !- Tuesday Schedule:Day Name
+  Medium Office ClgSetp Default Schedule, !- Wednesday Schedule:Day Name
+  Medium Office ClgSetp Default Schedule, !- Thursday Schedule:Day Name
+  Medium Office ClgSetp Default Schedule, !- Friday Schedule:Day Name
+  Medium Office ClgSetp Rule 2 Day Schedule, !- Saturday Schedule:Day Name
+  Medium Office ClgSetp Default Schedule, !- Holiday Schedule:Day Name
+  Medium Office ClgSetp Summer Design Day, !- SummerDesignDay Schedule:Day Name
+  Medium Office ClgSetp Winter Design Day, !- WinterDesignDay Schedule:Day Name
+  Medium Office ClgSetp Default Schedule, !- CustomDay1 Schedule:Day Name
+  Medium Office ClgSetp Default Schedule; !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,
+  Medium Office ClgSetp,                  !- Name
+  Temperature 37,                         !- Schedule Type Limits Name
+  Schedule:Week:Daily {a7a256aa-e151-4bb3-8ec9-ae5686cc4c36}, !- Schedule:Week Name 1
+  1,                                      !- Start Month 1
+  1,                                      !- Start Day 1
+  12,                                     !- End Month 1
+  31;                                     !- End Day 1
+
+Schedule:Week:Daily,
+  Schedule:Week:Daily {47541660-b80b-47d8-9be0-0dac1de03add}, !- Name
+  Medium Office HtgSetp Rule 1 Day Schedule, !- Sunday Schedule:Day Name
+  Medium Office HtgSetp Default Schedule, !- Monday Schedule:Day Name
+  Medium Office HtgSetp Default Schedule, !- Tuesday Schedule:Day Name
+  Medium Office HtgSetp Default Schedule, !- Wednesday Schedule:Day Name
+  Medium Office HtgSetp Default Schedule, !- Thursday Schedule:Day Name
+  Medium Office HtgSetp Default Schedule, !- Friday Schedule:Day Name
+  Medium Office HtgSetp Rule 2 Day Schedule, !- Saturday Schedule:Day Name
+  Medium Office HtgSetp Default Schedule, !- Holiday Schedule:Day Name
+  Medium Office HtgSetp Summer Design Day, !- SummerDesignDay Schedule:Day Name
+  Medium Office HtgSetp Winter Design Day, !- WinterDesignDay Schedule:Day Name
+  Medium Office HtgSetp Default Schedule, !- CustomDay1 Schedule:Day Name
+  Medium Office HtgSetp Default Schedule; !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,
+  Medium Office HtgSetp,                  !- Name
+  Temperature 36,                         !- Schedule Type Limits Name
+  Schedule:Week:Daily {47541660-b80b-47d8-9be0-0dac1de03add}, !- Schedule:Week Name 1
+  1,                                      !- Start Month 1
+  1,                                      !- Start Day 1
+  12,                                     !- End Month 1
+  31;                                     !- End Day 1
+
+Schedule:Week:Daily,
+  Schedule:Week:Daily {f8c47a8e-4285-490d-beab-003fad2b5daa}, !- Name
+  Medium Office Infil Quarter On Rule 1 Day Schedule, !- Sunday Schedule:Day Name
+  Medium Office Infil Quarter On Default Schedule, !- Monday Schedule:Day Name
+  Medium Office Infil Quarter On Default Schedule, !- Tuesday Schedule:Day Name
+  Medium Office Infil Quarter On Default Schedule, !- Wednesday Schedule:Day Name
+  Medium Office Infil Quarter On Default Schedule, !- Thursday Schedule:Day Name
+  Medium Office Infil Quarter On Default Schedule, !- Friday Schedule:Day Name
+  Medium Office Infil Quarter On Rule 2 Day Schedule, !- Saturday Schedule:Day Name
+  Medium Office Infil Quarter On Default Schedule, !- Holiday Schedule:Day Name
+  Medium Office Infil Quarter On Summer Design Day, !- SummerDesignDay Schedule:Day Name
+  Medium Office Infil Quarter On Winter Design Day, !- WinterDesignDay Schedule:Day Name
+  Medium Office Infil Quarter On Default Schedule, !- CustomDay1 Schedule:Day Name
+  Medium Office Infil Quarter On Default Schedule; !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,
+  Medium Office Infil Quarter On,         !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  Schedule:Week:Daily {f8c47a8e-4285-490d-beab-003fad2b5daa}, !- Schedule:Week Name 1
+  1,                                      !- Start Month 1
+  1,                                      !- Start Day 1
+  12,                                     !- End Month 1
+  31;                                     !- End Day 1
+
+Schedule:Week:Daily,
+  Schedule:Week:Daily {5e993833-6f92-4002-b1e7-b19de9345729}, !- Name
+  Office Activity Default Schedule,       !- Sunday Schedule:Day Name
+  Office Activity Default Schedule,       !- Monday Schedule:Day Name
+  Office Activity Default Schedule,       !- Tuesday Schedule:Day Name
+  Office Activity Default Schedule,       !- Wednesday Schedule:Day Name
+  Office Activity Default Schedule,       !- Thursday Schedule:Day Name
+  Office Activity Default Schedule,       !- Friday Schedule:Day Name
+  Office Activity Default Schedule,       !- Saturday Schedule:Day Name
+  Office Activity Default Schedule,       !- Holiday Schedule:Day Name
+  Office Activity Summer Design Day,      !- SummerDesignDay Schedule:Day Name
+  Office Activity Winter Design Day,      !- WinterDesignDay Schedule:Day Name
+  Office Activity Default Schedule,       !- CustomDay1 Schedule:Day Name
+  Office Activity Default Schedule;       !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,
+  Office Activity,                        !- Name
+  ActivityLevel,                          !- Schedule Type Limits Name
+  Schedule:Week:Daily {5e993833-6f92-4002-b1e7-b19de9345729}, !- Schedule:Week Name 1
+  1,                                      !- Start Month 1
+  1,                                      !- Start Day 1
+  12,                                     !- End Month 1
+  31;                                     !- End Day 1
+
+Schedule:Week:Daily,
+  Schedule:Week:Daily {aa9ffd47-a2ce-4440-9b7e-ee9b92631076}, !- Name
+  Office Bldg Equip Rule 1 Day Schedule,  !- Sunday Schedule:Day Name
+  Office Bldg Equip Default Schedule,     !- Monday Schedule:Day Name
+  Office Bldg Equip Default Schedule,     !- Tuesday Schedule:Day Name
+  Office Bldg Equip Default Schedule,     !- Wednesday Schedule:Day Name
+  Office Bldg Equip Default Schedule,     !- Thursday Schedule:Day Name
+  Office Bldg Equip Default Schedule,     !- Friday Schedule:Day Name
+  Office Bldg Equip Rule 2 Day Schedule,  !- Saturday Schedule:Day Name
+  Office Bldg Equip Default Schedule,     !- Holiday Schedule:Day Name
+  Office Bldg Equip Summer Design Day,    !- SummerDesignDay Schedule:Day Name
+  Office Bldg Equip Winter Design Day,    !- WinterDesignDay Schedule:Day Name
+  Office Bldg Equip Default Schedule,     !- CustomDay1 Schedule:Day Name
+  Office Bldg Equip Default Schedule;     !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,
+  Office Bldg Equip,                      !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  Schedule:Week:Daily {aa9ffd47-a2ce-4440-9b7e-ee9b92631076}, !- Schedule:Week Name 1
+  1,                                      !- Start Month 1
+  1,                                      !- Start Day 1
+  12,                                     !- End Month 1
+  31;                                     !- End Day 1
+
+Schedule:Week:Daily,
+  Schedule:Week:Daily {a2971498-2c1b-4671-8a0c-af9fa0f5f1b9}, !- Name
+  Office Bldg Light Rule 1 Day Schedule,  !- Sunday Schedule:Day Name
+  Office Bldg Light Default Schedule,     !- Monday Schedule:Day Name
+  Office Bldg Light Default Schedule,     !- Tuesday Schedule:Day Name
+  Office Bldg Light Default Schedule,     !- Wednesday Schedule:Day Name
+  Office Bldg Light Default Schedule,     !- Thursday Schedule:Day Name
+  Office Bldg Light Default Schedule,     !- Friday Schedule:Day Name
+  Office Bldg Light Rule 2 Day Schedule,  !- Saturday Schedule:Day Name
+  Office Bldg Light Default Schedule,     !- Holiday Schedule:Day Name
+  Office Bldg Light Summer Design Day,    !- SummerDesignDay Schedule:Day Name
+  Office Bldg Light Winter Design Day,    !- WinterDesignDay Schedule:Day Name
+  Office Bldg Light Default Schedule,     !- CustomDay1 Schedule:Day Name
+  Office Bldg Light Default Schedule;     !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,
+  Office Bldg Light,                      !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  Schedule:Week:Daily {a2971498-2c1b-4671-8a0c-af9fa0f5f1b9}, !- Schedule:Week Name 1
+  1,                                      !- Start Month 1
+  1,                                      !- Start Day 1
+  12,                                     !- End Month 1
+  31;                                     !- End Day 1
+
+Schedule:Week:Daily,
+  Schedule:Week:Daily {956a0cfa-50ea-40b9-8417-1e2bf1637992}, !- Name
+  Office Infil Quarter On Rule 1 Day Schedule, !- Sunday Schedule:Day Name
+  Office Infil Quarter On Default Schedule, !- Monday Schedule:Day Name
+  Office Infil Quarter On Default Schedule, !- Tuesday Schedule:Day Name
+  Office Infil Quarter On Default Schedule, !- Wednesday Schedule:Day Name
+  Office Infil Quarter On Default Schedule, !- Thursday Schedule:Day Name
+  Office Infil Quarter On Default Schedule, !- Friday Schedule:Day Name
+  Office Infil Quarter On Rule 2 Day Schedule, !- Saturday Schedule:Day Name
+  Office Infil Quarter On Default Schedule, !- Holiday Schedule:Day Name
+  Office Infil Quarter On Summer Design Day, !- SummerDesignDay Schedule:Day Name
+  Office Infil Quarter On Winter Design Day, !- WinterDesignDay Schedule:Day Name
+  Office Infil Quarter On Default Schedule, !- CustomDay1 Schedule:Day Name
+  Office Infil Quarter On Default Schedule; !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,
+  Office Infil Quarter On,                !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  Schedule:Week:Daily {956a0cfa-50ea-40b9-8417-1e2bf1637992}, !- Schedule:Week Name 1
+  1,                                      !- Start Month 1
+  1,                                      !- Start Day 1
+  12,                                     !- End Month 1
+  31;                                     !- End Day 1
+
+Schedule:Week:Daily,
+  Schedule:Week:Daily {1b3285da-bd58-4338-94e2-9fee9591a1ad}, !- Name
+  Office Bldg Occ Rule 1 Day Schedule 1,  !- Sunday Schedule:Day Name
+  Office Bldg Occ Default Schedule 1,     !- Monday Schedule:Day Name
+  Office Bldg Occ Default Schedule 1,     !- Tuesday Schedule:Day Name
+  Office Bldg Occ Default Schedule 1,     !- Wednesday Schedule:Day Name
+  Office Bldg Occ Default Schedule 1,     !- Thursday Schedule:Day Name
+  Office Bldg Occ Default Schedule 1,     !- Friday Schedule:Day Name
+  Office Bldg Occ Rule 2 Day Schedule 1,  !- Saturday Schedule:Day Name
+  Office Bldg Occ Default Schedule 1,     !- Holiday Schedule:Day Name
+  Office Bldg Occ Summer Design Day 1,    !- SummerDesignDay Schedule:Day Name
+  Office Bldg Occ Winter Design Day 1,    !- WinterDesignDay Schedule:Day Name
+  Office Bldg Occ Default Schedule 1,     !- CustomDay1 Schedule:Day Name
+  Office Bldg Occ Default Schedule 1;     !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,
+  Office Misc Occ,                        !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  Schedule:Week:Daily {1b3285da-bd58-4338-94e2-9fee9591a1ad}, !- Schedule:Week Name 1
+  1,                                      !- Start Month 1
+  1,                                      !- Start Day 1
+  12,                                     !- End Month 1
+  31;                                     !- End Day 1
+
+Schedule:Week:Daily,
+  Schedule:Week:Daily {34c0a062-b843-4cb8-9cf8-32fcc6569413}, !- Name
+  Office Bldg Occ Rule 1 Day Schedule,    !- Sunday Schedule:Day Name
+  Office Bldg Occ Default Schedule,       !- Monday Schedule:Day Name
+  Office Bldg Occ Default Schedule,       !- Tuesday Schedule:Day Name
+  Office Bldg Occ Default Schedule,       !- Wednesday Schedule:Day Name
+  Office Bldg Occ Default Schedule,       !- Thursday Schedule:Day Name
+  Office Bldg Occ Default Schedule,       !- Friday Schedule:Day Name
+  Office Bldg Occ Rule 2 Day Schedule,    !- Saturday Schedule:Day Name
+  Office Bldg Occ Default Schedule,       !- Holiday Schedule:Day Name
+  Office Bldg Occ Summer Design Day,      !- SummerDesignDay Schedule:Day Name
+  Office Bldg Occ Winter Design Day,      !- WinterDesignDay Schedule:Day Name
+  Office Bldg Occ Default Schedule,       !- CustomDay1 Schedule:Day Name
+  Office Bldg Occ Default Schedule;       !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,
+  Office Work Occ,                        !- Name
+  Fraction,                               !- Schedule Type Limits Name
+  Schedule:Week:Daily {34c0a062-b843-4cb8-9cf8-32fcc6569413}, !- Schedule:Week Name 1
+  1,                                      !- Start Month 1
+  1,                                      !- Start Day 1
+  12,                                     !- End Month 1
+  31;                                     !- End Day 1
+
+Schedule:Week:Daily,
+  Schedule:Week:Daily {01c4304c-4ace-432d-8b64-4942c7d81e62}, !- Name
+  Small Office Activity Default Schedule, !- Sunday Schedule:Day Name
+  Small Office Activity Default Schedule, !- Monday Schedule:Day Name
+  Small Office Activity Default Schedule, !- Tuesday Schedule:Day Name
+  Small Office Activity Default Schedule, !- Wednesday Schedule:Day Name
+  Small Office Activity Default Schedule, !- Thursday Schedule:Day Name
+  Small Office Activity Default Schedule, !- Friday Schedule:Day Name
+  Small Office Activity Default Schedule, !- Saturday Schedule:Day Name
+  Small Office Activity Default Schedule, !- Holiday Schedule:Day Name
+  Small Office Activity Summer Design Day, !- SummerDesignDay Schedule:Day Name
+  Small Office Activity Winter Design Day, !- WinterDesignDay Schedule:Day Name
+  Small Office Activity Default Schedule, !- CustomDay1 Schedule:Day Name
+  Small Office Activity Default Schedule; !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,
+  Small Office Activity,                  !- Name
+  ActivityLevel 12,                       !- Schedule Type Limits Name
+  Schedule:Week:Daily {01c4304c-4ace-432d-8b64-4942c7d81e62}, !- Schedule:Week Name 1
+  1,                                      !- Start Month 1
+  1,                                      !- Start Day 1
+  12,                                     !- End Month 1
+  31;                                     !- End Day 1
+
+Schedule:Week:Daily,
+  Schedule:Week:Daily {afe94d68-1638-4e22-9c5c-bbb158997b3f}, !- Name
+  Small Office Bldg Equip Rule 1 Day Schedule, !- Sunday Schedule:Day Name
+  Small Office Bldg Equip Default Schedule, !- Monday Schedule:Day Name
+  Small Office Bldg Equip Default Schedule, !- Tuesday Schedule:Day Name
+  Small Office Bldg Equip Default Schedule, !- Wednesday Schedule:Day Name
+  Small Office Bldg Equip Default Schedule, !- Thursday Schedule:Day Name
+  Small Office Bldg Equip Default Schedule, !- Friday Schedule:Day Name
+  Small Office Bldg Equip Rule 2 Day Schedule, !- Saturday Schedule:Day Name
+  Small Office Bldg Equip Default Schedule, !- Holiday Schedule:Day Name
+  Small Office Bldg Equip Summer Design Day, !- SummerDesignDay Schedule:Day Name
+  Small Office Bldg Equip Winter Design Day, !- WinterDesignDay Schedule:Day Name
+  Small Office Bldg Equip Default Schedule, !- CustomDay1 Schedule:Day Name
+  Small Office Bldg Equip Default Schedule; !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,
+  Small Office Bldg Equip,                !- Name
+  Fractional,                             !- Schedule Type Limits Name
+  Schedule:Week:Daily {afe94d68-1638-4e22-9c5c-bbb158997b3f}, !- Schedule:Week Name 1
+  1,                                      !- Start Month 1
+  1,                                      !- Start Day 1
+  12,                                     !- End Month 1
+  31;                                     !- End Day 1
+
+Schedule:Week:Daily,
+  Schedule:Week:Daily {9a32c578-83a2-4def-9595-8853e7f518e4}, !- Name
+  Small Office Bldg Occ Rule 1 Day Schedule, !- Sunday Schedule:Day Name
+  Small Office Bldg Occ Default Schedule, !- Monday Schedule:Day Name
+  Small Office Bldg Occ Default Schedule, !- Tuesday Schedule:Day Name
+  Small Office Bldg Occ Default Schedule, !- Wednesday Schedule:Day Name
+  Small Office Bldg Occ Default Schedule, !- Thursday Schedule:Day Name
+  Small Office Bldg Occ Default Schedule, !- Friday Schedule:Day Name
+  Small Office Bldg Occ Rule 2 Day Schedule, !- Saturday Schedule:Day Name
+  Small Office Bldg Occ Default Schedule, !- Holiday Schedule:Day Name
+  Small Office Bldg Occ Summer Design Day, !- SummerDesignDay Schedule:Day Name
+  Small Office Bldg Occ Winter Design Day, !- WinterDesignDay Schedule:Day Name
+  Small Office Bldg Occ Default Schedule, !- CustomDay1 Schedule:Day Name
+  Small Office Bldg Occ Default Schedule; !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,
+  Small Office Bldg Occ,                  !- Name
+  Fractional,                             !- Schedule Type Limits Name
+  Schedule:Week:Daily {9a32c578-83a2-4def-9595-8853e7f518e4}, !- Schedule:Week Name 1
+  1,                                      !- Start Month 1
+  1,                                      !- Start Day 1
+  12,                                     !- End Month 1
+  31;                                     !- End Day 1
+
+Schedule:Week:Daily,
+  Schedule:Week:Daily {425a344d-213c-4166-b641-115957c7588f}, !- Name
+  Small Office ClgSetp Rule 1 Day Schedule, !- Sunday Schedule:Day Name
+  Small Office ClgSetp Default Schedule,  !- Monday Schedule:Day Name
+  Small Office ClgSetp Default Schedule,  !- Tuesday Schedule:Day Name
+  Small Office ClgSetp Default Schedule,  !- Wednesday Schedule:Day Name
+  Small Office ClgSetp Default Schedule,  !- Thursday Schedule:Day Name
+  Small Office ClgSetp Default Schedule,  !- Friday Schedule:Day Name
+  Small Office ClgSetp Rule 2 Day Schedule, !- Saturday Schedule:Day Name
+  Small Office ClgSetp Default Schedule,  !- Holiday Schedule:Day Name
+  Small Office ClgSetp Summer Design Day, !- SummerDesignDay Schedule:Day Name
+  Small Office ClgSetp Winter Design Day, !- WinterDesignDay Schedule:Day Name
+  Small Office ClgSetp Default Schedule,  !- CustomDay1 Schedule:Day Name
+  Small Office ClgSetp Default Schedule;  !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,
+  Small Office ClgSetp,                   !- Name
+  Temperature 4,                          !- Schedule Type Limits Name
+  Schedule:Week:Daily {425a344d-213c-4166-b641-115957c7588f}, !- Schedule:Week Name 1
+  1,                                      !- Start Month 1
+  1,                                      !- Start Day 1
+  12,                                     !- End Month 1
+  31;                                     !- End Day 1
+
+Schedule:Week:Daily,
+  Schedule:Week:Daily {9b3957f1-8a88-472e-8689-b6b6d8e4d8c3}, !- Name
+  Small Office HtgSetp Rule 1 Day Schedule, !- Sunday Schedule:Day Name
+  Small Office HtgSetp Default Schedule,  !- Monday Schedule:Day Name
+  Small Office HtgSetp Default Schedule,  !- Tuesday Schedule:Day Name
+  Small Office HtgSetp Default Schedule,  !- Wednesday Schedule:Day Name
+  Small Office HtgSetp Default Schedule,  !- Thursday Schedule:Day Name
+  Small Office HtgSetp Default Schedule,  !- Friday Schedule:Day Name
+  Small Office HtgSetp Rule 2 Day Schedule, !- Saturday Schedule:Day Name
+  Small Office HtgSetp Default Schedule,  !- Holiday Schedule:Day Name
+  Small Office HtgSetp Summer Design Day, !- SummerDesignDay Schedule:Day Name
+  Small Office HtgSetp Winter Design Day, !- WinterDesignDay Schedule:Day Name
+  Small Office HtgSetp Default Schedule,  !- CustomDay1 Schedule:Day Name
+  Small Office HtgSetp Default Schedule;  !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,
+  Small Office HtgSetp,                   !- Name
+  Temperature 11,                         !- Schedule Type Limits Name
+  Schedule:Week:Daily {9b3957f1-8a88-472e-8689-b6b6d8e4d8c3}, !- Schedule:Week Name 1
+  1,                                      !- Start Month 1
+  1,                                      !- Start Day 1
+  12,                                     !- End Month 1
+  31;                                     !- End Day 1
+
+Schedule:Week:Daily,
+  Schedule:Week:Daily {c0c6274d-cc9d-4eeb-b047-d2dbe331e78d}, !- Name
+  Small Office Infil Quarter On Rule 1 Day Schedule, !- Sunday Schedule:Day Name
+  Small Office Infil Quarter On Default Schedule, !- Monday Schedule:Day Name
+  Small Office Infil Quarter On Default Schedule, !- Tuesday Schedule:Day Name
+  Small Office Infil Quarter On Default Schedule, !- Wednesday Schedule:Day Name
+  Small Office Infil Quarter On Default Schedule, !- Thursday Schedule:Day Name
+  Small Office Infil Quarter On Default Schedule, !- Friday Schedule:Day Name
+  Small Office Infil Quarter On Rule 2 Day Schedule, !- Saturday Schedule:Day Name
+  Small Office Infil Quarter On Default Schedule, !- Holiday Schedule:Day Name
+  Small Office Infil Quarter On Summer Design Day, !- SummerDesignDay Schedule:Day Name
+  Small Office Infil Quarter On Winter Design Day, !- WinterDesignDay Schedule:Day Name
+  Small Office Infil Quarter On Default Schedule, !- CustomDay1 Schedule:Day Name
+  Small Office Infil Quarter On Default Schedule; !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,
+  Small Office Infil Quarter On,          !- Name
+  Fractional,                             !- Schedule Type Limits Name
+  Schedule:Week:Daily {c0c6274d-cc9d-4eeb-b047-d2dbe331e78d}, !- Schedule:Week Name 1
+  1,                                      !- Start Month 1
+  1,                                      !- Start Day 1
+  12,                                     !- End Month 1
+  31;                                     !- End Day 1
+
+OutputControl:ReportingTolerances,
+  0.2,                                    !- Tolerance for Time Heating Setpoint Not Met {deltaC}
+  0.2;                                    !- Tolerance for Time Cooling Setpoint Not Met {deltaC}
+
+Site:Location,
+  Site 1,                                 !- Name
+  39.74,                                  !- Latitude {deg}
+  -105.18,                                !- Longitude {deg}
+  -7,                                     !- Time Zone {hr}
+  1829;                                   !- Elevation {m}
+
+ZoneList,
+  DOE Ref 2004 - Office - OpenOffice,     !- Name
+  Story 1 Core Zone,                      !- Zone Name 1
+  Story 1 East Perimeter Zone,            !- Zone Name 2
+  Story 1 North Perimeter Zone,           !- Zone Name 3
+  Story 1 South Perimeter Zone,           !- Zone Name 4
+  Story 1 West Perimeter Zone,            !- Zone Name 5
+  Story 2 Core Zone,                      !- Zone Name 6
+  Story 2 East Perimeter Zone,            !- Zone Name 7
+  Story 2 North Perimeter Zone,           !- Zone Name 8
+  Story 2 South Perimeter Zone,           !- Zone Name 9
+  Story 2 West Perimeter Zone;            !- Zone Name 10
+
+Lights,
+  DOE Ref 2004 - Office - OpenOffice Lights, !- Name
+  DOE Ref 2004 - Office - OpenOffice,     !- Zone or ZoneList Name
+  Office Bldg Light,                      !- Schedule Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  11.8403014583807,                       !- Watts per Zone Floor Area {W/m2}
+  ,                                       !- Watts per Person {W/person}
+  ,                                       !- Return Air Fraction
+  ,                                       !- Fraction Radiant
+  ;                                       !- Fraction Visible
+
+People,
+  DOE Ref 2004 - Office - OpenOffice People, !- Name
+  DOE Ref 2004 - Office - OpenOffice,     !- Zone or ZoneList Name
+  Office Work Occ,                        !- Number of People Schedule Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People
+  0.056510529687726,                      !- People per Zone Floor Area {person/m2}
+  ,                                       !- Zone Floor Area per Person {m2/person}
+  0.3,                                    !- Fraction Radiant
+  ,                                       !- Sensible Heat Fraction
+  Office Activity;                        !- Activity Level Schedule Name
+
+ElectricEquipment,
+  DOE Ref 2004 - Office - OpenOffice Electric Equipment, !- Name
+  DOE Ref 2004 - Office - OpenOffice,     !- Zone or ZoneList Name
+  Office Bldg Equip,                      !- Schedule Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  10.3333540000413,                       !- Watts per Zone Floor Area {W/m2}
+  ,                                       !- Watts per Person {W/person}
+  ,                                       !- Fraction Latent
+  ,                                       !- Fraction Radiant
+  ;                                       !- Fraction Lost
+
+ZoneInfiltration:DesignFlowRate,
+  DOE Ref 2004 - Office - OpenOffice Infiltration, !- Name
+  DOE Ref 2004 - Office - OpenOffice,     !- Zone or ZoneList Name
+  Office Infil Quarter On,                !- Schedule Name
+  Flow/ExteriorArea,                      !- Design Flow Rate Calculation Method
+  ,                                       !- Design Flow Rate {m3/s}
+  ,                                       !- Flow per Zone Floor Area {m3/s-m2}
+  0.00030226,                             !- Flow per Exterior Surface Area {m3/s-m2}
+  ,                                       !- Air Changes per Hour {1/hr}
+  ,                                       !- Constant Term Coefficient
+  ,                                       !- Temperature Term Coefficient
+  ,                                       !- Velocity Term Coefficient
+  ;                                       !- Velocity Squared Term Coefficient
+
+OutputControl:Table:Style,
+  HTML;                                   !- Column Separator
+
+Output:Table:SummaryReports,
+  AllSummary;                             !- Report Name 1
+
+Output:VariableDictionary,
+  IDF,                                    !- Key Field
+  Unsorted;                               !- Sort Option
+
+Output:SQLite,
+  SimpleAndTabular;                       !- Option Type
+
+LifeCycleCost:NonrecurringCost,
+  Default Cost,                           !- Name
+  Construction,                           !- Category
+  0,                                      !- Cost
+  ServicePeriod;                          !- Start of Costs
+

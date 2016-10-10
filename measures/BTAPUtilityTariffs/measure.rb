@@ -3,6 +3,7 @@
 class UtilityTariffsModelSetup < OpenStudio::Ruleset::WorkspaceUserScript
 
   require 'openstudio-standards'
+  require 'fileutils'
 
   # Define the name of the Measure.
   def name
@@ -188,7 +189,7 @@ class UtilityTariffsModelSetup < OpenStudio::Ruleset::WorkspaceUserScript
     # save new tariff idf file
     tariff_dir = "#{File.dirname(__FILE__)}/tests/output"
     if !Dir.exists?(tariff_dir)
-      Dir.mkdir(tariff_dir)
+      FileUtils.mkdir_p(tariff_dir)
     end
     tariff_file = File.new("#{tariff_dir}/tariff.idf","w")
     tariff_file.puts(elec_tariff_template_file_content)

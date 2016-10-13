@@ -58,7 +58,7 @@ class BTAPResults < OpenStudio::Ruleset::ReportingUserScript
     runner.registerInitialCondition('Gathering data from EnergyPlus SQL file and OSM model.')
 
     #link sql output
-    model.setSqlFile(sql_file)
+    model.setSqlFile( sql_file )
 
     @current_building = model.building.get
     @current_facility = model.getFacility
@@ -66,9 +66,9 @@ class BTAPResults < OpenStudio::Ruleset::ReportingUserScript
 
     #Create hash of results.
 
-    #Compress model and store
+    #Compress model and store in base64 format
     #compressed_data = Zlib::Deflate.deflate(model.to_s)
-    #encoded_data = Base64.encode64 compressed_data
+    #encoded_data = Base64.strict_encode64 compressed_data
     #store_data(runner, encoded_data, "zipped_model_osm","-")
 
     #Weather file

@@ -1,5 +1,7 @@
 require 'erb'
 require 'json'
+require 'zlib'
+require 'base64'
 
 
 # start the measure
@@ -32,7 +34,7 @@ class BTAPResults < OpenStudio::Ruleset::ReportingUserScript
     begin
     name = name.to_s.squish.downcase.tr(" ","_")
     runner.registerValue(name.to_s,value.to_s)
-    
+
     rescue
       runner.registerError(" Error is RegisterValue for these arguments #{name}, value:#{value}, units:#{units}")
     end
@@ -64,6 +66,10 @@ class BTAPResults < OpenStudio::Ruleset::ReportingUserScript
 
     #Create hash of results.
 
+    #Compress model and store
+    #compressed_data = Zlib::Deflate.deflate(model.to_s)
+    #encoded_data = Base64.encode64 compressed_data
+    #store_data(runner, encoded_data, "zipped_model_osm","-")
 
     #Weather file
     store_data(runner,  @weather_object.city, "City","-")
@@ -83,7 +89,7 @@ class BTAPResults < OpenStudio::Ruleset::ReportingUserScript
     conditionedFloorArea = @current_building.conditionedFloorArea()#m2
     exteriorSurface_area = @current_building.exteriorSurfaceArea() #m2
     building_air_volume = @current_building.airVolume() #m3
-          
+
 
 
 

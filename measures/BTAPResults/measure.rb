@@ -112,8 +112,8 @@ class BTAPResults < OpenStudio::Ruleset::ReportingUserScript
     store_data(runner,  @current_facility.economicsVirtualRateCombined(), "Elec-Gas-Combined Virtual Rate", "$/GJ")
     store_data(runner,  @current_facility.annualTotalCostPerNetConditionedBldgArea(OpenStudio::FuelType.new("DistrictCooling")), "DistrictCooling Total Cost Intensity", "$/M2")
     store_data(runner,  @current_facility.annualTotalCostPerNetConditionedBldgArea(OpenStudio::FuelType.new("DistrictHeating")), "DistrictHeating Total Cost Intensity", "$/M2")
-    store_data(runner,  @current_facility.economicsSPB(), "economics Simple Pay Back", "Years")
-    store_data(runner,  @current_facility.economicsIRR(), "economics Internal Rate of Return", "%")
+    store_data(runner,  @current_facility.annualTotalUtilityCost(), "Total Utility Cost", "$")
+    #store_data(runner,  @current_facility.annualTotalUtilityCost() / conditionedFloorArea , "Total Utility Cost Intensity", "$/M2")
 
     # @annual_results_array.each {|result| puts "#{result[0]}, #{result[1]}, #{result[2]}, #{basename}" }
     #Determine weighted area average conductances

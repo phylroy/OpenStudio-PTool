@@ -67,9 +67,7 @@ class BTAPResults < OpenStudio::Ruleset::ReportingUserScript
     #Create hash of results.
 
     #Compress model and store in base64 format
-    #compressed_data = Zlib::Deflate.deflate(model.to_s)
-    #encoded_data = Base64.strict_encode64 compressed_data
-    #store_data(runner, encoded_data, "zipped_model_osm","-")
+    store_data(runner, Base64.strict_encode64( Zlib::Deflate.deflate(model.to_s) ), "zipped_model_osm","-")
 
     #Weather file
     store_data(runner,  @weather_object.city, "City","-")

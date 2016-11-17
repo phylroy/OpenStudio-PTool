@@ -6,7 +6,7 @@ require "#{File.dirname(__FILE__)}/../measure.rb"
 
 require 'fileutils'
 
-require 'test/unit'
+require 'minitest/autorun'
 
 # In order to test without having to run energyplus, we mock out some of the methods called by
 # the measure.  We give ourselves the ability to insert arbitrary time series by storing
@@ -46,7 +46,7 @@ class Array
   end
 end
 
-class VentilationQAQC_Test < Test::Unit::TestCase
+class VentilationQAQC_Test < MiniTest::Unit::TestCase
   TEN_FT = 3.048
   EIGHT_FT = 2.4384
 

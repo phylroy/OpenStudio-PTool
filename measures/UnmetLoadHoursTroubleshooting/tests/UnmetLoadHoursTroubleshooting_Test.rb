@@ -40,7 +40,7 @@ class Array
   end
 end
 
-class UnmetLoadHoursTroubleshooting_Test <  MiniTest::Test
+class UnmetLoadHoursTroubleshooting_Test <  MiniTest::Unit::TestCase
     
   def sqlPath
     return "#{File.dirname(__FILE__)}/sqlfile.sql"

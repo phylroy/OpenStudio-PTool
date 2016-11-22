@@ -1,0 +1,14 @@
+Construction Name,Type,u-factor (W/m^2*K),R-value (m^2*K/W),Material 1,Material 2,Material 3,Material 4,Material 5
+000 Exterior Door,Opaque,,0.8466843345111896,000 F08 Metal surface,000 I01 25mm insulation board
+000 Exterior Window,Fenestration,Can't calculate,,000 Clear 3mm,000 Air 13mm,000 Clear 3mm
+000 ExtSlabCarpet 4in ClimateZone 1-8,Opaque,,0.2939980930587338,MAT-CC05 4 HW CONCRETE,CP02 CARPET PAD
+000 Interior Ceiling,Opaque,,0.6900314465408806,000 M11 100mm lightweight concrete,000 F05 Ceiling air space resistance,000 F16 Acoustic tile
+000 Interior Door,Opaque,,0.16933333333333334,000 G05 25mm wood
+000 Interior Floor,Opaque,,0.6900314465408806,000 F16 Acoustic tile,000 F05 Ceiling air space resistance,000 M11 100mm lightweight concrete
+000 Interior Partition,Opaque,,0.16933333333333334,000 G05 25mm wood
+000 Interior Wall,Opaque,,0.38749999999999996,000 G01a 19mm gypsum board,000 F04 Wall air space resistance,000 G01a 19mm gypsum board
+000 Interior Window,Fenestration,Can't calculate,,000 Clear 3mm
+Air Wall,OS:Material:AirWall 1
+ASHRAE 189.1-2009 ExtRoof IEAD ClimateZone 2-5,Opaque,,4.355326696236419,Roof Membrane,Roof Insulation [21],Metal Decking
+ASHRAE 189.1-2009 ExtWall SteelFrame ClimateZone 4-8,Opaque,,3.0730861111111114,MAT-SHEATH,Wall Insulation [39],1/2IN Gypsum
+ASHRAE 189.1-2009 ExtWindow ClimateZone 4-5,Fenestration,Can't calculate,,Theoretical Glass [207]

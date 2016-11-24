@@ -39,7 +39,7 @@ class NRELOpenStudioQAQCChecks < OpenStudio::Ruleset::ReportingUserScript
       return false
     end
     @sql = @sql.get
-    model.setSqlFile(@sql)
+    @model.setSqlFile(@sql)
  
     # Load some the helper libraries
     @resource_path = "#{File.dirname(__FILE__)}/resources"

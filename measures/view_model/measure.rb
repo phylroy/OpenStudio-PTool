@@ -1,12 +1,27 @@
 require 'rubygems'
 require 'json'
 require 'erb'
+require 'zlib'
+require 'base64'
 
 require_relative 'resources/va3c'
 
 #start the measure
 class ViewModel < OpenStudio::Ruleset::ModelUserScript
   
+
+  def store_data(runner, value, name, units)
+    begin
+    name = name.to_s.squish.downcase.tr(" ","_")
+    runner.registerValue(name.to_s,value.to_s)
+
+    rescue
+      runner.registerError(" Error in RegisterValue for these arguments #{name}, value:#{value}, units:#{units}")
+    end
+    
+  end
+
+
   #define the name that a user will see
   def name
     return "ViewModel"
@@ -71,6 +86,9 @@ class ViewModel < OpenStudio::Ruleset::ModelUserScript
     title = "View Model"
     renderer = ERB.new(html_in)
     html_out = renderer.result(binding)
+
+    #Compress model and store in base64 format
+    store_data(runner, Base64.strict_encode64( Zlib::Deflate.deflate(html_out.to_s) ), "zipped_view_model_html","-")
 
     # write html file
     html_out_path = "./report.html"

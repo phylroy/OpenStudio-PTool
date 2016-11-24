@@ -1,0 +1,26 @@
+{
+  "group_id": "ca41dc28e1464220b3b116217ed3b6a0",
+  "timestamp": 1479915342,
+  "time_created": "2016-11-23 15:35:42 +0000",
+  "location": "AWS",
+  "availability_zone": "us-east-1c",
+  "server": {
+    "id": "i-54dd815a",
+    "ip": "http://54.197.81.209",
+    "dns": "ec2-54-197-81-209.compute-1.amazonaws.com",
+    "procs": 1,
+    "private_key_file_name": "/home/nrcan/windows-host/projects/OpenStudio-PTool/ec2_server_key.pem",
+    "private_ip_address": "10.232.167.224",
+    "worker_private_key_file_name": "/home/nrcan/windows-host/projects/OpenStudio-PTool/ec2_worker_key.pem"
+  },
+  "workers": [
+    {
+      "id": "i-41dd814f",
+      "ip": "http://54.145.130.78",
+      "dns": "ec2-54-145-130-78.compute-1.amazonaws.com",
+      "procs": 4,
+      "private_key_file_name": "/home/nrcan/windows-host/projects/OpenStudio-PTool/ec2_server_key.pem",
+      "private_ip_address": "10.237.206.226"
+    }
+  ]
+}

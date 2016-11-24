@@ -158,59 +158,52 @@ class BTAPResults < OpenStudio::Ruleset::ReportingUserScript
     end
 
     store_data(runner,  electric_peak ,"Peak Electricity", "W")
-    store_data(runner,  natural_gas_peak ,"Peak Gas", "W")
+    store_data(runner,  natural_gas_peak ,"Peak Natural Gas", "W")
 
     #Get End Uses by fuel type.
 
-    def end_use_intensity(runner, model,use_type,fuel_type)
-      fuel_name = fuel_type[0]
-      fuel_units = fuel_type[1]
-      value = model.sqlFile().get().execAndReturnFirstDouble("SELECT Value FROM tabulardatawithstrings WHERE ReportName='AnnualBuildingUtilityPerformanceSummary' AND ReportForString='Entire Facility' AND TableName='End Uses' AND RowName='#{use_type}' AND ColumnName='#{fuel_name}' AND Units='#{fuel_units}'")
-      if value.empty?
-        value = 0.0
-      else
-        value = value.get
+     fuels = [ 
+       ['Electricity', 'GJ'], 	
+       ['Natural Gas', 'GJ'] ,	
+       ['Additional Fuel', 'GJ'],
+       ['District Cooling','GJ'],	
+       ['District Heating', 'GJ'],	
+       ['Water', 'm3'] 
+       ]
+
+       end_uses = [
+          'Heating'	,
+          'Cooling'	,
+          'Interior Lighting'	,
+          'Exterior Lighting'	,
+          'Interior Equipment'	,
+          'Exterior Equipment'	,
+          'Fans'	,
+          'Pumps'	,
+          'Heat Rejection'	,
+          'Humidification'	,
+          'Heat Recovery'	,
+          'Water Systems'	,
+          'Refrigeration'	,
+          'Generators'	, 	 	 	 	 	 
+          'Total End Uses'
+          ]
+
+      fuels.each do |fuel_type|
+        end_uses.each do |use_type|
+          fuel_name = fuel_type[0]
+          fuel_units = fuel_type[1]
+          value = model.sqlFile().get().execAndReturnFirstDouble("SELECT Value FROM tabulardatawithstrings WHERE ReportName='AnnualBuildingUtilityPerformanceSummary' AND ReportForString='Entire Facility' AND TableName='End Uses' AND RowName='#{use_type}' AND ColumnName='#{fuel_name}' AND Units='#{fuel_units}'")
+          if value.empty?
+            value = 0.0
+          else
+            value = value.get
+          end
+      store_data(runner,  value, "end_use-#{fuel_name}-#{use_type}", fuel_units)
+      store_data(runner,  value / @current_building.floorArea() , "end_use-#{fuel_name}-#{use_type}-intensity", "#{fuel_units}/m2")
+          
+        end
       end
-      store_data(runner,  value, "#{fuel_name}-#{use_type}", fuel_units)
-      store_data(runner,  value / @current_building.floorArea() , "#{fuel_name}-#{use_type}  Intensity", "#{fuel_units}/m2")
-    end
-    #Heating Energy
-    end_use_intensity(runner,model,"Heating",['Electricity', 'GJ'] )
-    end_use_intensity(runner,model,"Heating",['Natural Gas', 'GJ'] )
-    end_use_intensity(runner,model,"Heating",['District Heating', 'GJ'] )
-    #Cooling Energy
-    end_use_intensity(runner,model,'Cooling',['Electricity', 'GJ'] )
-    end_use_intensity(runner,model,"Cooling",['District Cooling', 'GJ'] )
-    #Lighting Energy
-    end_use_intensity(runner,model,'Interior Lighting',['Electricity', 'GJ'] )
-    end_use_intensity(runner,model,'Exterior Lighting',['Electricity', 'GJ'] )
-    #Equipment Energy
-    end_use_intensity(runner,model,'Interior Equipment',['Electricity', 'GJ'] )
-    end_use_intensity(runner,model,'Exterior Equipment',['Electricity', 'GJ'] )
-    end_use_intensity(runner,model,'Interior Equipment',['Natural Gas', 'GJ'] )
-    end_use_intensity(runner,model,'Exterior Equipment',['Natural Gas', 'GJ'] )
-    #Fans/Pumps
-    end_use_intensity(runner,model,'Fans',['Electricity', 'GJ'] )
-    end_use_intensity(runner,model,'Pumps',['Electricity', 'GJ'] )
-    #Heat Rejection
-    end_use_intensity(runner,model,'Heat Rejection',['Electricity', 'GJ'] )
-    end_use_intensity(runner,model,'Heat Rejection',['Natural Gas', 'GJ'] )
-    #Humidification
-    end_use_intensity(runner,model,'Humidification',['Electricity', 'GJ'] )
-    end_use_intensity(runner,model,'Humidification',['Natural Gas', 'GJ'] )
-    #Heat Recovery
-    end_use_intensity(runner,model,'Heat Recovery',['Electricity', 'GJ'] )
-    end_use_intensity(runner,model,'Heat Recovery',['Natural Gas', 'GJ'] )
-    #Water Systems
-    end_use_intensity(runner,model,'Water Systems',['Electricity', 'GJ'] )
-    end_use_intensity(runner,model,'Water Systems',['Natural Gas', 'GJ'] )
-    #Refrigeration
-    end_use_intensity(runner,model,'Refrigeration',['Electricity', 'GJ'] )
-    #Generators
-    end_use_intensity(runner,model,'Generators',['Electricity', 'GJ'] )
-    end_use_intensity(runner,model,'Generators',['Natural Gas', 'GJ'] )
-
-
     # closing the sql file
     sql_file.close
 

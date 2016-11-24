@@ -1,0 +1,96 @@
+Program Version,EnergyPlus, Version 8.6.0-198c6a3cff, YMD=2016.11.22 14:52,IDD_Version 8.6.0
+   ************* Beginning Zone Sizing Calculations
+   ** Warning ** SetUpDesignDay: Entered DesignDay Barometric Pressure=99063 differs by more than 10% from Standard Barometric Pressure=81198.
+   **   ~~~   ** ...occurs in DesignDay=SIZING PERIOD DESIGN DAY 1, Standard Pressure (based on elevation) will be used.
+   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval="MEDIUM OFFICE ELECTRIC EQUIPMENT SUMMER DESIGN DAY SCHEDULE", Blank Schedule Type Limits Name input -- will not be validated.
+   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval="MEDIUM OFFICE ELECTRIC EQUIPMENT WINTER DESIGN DAY SCHEDULE", Blank Schedule Type Limits Name input -- will not be validated.
+   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval="MEDIUM OFFICE GAS EQUIPMENT SUMMER DESIGN DAY SCHEDULE", Blank Schedule Type Limits Name input -- will not be validated.
+   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval="MEDIUM OFFICE GAS EQUIPMENT WINTER DESIGN DAY SCHEDULE", Blank Schedule Type Limits Name input -- will not be validated.
+   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval="MEDIUM OFFICE HOT WATER EQUIPMENT SUMMER DESIGN DAY SCHEDULE", Blank Schedule Type Limits Name input -- will not be validated.
+   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval="MEDIUM OFFICE HOT WATER EQUIPMENT WINTER DESIGN DAY SCHEDULE", Blank Schedule Type Limits Name input -- will not be validated.
+   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval="MEDIUM OFFICE INFILTRATION SUMMER DESIGN DAY SCHEDULE", Blank Schedule Type Limits Name input -- will not be validated.
+   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval="MEDIUM OFFICE INFILTRATION WINTER DESIGN DAY SCHEDULE", Blank Schedule Type Limits Name input -- will not be validated.
+   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval="MEDIUM OFFICE LIGHTING SUMMER DESIGN DAY SCHEDULE", Blank Schedule Type Limits Name input -- will not be validated.
+   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval="MEDIUM OFFICE LIGHTING WINTER DESIGN DAY SCHEDULE", Blank Schedule Type Limits Name input -- will not be validated.
+   ** Warning ** ProcessScheduleInput: Schedule:Day:Interval="MEDIUM OFFICE NUMBER OF PEOPLE SUMMER DESIGN DAY SCHEDULE", Blank Schedule Type Limits Name input -- will not be validated.
+   ** Warning ** ProcessScheduleInput: Schedule:Constant="ALWAYS OFF DISCRETE", Blank Schedule Type Limits Name input -- will not be validated.
+   ** Warning ** ProcessScheduleInput: Schedule:Constant="ALWAYS ON CONTINUOUS", Blank Schedule Type Limits Name input -- will not be validated.
+   ** Warning ** CheckUsedConstructions: There are 5 nominally unused constructions in input.
+   **   ~~~   ** For explicit details on each unused construction, use Output:Diagnostics,DisplayExtraWarnings;
+   ** Warning ** GetDaylightingControls: Fraction of Zone controlled by the Daylighting reference points is < 1.0.
+   **   ~~~   ** ..discovered in "Daylighting:Controls" for Zone="THERMAL ZONE 1", only 0.25 of the zone is controlled.
+   ** Warning ** SetUpDesignDay: Entered DesignDay Barometric Pressure=99063 differs by more than 10% from Standard Barometric Pressure=81198.
+   **   ~~~   ** ...occurs in DesignDay=SIZING PERIOD DESIGN DAY 2, Standard Pressure (based on elevation) will be used.
+   ************* Beginning System Sizing Calculations
+   ** Warning ** SetpointManager:MixedAir="SETPOINT MANAGER MIXED AIR 4"
+   **   ~~~   ** ...setpoint node conflicts with another setpoint manager.
+   **   ~~~   ** ...conflicting setpoint manager = SetpointManager:MixedAir:"NODE 14 OS DEFAULT SPM"
+   **   ~~~   ** ...conflicting node name = NODE 14
+   **   ~~~   ** ...control type variable = Temperature
+   ** Warning ** SetpointManager:MixedAir="SETPOINT MANAGER MIXED AIR 1"
+   **   ~~~   ** ...setpoint node conflicts with another setpoint manager.
+   **   ~~~   ** ...conflicting setpoint manager = SetpointManager:MixedAir:"NODE 12 OS DEFAULT SPM"
+   **   ~~~   ** ...conflicting node name = NODE 12
+   **   ~~~   ** ...control type variable = Temperature
+   ** Warning ** SetpointManager:MixedAir="SETPOINT MANAGER MIXED AIR 2"
+   **   ~~~   ** ...setpoint node conflicts with another setpoint manager.
+   **   ~~~   ** ...conflicting setpoint manager = SetpointManager:MixedAir:"NODE 11 OS DEFAULT SPM"
+   **   ~~~   ** ...conflicting node name = NODE 11
+   **   ~~~   ** ...control type variable = Temperature
+   ** Warning ** SetpointManager:MixedAir="SETPOINT MANAGER MIXED AIR 3"
+   **   ~~~   ** ...setpoint node conflicts with another setpoint manager.
+   **   ~~~   ** ...conflicting setpoint manager = SetpointManager:MixedAir:"NODE 10 OS DEFAULT SPM"
+   **   ~~~   ** ...conflicting node name = NODE 10
+   **   ~~~   ** ...control type variable = Temperature
+   ** Warning ** Output:Meter: invalid Name="DISTRICTCOOLING:FACILITY" - not found.
+   ** Warning ** Output:Meter: invalid Name="DISTRICTHEATING:FACILITY" - not found.
+   ** Warning ** Output:Meter:MeterFileOnly: invalid Name="PROPANE:FACILITY" - not found.
+   ************* Testing Individual Branch Integrity
+   ************* All Branches passed integrity testing
+   ************* Testing Individual Supply Air Path Integrity
+   ************* All Supply Air Paths passed integrity testing
+   ************* Testing Individual Return Air Path Integrity
+   ************* All Return Air Paths passed integrity testing
+   ************* No node connection errors were found.
+   ************* Beginning Simulation
+   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed "COIL COOLING DX SINGLE SPEED 1" - Full load outlet air dry-bulb temperature < 2C. This indicates the possibility of coil frost/freeze. Outlet temperature = 1.99 C.
+   **   ~~~   **  ...Occurrence info = SIZING PERIOD DESIGN DAY 2, 07/21 04:20 - 04:30
+   **   ~~~   ** ... Possible reasons for low outlet air dry-bulb temperatures are: This DX coil
+   **   ~~~   **    1) may have a low inlet air dry-bulb temperature. Inlet air temperature = 26.699 C.
+   **   ~~~   **    2) may have a low air flow rate per watt of cooling capacity. Check inputs.
+   **   ~~~   **    3) is used as part of a HX assisted cooling coil which uses a high sensible effectiveness. Check inputs.
+   ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed "COIL COOLING DX SINGLE SPEED 1" - Air-cooled condenser inlet dry-bulb temperature below 0 C. Outdoor dry-bulb temperature = -11.33
+   **   ~~~   **  ... Occurrence info = RUN PERIOD 1, 01/02 22:10 - 22:12
+   **   ~~~   ** ... Operation at low ambient temperatures may require special performance curves.
+   ************* Simulation Error Summary *************
+   ************* There are 5 unused schedules in input.
+   ************* There are 5 unused week schedules in input.
+   ************* There are 30 unused day schedules in input.
+   ************* Use Output:Diagnostics,DisplayUnusedSchedules; to see them.
+   *************
+   ************* ===== Recurring Error Summary =====
+   ************* The following recurring error messages occurred.
+   *************
+   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed="COIL COOLING DX SINGLE SPEED 1" - Full load outlet temperature indicates a possibility of frost/freeze error continues. Outlet air temperature statistics follow:
+   *************  **   ~~~   **   This error occurred 13171 total times;
+   *************  **   ~~~   **   during Warmup 0 times;
+   *************  **   ~~~   **   during Sizing 0 times.
+   *************  **   ~~~   **   Max=1.999197  Min=-4.484405
+   *************
+   *************  ** Warning ** CalcDoe2DXCoil: Coil:Cooling:DX:SingleSpeed="COIL COOLING DX SINGLE SPEED 1" - Low condenser dry-bulb temperature error continues...
+   *************  **   ~~~   **   This error occurred 192 total times;
+   *************  **   ~~~   **   during Warmup 0 times;
+   *************  **   ~~~   **   during Sizing 0 times.
+   *************  **   ~~~   **   Max=-1.110223E-016 [C]  Min=-15. [C]
+   *************
+   *************
+   ************* ===== Final Error Summary =====
+   ************* The following error categories occurred.  Consider correcting or noting.
+   ************* Nominally Unused Constructions
+   ************* ..The nominally unused constructions warning is provided to alert you to potential conditions that can cause
+   ************* ..extra time during simulation. Each construction is calculated by the algorithm indicated in the HeatBalanceAlgorithm
+   ************* ..object. You may remove the constructions indicated (when you use the DisplayExtraWarnings option).
+   *************
+   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
+   ************* EnergyPlus Sizing Error Summary. During Sizing: 17 Warning; 0 Severe Errors.
+   ************* EnergyPlus Completed Successfully-- 13387 Warning; 0 Severe Errors; Elapsed Time=00hr 00min 35.88sec

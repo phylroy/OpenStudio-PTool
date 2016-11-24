@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Unmet Load Hours Troubleshooting Report</title>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.3.9/d3.min.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/dygraph/1.0.1/dygraph-combined.js"></script>
+<style>
+body {
+  position: relative;
+  height: 100%;
+}
+
+#tocItems > .nav > li > a {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#tocItems {
+  overflow-y: scroll;
+  max-height: 100%;
+}
+
+.legend {
+    float:right;
+    height: 110px;
+    width: 130px;
+}
+
+.btn {
+    margin: 0px 3px;
+}
+</style>
+<script type="text/javascript">
+// Create a timeseries graph of the data for each zone
+$(document).ready(function () {
+
+    function barChartPlotter(e) {
+        var ctx = e.drawingContext;
+        var points = e.points;
+        var y_bottom = e.dygraph.toDomYCoord(0);
+
+        // The RGBColorParser class is provided by rgbcolor.js, which is
+        // packed in with dygraphs.
+        var color = new RGBColorParser(e.color);
+        color.r = Math.floor((255 + color.r) / 2);
+        color.g = Math.floor((255 + color.g) / 2);
+        color.b = Math.floor((255 + color.b) / 2);
+        ctx.fillStyle = color.toRGB();
+
+        // Find the minimum separation between x-values.
+        // This determines the bar width.
+        var min_sep = Infinity;
+        for (var i = 1; i < points.length; i++) {
+          var sep = points[i].canvasx - points[i - 1].canvasx;
+          if (sep < min_sep) min_sep = sep;
+        }
+        var bar_width = Math.floor(2.0 / 3 * min_sep);
+
+        // Do the actual plotting.
+        for (var i = 0; i < points.length; i++) {
+          var p = points[i];
+          var center_x = p.canvasx;
+
+          ctx.fillRect(center_x - bar_width / 2, p.canvasy,
+              bar_width, y_bottom - p.canvasy);
+
+          ctx.strokeRect(center_x - bar_width / 2, p.canvasy,
+              bar_width, y_bottom - p.canvasy);
+        }
+    };
+
+    $.each(nine, function (index, graphData) {
+        var graph = nine[index];
+
+        var HEATING = 1;
+        var COOLING = -1;
+
+        var highlights = [];
+        var current = [0,0,-2];
+        var currentDirection = 0;
+
+        for (var i = 0; i < graph.timeseries.length; i++) {
+            graph.timeseries[i][0] = new Date(graph.timeseries[i][0]);
+            if ( graph.timeseries[i][1] < graph.timeseries[i][2]) {
+                currentDirection = -1;
+            } else if ( graph.timeseries[i][1] > graph.timeseries[i][3] ) {
+                currentDirection = 1;
+            } else {
+                currentDirection = 0;
+            }
+
+            // update endpoint
+            // if the currentDirection != dir of current interval, close off current interval,
+            // if dir != 0, store,
+            // create new one.
+
+            current[1] = graph.timeseries[i][0];
+            if ( currentDirection != current[2] ){
+                if ( current[2] != 0 ) {
+                    highlights.push( current );
+                }
+                current = [graph.timeseries[i][0],graph.timeseries[i][0],currentDirection];
+            }
+
+            if ( i == graph.timeseries.length - 1 && currentDirection != 0 ){
+                highlights.push( current );
+            }
+        }
+
+        graph.highlights = highlights;
+
+        $('#graphs').append('<div class="row jumbotron"><div id="series_div_' + index + '" class="col-md-9"></div><div id="labels_div_' + index + '" class="legend" style="margin-right: 56px"></div></div>');
+
+        g = new Dygraph(document.getElementById('series_div_' + index), graph.timeseries, {
+            title: graph.title,
+            xlabel: graph.xaxislabel,
+            ylabel: graph.yaxislabel,
+            y2label: graph.yaxis2label,
+            series : {
+                "Missed Heat": {
+                    axis : 'y2'
+                    //fillGraph: true,
+                    //fillAlpha: 0.8
+                    //plotter: barChartPlotter
+                },
+                "Missed Cool": {
+                    axis : 'y2'
+                    //fillGraph: true,
+                    //fillAlpha: 0.8
+                    //plotter: barChartPlotter
+                }
+            },
+            axes: {
+              y2: {
+                // set axis-related properties here
+                labelsKMB: true
+              }
+            },
+            labels: graph.labels,
+            colors: graph.colors,
+            labelsDiv: document.getElementById('labels_div_' + index),
+            labelsSeparateLines: true,
+            legend: "always",
+            showRangeSelector: true,
+            height: 320,
+            hideOverlayOnMouseOut: false,
+            underlayCallback: function(canvas, area, g) {
+                function highlight_period(x_start, x_end, direction) {
+
+                  if ( direction == HEATING ) { canvas.fillStyle = "rgba(0, 100, 255, 0.25)"; }
+                  else if ( direction == COOLING ) { canvas.fillStyle = "rgba(255, 100, 0, 0.25)"; }
+                  else { return; }
+
+                  var canvas_left_x = g.toDomXCoord(x_start);
+                  var canvas_right_x = g.toDomXCoord(x_end);
+                  var canvas_width = canvas_right_x - canvas_left_x;
+                  canvas.fillRect(canvas_left_x, area.y, canvas_width, area.h);
+                };
+
+                for ( var i=0; i < graph.highlights.length; i++ ){
+                    highlight_period( graph.highlights[i][0], graph.highlights[i][1], graph.highlights[i][2] );
+                };
+            }
+        });
+
+
+        g.zoneName = graph.title;
+        graph.g = g;
+
+        graph.g.setVisibility( 3, false );
+        graph.g.setVisibility( 4, false );
+
+        $('#series_div_' + index ).append( "<button type='button' id='difference_switch_" + index  + "' onclick='switchVisible(" + index + ", 0)' class='btn btn-info btn-xs' style='margin-left: 56px'>Show Differences</button>");
+        $('#series_div_' + index ).append( "<button type='button' id='setpoint_switch_" + index  + "' onclick='switchVisible(" + index + ", 1)' class='btn btn-info btn-xs active'>Show Setpoints</button>");
+        //$('#series_div_' + index ).append( "<button type='button' id='data_export_" + index + "' onclick='exportData(" + index + ")' class='btn btn-default btn-xs'>Export</button>" );
+        switchVisible( index, 1 );
+    });
+});
+
+function switchVisible( index, state ) {
+    var graph = nine[index];
+
+    if ( state == 0 ) {
+        graph.g.setVisibility( 1, false );
+        graph.g.setVisibility( 2, false );
+        graph.g.setVisibility( 3, true );
+        graph.g.setVisibility( 4, true );
+        $('#difference_switch_' + index ).addClass('active');
+        $('#setpoint_switch_' + index ).removeClass('active');
+        graph.title = graph.g.zoneName + " - Unmet Hours - Differences"
+        $('#series_div_' + index ).find('.dygraph-title').html( graph.title );
+    } else {
+        graph.g.setVisibility( 1, true );
+        graph.g.setVisibility( 2, true );
+        graph.g.setVisibility( 3, false );
+        graph.g.setVisibility( 4, false );
+        $('#difference_switch_' + index ).removeClass('active');
+        $('#setpoint_switch_' + index ).addClass('active');
+        graph.title = graph.g.zoneName + " - Unmet Hours - Setpoints"
+        $('#series_div_' + index ).find('.dygraph-title').html( graph.title );
+    }
+}
+
+function exportData( index ){
+
+    var graph = nine[index];
+    var csvContent = "data:text/csv;charset=utf-8,";
+    csvContent = graph.timeseries.join("\n");
+
+    var encodedUri = encodeURI(csvContent);
+    window.open(encodedUri);
+}
+</script>
+<script type="text/javascript">
+// This variable will be an array of graph data
+var nine = [{"title":"Main Zone","xaxislabel":"Time","yaxislabel":"Temp F","yaxis2label":"Temp Difference","labels":["Date","Air Temp","Heat Setpoint","Cool Setpoint","Missed Heat","Missed Cool"],"colors":["#888888","#FF8833","#3388FF","#FF8833","#3388FF"],"timeseries":[["2009/01/01 00:59:59",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 01:59:58",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 02:59:57",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 03:59:56",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 04:59:55",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 05:59:54",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 06:59:53",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 07:59:52",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 08:59:51",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 09:59:50",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 10:59:49",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 11:59:48",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 12:59:47",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 13:59:46",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 14:59:45",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 15:59:44",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 16:59:43",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 17:59:42",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 18:59:41",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 19:59:40",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 20:59:39",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 21:59:38",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 22:59:37",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 23:59:36",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 00:59:35",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 01:59:34",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 02:59:33",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 03:59:32",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 04:59:31",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 05:59:30",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 06:59:29",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 07:59:28",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 08:59:27",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 09:59:26",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 10:59:25",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 11:59:24",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 12:59:23",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 13:59:22",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 14:59:21",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 15:59:20",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 16:59:19",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 17:59:18",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 18:59:17",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 19:59:16",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 20:59:15",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 21:59:14",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 22:59:13",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 23:59:12",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 00:59:11",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 01:59:10",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 02:59:09",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 03:59:08",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 04:59:07",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 05:59:06",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 06:59:05",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 07:59:04",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 08:59:03",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 09:59:02",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 10:59:01",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 11:59:00",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 12:58:59",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 13:58:58",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 14:58:57",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 15:58:56",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 16:58:55",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 17:58:54",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 18:58:53",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 19:58:52",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 20:58:51",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 21:58:50",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 22:58:49",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 23:58:48",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 00:58:47",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 01:58:46",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 02:58:45",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 03:58:44",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 04:58:43",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 05:58:42",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 06:58:41",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 07:58:40",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 08:58:39",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 09:58:38",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 10:58:37",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 11:58:36",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 12:58:35",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 13:58:34",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 14:58:33",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 15:58:32",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 16:58:31",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 17:58:30",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 18:58:29",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 19:58:28",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 20:58:27",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 21:58:26",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 22:58:25",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 23:58:24",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/05 00:58:23",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/05 01:58:22",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/05 02:58:21",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/05 03:58:20",76.99999999999993,76.99999999999993,82.39999999999993,0,0]]},{"title":"Slave Zone","xaxislabel":"Time","yaxislabel":"Temp F","yaxis2label":"Temp Difference","labels":["Date","Air Temp","Heat Setpoint","Cool Setpoint","Missed Heat","Missed Cool"],"colors":["#888888","#FF8833","#3388FF","#FF8833","#3388FF"],"timeseries":[["2009/01/01 00:59:59",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 01:59:58",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 02:59:57",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 03:59:56",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 04:59:55",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 05:59:54",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 06:59:53",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 07:59:52",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 08:59:51",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 09:59:50",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 10:59:49",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 11:59:48",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 12:59:47",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 13:59:46",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 14:59:45",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 15:59:44",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 16:59:43",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 17:59:42",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 18:59:41",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 19:59:40",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 20:59:39",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 21:59:38",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 22:59:37",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/01 23:59:36",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 00:59:35",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 01:59:34",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 02:59:33",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 03:59:32",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 04:59:31",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 05:59:30",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 06:59:29",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 07:59:28",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 08:59:27",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 09:59:26",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 10:59:25",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 11:59:24",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 12:59:23",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 13:59:22",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 14:59:21",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 15:59:20",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 16:59:19",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 17:59:18",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 18:59:17",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 19:59:16",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 20:59:15",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 21:59:14",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 22:59:13",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/02 23:59:12",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 00:59:11",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 01:59:10",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 02:59:09",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 03:59:08",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 04:59:07",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 05:59:06",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 06:59:05",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 07:59:04",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 08:59:03",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 09:59:02",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 10:59:01",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 11:59:00",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 12:58:59",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 13:58:58",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 14:58:57",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 15:58:56",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 16:58:55",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 17:58:54",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 18:58:53",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 19:58:52",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 20:58:51",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 21:58:50",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 22:58:49",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/03 23:58:48",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 00:58:47",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 01:58:46",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 02:58:45",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 03:58:44",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 04:58:43",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 05:58:42",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 06:58:41",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 07:58:40",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 08:58:39",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 09:58:38",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 10:58:37",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 11:58:36",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 12:58:35",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 13:58:34",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 14:58:33",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 15:58:32",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 16:58:31",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 17:58:30",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 18:58:29",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 19:58:28",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 20:58:27",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 21:58:26",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 22:58:25",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/04 23:58:24",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/05 00:58:23",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/05 01:58:22",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/05 02:58:21",76.99999999999993,76.99999999999993,82.39999999999993,0,0],["2009/01/05 03:58:20",76.99999999999993,76.99999999999993,82.39999999999993,0,0]]}];
+</script>
+
+<link rel="stylesheet" type="text/css" href="./style_resource.css">
+
+</head>
+<body data-spy="scroll" data-target="#tocItems">
+
+<div id="content" class="container-fluid">
+
+  <div id="toc" class="col-md-3" role="complementary">
+    <div id="tocItems" class="hidden-print well affix" role="complementary" style="margin-top: 40px;">
+      <ul class="nav nav-pills nav-stacked" role="navigation">
+          <li><a href="#summary_tbl">Annual Hours Unmet</a></li>
+          <li><a href="#check_1">Reporting Tolerance Check</a></li>
+          <li><a href="#check_2">Weather File Check</a></li>
+          <li><a href="#check_3">Slave Zones Check</a></li>
+          <li><a href="#check_4">Thermostat Check</a></li>
+          <li><a href="#check_5">Plant Temp Check</a></li>
+          <li><a href="#check_6">Airloop Dsn Temp Check</a></li>
+          <li><a href="#check_7">Airloop Temp Check</a></li>
+          <li><a href="#check_8">Unmet Hours Graphs</a></li>
+      </ul>
+    </div>
+  </div>  
+
+  <div class="col-md-9" style="padding-top:25px;" role="main">
+  
+    <h1>Unmet Hours Troubleshooting</h1>
+    <p>In EnergyPlus, the setpoint is considered unmet when the zone temperature is above/below the cooling/heating setpoint by more than the output control reporting tolerance.</p>
+    <p>This report helps identify some of the common causes of unmet hours in a simulation.  It does not catch every possible cause.</p>
+  
+    <h3 id="summary_tbl">Hours Setpoints Unmet Annually</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th>Zone</th>
+            <th>During Heating [hr]</th>
+            <th>During Cooling [hr]</th>
+            <th>During Occupied Heating [hr]</th>
+            <th>During Occupied Cooling [hr]</th>
+        </tr>
+    
+        <tr>
+            <td>Main Zone</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+    
+        <tr>
+            <td>Slave Zone</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+    
+    </table>
+
+    <h3 id="check_1">1. Check the output control reporting tolerances.</h3>
+    
+    
+    <p>Setpoint Tolerance for heating is set to the EnergyPlus default value of <strong>0.36 F</strong>. This
+    tolerance is appropriate for HVAC systems with precision grade heating and cooling system components. If appropriate
+    consider widening heating tolerance. This will reduce the number of unmet heating hours across
+    all zones in your model.</p>
+    
+
+    
+    <p>Setpoint Tolerance for cooling is set to the EnergyPlus default value of <strong>0.36 F</strong>. This
+        tolerance is appropriate for HVAC systems with precision grade cooling system components. If appropriate
+        consider widening cooling tolerances. This will reduce the number of unmet cooling hours across
+        all zones in your model.</p>
+    
+
+    <h3 id="check_2">2. Check for matching design days and weather files.</h3>
+    
+    
+      <p>Model has no design days.</p>
+    
+
+    <h3 id="check_3">3. Check if zones are 'slave zones' of single zone systems.</h3>
+    <p>Note: In the case of a single zone system, only the control zone's thermostat controls the heating/cooling.  
+      If additional zones are connected to this system, they will likely have unmet hours unless their
+      loads are very similar to those of the control zone.</p>
+    
+    
+    
+      
+      
+    
+    
+      
+      
+    
+    
+    <h3 id="check_4">4. Check thermostat schedules for step changes.</h3>
+    <p>Note: step changes in thermostats (typically to represent nighttime set back/set up) may be completely appropriate.  However, depending on the timestep chosen,
+      the capacity of the HVAC system, and the capacitance of the building, the HVAC system may not be able to bring the zone back quickly. This can be seen by 
+      looking at the timeseries data in the graphs at the end of this report.  If the unmet hours always occur immediately following a set back/set up, this is likely the issue.</p>
+    
+    
+
+      
+
+    
+
+      
+
+    
+
+    <h3 id="check_5">5. Check for differences between the design and operation temperature in plant loops.</h3>
+    <p>Note: this check will only be performed for plant loops controlled by a SetpointManager:Scheduled (green icon).</p>
+    
+    
+       
+      
+          
+        
+          
+               <p>Heating Plant Loop <strong>Plant Loop</strong> has a design loop exit temperature of <strong>66.2 F</strong>, but in operation,
+                  it is being controlled to hit <strong>77.0 F </strong> by a scheduled controller using schedule <strong>Plant Loop Setpoint Schedule</strong>. 
+                  This mismatch between sizing and operational values may cause unmet heating hours for thermal zones connected to this Heating Plant Loop. </p>
+          
+        
+         
+      
+        
+    
+
+    <h3 id="check_6">6. Check design cooling and heating supply air temperatures in airloops.</h3>
+
+    
+        
+        <p>
+        
+          
+              Air loop <strong>HVAC Air Loop</strong> is not a reheat system, but has a design heating supply air temperatures of <strong>77.0 F</strong>, which is less than
+              the nominally expected minimum value of 90 F. This constraint may be the cause of unmet heating hours for thermal zones associated with this air loop.
+                   
+        
+        
+            Air loop <strong>HVAC Air Loop</strong> has a design cooling supply air temperatures of <strong>77.0 F</strong>, which is greater than
+            the nominally expected maximum value of 55 F. This constraint may be the cause of unmet cooling hours for thermal zones associated with this air loop.
+        
+        </p>
+        
+    
+    
+    <h3 id="check_7">7. Check for differences between the design and operation temperatures in air loops.</h3>
+    <p>Note: this check will only be performed for air loops controlled by a SetpointManager:Scheduled (green icon).</p>
+    
+    
+        
+            <p>
+            
+                
+                
+                    Air Loop <strong>HVAC Air Loop</strong> has a design central cooling supply air temperature of <strong>77.0 F</strong>, but in operation,
+                    it is being controlled to hit <strong>32.0 F</strong> by a controller using schedule <strong>Air Loop Setpoint Schedule</strong>.
+                    This mismatch between sizing and operational values may cause unmet cooling hours for thermal zones connected to this Air Loop.
+                
+            
+            </p>
+        
+    
+    </p>
+
+    <h3 id="check_8">8. Unmet Hours Timeseries Graphs.</h3>
+    
+    <div id = "graphs" class="container"/>
+
+  </div>
+    
+</body>
+</html>

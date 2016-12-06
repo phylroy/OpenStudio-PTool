@@ -57,6 +57,39 @@ class BTAPResults < OpenStudio::Ruleset::ReportingUserScript
     # reporting final condition
     runner.registerInitialCondition('Gathering data from EnergyPlus SQL file and OSM model.')
 
+
+
+    #RowName
+     RowName = [
+     "January",
+     "February",
+     "March",
+     "April",
+     "May",
+     "June",
+     "July",
+     "August",
+     "September",
+     "October",
+     "November",
+     "December"
+    ]
+
+    TableName = "Custom Monthly Report"
+    ReportName = ["BUILDING ENERGY PERFORMANCE - ELECTRICITY PEAK DEMAND" , "BUILDING ENERGY PERFORMANCE - NATURAL GAS PEAK DEMAND"]
+
+    ColumnName= ["ELECTRICITY:FACILITY {Maximum",
+                  "ELECTRICITY:FACILITY {TIMESTAMP} ", 
+                  "GAS:FACILITY {Maximum",
+                  "GAS:FACILITY {TIMESTAMP} "]
+    
+    
+    
+    
+
+
+
+
     #link sql output
     model.setSqlFile( sql_file )
 
@@ -106,53 +139,53 @@ class BTAPResults < OpenStudio::Ruleset::ReportingUserScript
     store_data(runner, Base64.strict_encode64( Zlib::Deflate.deflate(model.to_s) ), "zipped_model_osm","-")
 
     #Weather file
-    store_data(runner,  @weather_object.city, "geo_City","-")
-    store_data(runner,  @weather_object.stateProvinceRegion, "geo_province","-")
-    store_data(runner,  @weather_object.country, "geo_Country","-")
-    store_data(runner,  @weather_object.dataSource, "geo_Data Source","-")
-    store_data(runner,  @weather_object.wMONumber, "geo_wMONumber","-")
-    store_data(runner,  @weather_object.latitude, "geo_latitude","-")
-    store_data(runner,  @weather_object.longitude, "geo_longitude","-")
-    store_data(runner,  hdd, "geo_Heating Degree Days","deg*Day")
-    store_data(runner,  cdd, "geo_Cooling Degree Days","deg*Day")
+    store_data(runner,  @weather_object.city, "geo-City","-")
+    store_data(runner,  @weather_object.stateProvinceRegion, "geo.province","-")
+    store_data(runner,  @weather_object.country, "geo-Country","-")
+    store_data(runner,  @weather_object.dataSource, "geo-Data Source","-")
+    store_data(runner,  @weather_object.wMONumber, "geo-wMONumber","-")
+    store_data(runner,  @weather_object.latitude, "geo-latitude-deg","-")
+    store_data(runner,  @weather_object.longitude, "geo-longitude-deg","-")
+    store_data(runner,  hdd, "geo-Heating Degree Days-DD","deg*Day")
+    store_data(runner,  cdd, "geo-Cooling Degree Days-DD","deg*Day")
     store_data(runner,  BTAP::Compliance::NECB2011::get_climate_zone_name(hdd), "env_NECB Climate Zone","")
 
 
 
     #unmet hours
-    store_data(runner,  @current_facility.hoursHeatingSetpointNotMet(),"qaqc_unmet_hours_heating ", "Hours")
-    store_data(runner,  @current_facility.hoursCoolingSetpointNotMet(),"qaqc_unmet_hours_cooling ", "Hours")
+    store_data(runner,  @current_facility.hoursHeatingSetpointNotMet(),"qaqc-unmet_hours_heating-hours ", "Hours")
+    store_data(runner,  @current_facility.hoursCoolingSetpointNotMet(),"qaqc-unmet_hours_cooling-hours ", "Hours")
 
     #cost information
-    store_data(runner,  @current_facility.annualTotalCostPerNetConditionedBldgArea(OpenStudio::FuelType.new("NaturalGas")), "econ_Natural Gas Total Cost Intensity", "$/M2")
-    store_data(runner,  @current_facility.economicsVirtualRateGas(), "econ_NaturalGas Virtual Rate", "$/GJ")
-    store_data(runner,  @current_facility.annualTotalCostPerNetConditionedBldgArea(OpenStudio::FuelType.new("Electricity")), "econ_Electricity Total Cost Intensity", "$/M2")
-    store_data(runner,  @current_facility.economicsVirtualRateElec(), "econ_Electricity  Virtual Rate", "$/GJ")
-    store_data(runner,  @current_facility.economicsVirtualRateCombined(), "econ_Elec-Gas-Combined Virtual Rate", "$/GJ")
-    store_data(runner,  @current_facility.annualTotalCostPerNetConditionedBldgArea(OpenStudio::FuelType.new("DistrictCooling")), "econ_DistrictCooling Total Cost Intensity", "$/M2")
-    store_data(runner,  @current_facility.annualTotalCostPerNetConditionedBldgArea(OpenStudio::FuelType.new("DistrictHeating")), "econ_DistrictHeating Total Cost Intensity", "$/M2")
-    store_data(runner,  @current_facility.annualTotalUtilityCost(), "econ_Total Utility Cost", "$")
+    store_data(runner,  @current_facility.annualTotalCostPerNetConditionedBldgArea(OpenStudio::FuelType.new("NaturalGas")), "econ-Natural Gas Total Cost Intensity-dollars_per_m2", "$/M2")
+    store_data(runner,  @current_facility.economicsVirtualRateGas(), "econ-virtual_rate_gas.dollars_per_GJ", "$/GJ")
+    store_data(runner,  @current_facility.annualTotalCostPerNetConditionedBldgArea(OpenStudio::FuelType.new("Electricity")), "econ-Electricity Total Cost Intensity-dollars_per_m2", "$/M2")
+    store_data(runner,  @current_facility.economicsVirtualRateElec(), "econ-virtual_rate_elect.dollars_per_GJ", "$/GJ")
+    store_data(runner,  @current_facility.economicsVirtualRateCombined(), "econ-virtual_rate_combined.dollars_per_GJ", "$/GJ")
+    store_data(runner,  @current_facility.annualTotalCostPerNetConditionedBldgArea(OpenStudio::FuelType.new("DistrictCooling")), "econ-district_cooling_total_cost_intensity-dollars_per_m2", "$/M2")
+    store_data(runner,  @current_facility.annualTotalCostPerNetConditionedBldgArea(OpenStudio::FuelType.new("DistrictHeating")), "econ-district_heating_total_cost_intensity-dollars_per_m2", "$/M2")
+    store_data(runner,  @current_facility.annualTotalUtilityCost(), "econ-Total Utility Cost", "$")
     #store_data(runner,  @current_facility.annualTotalUtilityCost() / conditionedFloorArea , "Total Utility Cost Intensity", "$/M2")
 
 
 
     #Store Values
-    store_data(runner,  conditionedFloorArea,"envelope_conditioned_floor_area","M2")
-    store_data(runner,  exteriorSurface_area,"envelope_exterior_Surface_area","M2")
-    store_data(runner,  building_air_volume,"envelope_building_volume","M3")
-    store_data(runner,  outdoor_walls_average_conductance ,"envelope_outdoor_walls_average_conductance", "?")
-    store_data(runner,  outdoor_roofs_average_conductance ,"envelope_outdoor_roofs_average_conductance", "?")
-    store_data(runner,  outdoor_floors_average_conductance ,"envelope_outdoor_floors_average_conductance", "?")
-    store_data(runner,  windows_average_conductance ,"envelope_outdoor_windows_average_conductance", "?")
-    store_data(runner,  doors_average_conductance ,"envelope_outdoor_doors_average_conductance", "?")
-    store_data(runner,  overhead_doors_average_conductance ,"envelope_outdoor_overhead_doors_average_conductance", "?")
-    store_data(runner,  skylights_average_conductance ,"envelope_skylights_average_conductance", "?")
-    store_data(runner,  BTAP::Geometry::get_fwdr(model) * 100.0, "envelope_fdwr", "%")
-    store_data(runner,  BTAP::Geometry::get_srr(model)* 100.0, "envelope_srr", "%")
+    store_data(runner,  conditionedFloorArea,"envelope-conditioned_floor_area-m2","M2")
+    store_data(runner,  exteriorSurface_area,"envelope-exterior_surface_area-m2","M2")
+    store_data(runner,  building_air_volume,"envelope-building_volume-m3","M3")
+    store_data(runner,  outdoor_walls_average_conductance ,"envelope-outdoor_walls_average_conductance-W_per_m2_K", "?")
+    store_data(runner,  outdoor_roofs_average_conductance ,"envelope-outdoor_roofs_average_conductance-W_per_m2_K", "?")
+    store_data(runner,  outdoor_floors_average_conductance ,"envelope-outdoor_floors_average_conductance-W_per_m2_K", "?")
+    store_data(runner,  windows_average_conductance ,"envelope-outdoor_windows_average_conductance-W_per_m2_K", "?")
+    store_data(runner,  doors_average_conductance ,"envelope-outdoor_doors_average_conductance-W_per_m2_K", "?")
+    store_data(runner,  overhead_doors_average_conductance ,"envelope-outdoor_overhead_doors_average_conductance-W_per_m2_K", "?")
+    store_data(runner,  skylights_average_conductance ,"envelope-skylights_average_conductance-W_per_m2_K", "?")
+    store_data(runner,  BTAP::Geometry::get_fwdr(model) * 100.0, "envelope-fdwr.ratio", "%")
+    store_data(runner,  BTAP::Geometry::get_srr(model) * 100.0, "envelope-srr.ratio", "%")
 
     #store peak watts for gas and elec
-    store_data(runner,  electric_peak ,"Peak Electricity", "W")
-    store_data(runner,  natural_gas_peak ,"Peak Natural Gas", "W")
+    store_data(runner,  electric_peak ,   "peak-electricy_power-watts", "W")
+    store_data(runner,  natural_gas_peak ,"peak-natural_gas-watts", "W")
 
     #Get End Uses by fuel type.
 
@@ -193,8 +226,8 @@ class BTAPResults < OpenStudio::Ruleset::ReportingUserScript
           else
             value = value.get
           end
-      store_data(runner,  value, "end_use-#{fuel_name}-#{use_type}", fuel_units)
-      store_data(runner,  value / @current_building.floorArea() , "eui-#{fuel_name}-#{use_type}", "#{fuel_units}/m2")
+      store_data(runner,  value, "end_use-#{fuel_name}-#{use_type}-#{fuel_units}", fuel_units)
+      store_data(runner,  value / @current_building.floorArea() , "eui-#{fuel_name}-#{use_type}-#{fuel_units}_per_m2", "#{fuel_units}/m2")
           
         end
       end

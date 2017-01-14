@@ -7,3 +7,5 @@ gem 'git', require: false
 gem 'bcl', '~> 0.5.5'
 gem 'openstudio-aws', '~> 0.4.2'
 gem 'openstudio-analysis', '~> 0.4.5'
+gem  "nokogiri", "<= 1.6.8.1"
+

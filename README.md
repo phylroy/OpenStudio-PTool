@@ -54,7 +54,7 @@ The `measures` directory contains a series of subdirectories for each technology
 In the Git Bash/terminal: 
 
 1. Navigate to the `/OpenStudio-PTool` directory.
-2. `rake run`
+2. `bundle exec rake run`
 3. Type the number of the analysis you want to run, ENTER
 4. If this is your first run, enter your AWS keys into `C:/Users/username/aws_config.yml`
 5. After the analysis starts, you will get a URL.  Go to this URL in a web browser.

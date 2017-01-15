@@ -88,7 +88,7 @@ class ViewModel < OpenStudio::Ruleset::ModelUserScript
     html_out = renderer.result(binding)
 
     #Compress model and store in base64 format
-    store_data(runner, Base64.strict_encode64( Zlib::Deflate.deflate(html_out.to_s) ), "zipped_view_model_html","-")
+    store_data(runner, Base64.strict_encode64( Zlib::Deflate.deflate(html_out.to_s) ), "view_model_html_zip","-")
 
     # write html file
     html_out_path = "./report.html"
